@@ -112,12 +112,10 @@ const highlightChanges = () => {
   const originalId = `p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original`;
   const softerId = `p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
   const verySoftId = `p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
-  console.log("originalId", softerId);
 
   const originalText = document.getElementById(originalId).textContent;
   const softerText = document.getElementById(softerId).textContent;
   const verySoftText = document.getElementById(verySoftId).textContent;
-  console.log("original", originalText, verySoftText);
 
   highlightedOriginal.value = markHighlights(softerText, originalText);
   highlightedSofter.value = markHighlights(originalText, softerText);

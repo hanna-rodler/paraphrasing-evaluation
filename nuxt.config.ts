@@ -1,13 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  routeRules: {
+    // prerender index route by default
+    "/": { prerender: true },
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
   // routeRules: {
@@ -29,6 +33,8 @@ export default defineNuxtConfig({
       NUXT_MONGO_DB_USER: process.env.NUXT_MONGO_DB_USER,
       NUXT_MONGO_DB_PW: process.env.NUXT_MONGO_DB_PW,
       NUXT_SURVEY_COLLECTION: process.env.NUXT_SURVEY_COLLECTION,
+      NUXT_PARAPHRASING_RATING_COLLECTION:
+        process.env.NUXT_PARAPHRASING_RATING_COLLECTION,
       NUXT_REGISTRATION_COLLECTION: process.env.NUXT_REGISTRATION_COLLECTION,
       NUXT_APP_BASE_URL: process.env.NUXT_APP_BASE_URL,
     },

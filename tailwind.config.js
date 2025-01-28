@@ -25,7 +25,7 @@ export default {
       // success: '#3F7441',
       warning: "#f59e0b",
       error: "#B72A3F",
-      black: "#000000",
+      //   black: "#000000",
       black: "#000D18",
     },
     extend: {
