@@ -1,0 +1,14 @@
+/* @import "reset.css"; */
+
+html,
+body {
+  @apply font-sans h-full scroll-smooth text-black bg-white;
+}
+
+.primary-gradient {
+  @apply bg-gradient-to-r from-primary to-info;
+}
+
+.section {
+  @apply bg-white rounded-md px-2 py-3 sm:p-5 mb-10;
+}
