@@ -18,15 +18,15 @@
   }
   
   h2 {
-    @apply text-xl text-primary font-bold mb-2 mt-4 text-center;
+    @apply text-xl md:text-2xl text-primary font-bold mb-2 mt-4 text-center;
   }
   
   h3 {
-    @apply text-lg font-bold text-black mt-3 mb-6;
+    @apply text-lg font-bold text-black mt-5 mb-3;
   }
   
   h4 {
-    @apply text-base text-black font-medium;
+    @apply text-base text-black font-medium mb-3 mt-4;
   }
   
   .text {

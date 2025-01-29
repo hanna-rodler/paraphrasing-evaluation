@@ -3,7 +3,7 @@
         "id": "article_sellner",
         "context": {
             "title": "Viele Tote bei israelischen Angriffen in Gaza gemeldet",
-            "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h2>Großer Gebäudekomplex gesprengt</h2><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>"
+            "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h4>Großer Gebäudekomplex gesprengt</h4><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>"
         },
         "sentences": {
             "sentence_1": {
@@ -15,25 +15,17 @@
                             "sentence": "Softer version of sentence 1"
                         },
                         {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Softer version of sentence 1"
-                        },
-                        {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Softer version of sentence 1"
+                            "prompt_id": "prompt_2",
+                            "sentence": "Die israelische Armee hat in mehreren Aktionen im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet."
                         }
                     ],
                     "verySoft": [
                         {
                             "prompt_id": "prompt_1",
-                            "sentence": "Very soft version of sentence 1"
+                            "sentence": "Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge eine hohe Anzahl von Opfern verursacht."
                         },
                         {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Very soft version of sentence 1"
-                        },
-                        {
-                            "prompt_id": "prompt_1",
+                            "prompt_id": "prompt_2",
                             "sentence": "Very soft version of sentence 1"
                         }
                     ]
@@ -50,7 +42,7 @@
                     ],
                     "verySoft": [
                         {
-                            "prompt_id": "prompt_x",
+                            "prompt_id": "prompt_x2",
                             "sentence": "Viele weitere Menschen seien bei den Aktionen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen."
                         }
                     ]
@@ -79,22 +71,22 @@
         "id": "article_iran_saengerin",
         "context": {
             "title": "Konzert ohne Kopftuch: Iranische Sängerin verhaftet",
-            "body": "<p>Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.</p><p>Ihr Anwalt Milad Panahipur berichtete gestern, die Sängerin sei im Norden des Landes festgesetzt worden, die beiden Musiker in ihrem Musikstudio in der Hauptstadt Teheran. Die drei seien an einem ihm unbekannten Ort und hätten keinen Kontakt zur Außenwelt, sagte er dem Internetportal Emtedad. Menschen im In- und Ausland hatten die Frau in Onlinemedien für ihre mutige Initiative gelobt.</p><h2>„Frau, Leben, Freiheit“</h2><p>Im Iran sind viele Frauen unzufrieden mit den strengen islamischen Gesetzen und Kleidungsvorschriften. Im Herbst 2022 gingen Massen unter dem Motto „Frau, Leben, Freiheit“ gegen die repressive Politik auf die Straße, doch die Demonstrationen wurden gewaltsam niedergeschlagen.</p><p>Viele Frauen in den Metropolen widersetzen sich inzwischen aus Protest den islamischen Kleidervorschriften, insbesondere dem obligatorischen Kopftuch. Dagegen will nun das von islamischen Hardlinern dominierte Parlament mit einem neuen Gesetz und drakonischen Strafen vorgehen.</p>"
+            "body": "<p>Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.</p><p>Ihr Anwalt Milad Panahipur berichtete gestern, die Sängerin sei im Norden des Landes festgesetzt worden, die beiden Musiker in ihrem Musikstudio in der Hauptstadt Teheran. Die drei seien an einem ihm unbekannten Ort und hätten keinen Kontakt zur Außenwelt, sagte er dem Internetportal Emtedad. Menschen im In- und Ausland hatten die Frau in Onlinemedien für ihre mutige Initiative gelobt.</p><h4>„Frau, Leben, Freiheit“</h4><p>Im Iran sind viele Frauen unzufrieden mit den strengen islamischen Gesetzen und Kleidungsvorschriften. Im Herbst 2022 gingen Massen unter dem Motto „Frau, Leben, Freiheit“ gegen die repressive Politik auf die Straße, doch die Demonstrationen wurden gewaltsam niedergeschlagen.</p><p>Viele Frauen in den Metropolen widersetzen sich inzwischen aus Protest den islamischen Kleidervorschriften, insbesondere dem obligatorischen Kopftuch. Dagegen will nun das von islamischen Hardlinern dominierte Parlament mit einem neuen Gesetz und drakonischen Strafen vorgehen.</p>"
         },
         "sentences": {
             "sentence_1": {
-                "original": "ie iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                "original": "Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
                 "versions": {
                     "softer": [
                         {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Softer version of sentence 1"
+                            "prompt_id": "prompt_y",
+                            "sentence": "Softer version Iranische Sängerin"
                         }
                     ],
                     "verySoft": [
                         {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Example Text"
+                            "prompt_id": "prompt_y",
+                            "sentence": "Very soft version Iranische Sängerin"
                         }
                     ]
                 }
@@ -105,7 +97,7 @@
         "id": "article_stocker",
         "context": {
             "title": "Stocker zu Verhandlungen mit FPÖ bereit",
-            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h2>Rasche Regierungsbildung wichtig</h2><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>"
+            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>"
         },
         "sentences": {
             "sentence_1": {
@@ -113,13 +105,13 @@
                 "versions": {
                     "softer": [
                         {
-                            "prompt_id": "prompt_1",
+                            "prompt_id": "prompt_55",
                             "sentence": "Stocker bereit für Gespräche mit der FPÖ"
                         }
                     ],
                     "verySoft": [
                         {
-                            "prompt_id": "prompt_1",
+                            "prompt_id": "prompt_55",
                             "sentence": "Stocker offen für Gespräche mit der FPÖ"
                         }
                     ]

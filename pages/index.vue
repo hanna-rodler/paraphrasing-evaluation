@@ -63,7 +63,6 @@ let shuffledData = useNuxtApp().payload.data.shuffled;
 if (shuffledData == undefined) {
   shuffledData = shuffleArray(surveyData);
   useNuxtApp().payload.data.shuffled = shuffledData;
-  console.log("shuffledData", surveyData);
 }
 
 function shuffleArray<T>(array: T[]): T[] {

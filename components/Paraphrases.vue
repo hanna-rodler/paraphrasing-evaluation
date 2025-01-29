@@ -12,7 +12,7 @@
         <div class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
-            :id="`p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original`"
+            :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
             v-html="highlightedOriginal"
           ></p>
         </div>
@@ -24,7 +24,7 @@
           <div>
             <h2>Sanftere Version</h2>
             <p
-              :id="`p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
+              :id="`a-${articleId}-p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
               v-html="highlightedSofter"
             ></p>
           </div>
@@ -42,7 +42,7 @@
         <div class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
-            :id="`p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original`"
+            :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
             v-html="highlightedOriginalVerySoft"
           ></p>
         </div>
@@ -53,7 +53,7 @@
           <div>
             <h2>Sehr Sanfte Version</h2>
             <p
-              :id="`p-${verySoftPromptNum}_s-${sentenceNum}_v-very-soft`"
+              :id="`a-${articleId}-p-${verySoftPromptNum}_s-${sentenceNum}_v-very-soft`"
               v-html="highlightedVerySoft"
             ></p>
           </div>
@@ -109,9 +109,10 @@ const highlightedSofter = ref(props.softerText);
 const highlightedVerySoft = ref(props.verySoftText);
 
 const highlightChanges = () => {
-  const originalId = `p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original`;
-  const softerId = `p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
-  const verySoftId = `p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
+  const originalId = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-softer`;
+  const originalId2 = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-verySoft`;
+  const softerId = `a-${props.articleId}-p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
+  const verySoftId = `a-${props.articleId}-p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
 
   const originalText = document.getElementById(originalId).textContent;
   const softerText = document.getElementById(softerId).textContent;
