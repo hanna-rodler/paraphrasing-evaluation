@@ -1,51 +1,24 @@
 <template>
-  <div class="mt-4 mb-2">
-    <div class="font-bold">Sprachintensität</div>
-    <div
-      class="flex justify-center items-center space-x-2 md:space-x-4 mt-2 px-2"
-    >
-      <span>zu hart</span>
-      <button
-        class="rating-btn"
-        :class="{ 'border-black': selectedRating === -1 }"
-        @click="setRating(-1)"
-      >
-        <img
-          src="/public/images/rock.png"
-          width="24px"
-          height="24px"
-          class="w-7 h-7 md:w-8 md:h-8"
-        />
-      </button>
-
-      <button
-        class="rating-btn"
-        :class="{ 'border-black': selectedRating === 0 }"
-        @click="setRating(0)"
-      >
-        <img
-          src="/public/images/checked.png"
-          width="24px"
-          height="24px"
-          class="w-6 h-6 md:w-7 md:h-7"
-        />
-      </button>
-
-      <button
-        class="rating-btn"
-        :class="{ 'border-black': selectedRating === 1 }"
-        @click="setRating(1)"
-      >
-        <img
-          src="/public/images/ink-bottle.png"
-          width="24px"
-          height="24px"
-          class="w-7 h-7 md:w-8 md:h-8"
-        />
-      </button>
-      <span>zu sanft</span>
-
-      <!-- <NuxtImg src="/images/rock.png" /> -->
+  <div class="my-4">
+    <div class="font-bold">Faktizität</div>
+    <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-2">
+      <span>Korrekt</span>
+      <div class="flex space-x-2">
+        <label
+          v-for="(value, index) in [2, 1, -1, -2]"
+          :key="index"
+          class="flex items-center space-x-4"
+        >
+          <input
+            type="radio"
+            name="rating"
+            :value="value"
+            @change="setRating(value)"
+            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+          />
+        </label>
+      </div>
+      <span>Inkorrekt</span>
     </div>
   </div>
 </template>
@@ -89,7 +62,7 @@ function setRating(rating: Number) {
     ][`sentence-${props.sentenceNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
       `promptId-${props.softerPromptNum}`
-    ][`sentence-${props.sentenceNum}`].langIntensity = rating;
+    ][`sentence-${props.sentenceNum}`].factuality = rating;
 
     console.log("Softer prompt num:", rating);
     // Send rating to backend
@@ -103,7 +76,7 @@ function setRating(rating: Number) {
     ][`sentence-${props.sentenceNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
       `promptId-${props.verySoftPromptNum}`
-    ][`sentence-${props.sentenceNum}`].langIntensity = rating;
+    ][`sentence-${props.sentenceNum}`].factuality = rating;
     console.log("Very soft prompt num:", rating);
     // Send rating to backend
   }

@@ -37,7 +37,7 @@
             <Icon name="heroicons:envelope" soze="18" />
             <input
               type="text"
-              class="grow"
+              class="grow rounded-md border border-black focus:border-primary focus:ring-2 focus:ring-secondary transition shadow-sm py-2 px-4"
               placeholder="Email"
               v-model="email"
               id="email"
@@ -55,7 +55,7 @@
           <label class="label cursor-pointer justify-start px-0" id="updateMe">
             <input
               type="checkbox"
-              class="checkbox checkbox-primary mr-2"
+              class="checkbox w-4 h-4 border-black rounded-sm mr-2"
               for="updateMe"
               v-model="updateMe"
               @keyup.enter="toggleUpdateMe"
@@ -70,7 +70,7 @@
           >
             <input
               type="checkbox"
-              class="checkbox checkbox-primary mr-2"
+              class="checkbox w-4 h-4 border-black rounded-sm mr-2"
               v-model="studyParticipation"
               id="studyParticipation"
               @keyup.enter="toggleStudyParticipation"

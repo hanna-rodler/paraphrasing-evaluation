@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col justify-center items-center w-full px-5 md:px-10 my-5 md:my-10"
-  >
+  <div class="flex flex-col justify-center items-center w-full">
     <div
       class="w-full flex flex-col md:flex-col xl:flex-row md:space-y-4 xl:space-x-4 xl:space-y-0"
     >
@@ -9,7 +7,7 @@
       <div
         class="w-full flex flex-col md:flex-row md:1/2 xl:w-1/2 md:space-x-4 softer"
       >
-        <div class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
+        <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
@@ -19,15 +17,21 @@
 
         <!-- Sanftere Version Section -->
         <div
-          class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
+          class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
         >
           <div>
             <h2>Sanftere Version</h2>
-            <p
+            <div
               :id="`a-${articleId}-p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
               v-html="highlightedSofter"
-            ></p>
+            ></div>
           </div>
+          <Factuality
+            class="mt-8"
+            :articleId="articleId"
+            :softerPromptNum="softerPromptNum"
+            :sentenceNum="sentenceNum"
+          />
           <RatingButtons
             :articleId="articleId"
             :softerPromptNum="softerPromptNum"
@@ -39,7 +43,7 @@
       <div
         class="w-full flex flex-col md:flex-row md:1/2 xl:w-1/2 md:space-x-4 very-soft"
       >
-        <div class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
+        <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
@@ -48,7 +52,7 @@
         </div>
         <!-- Sehr Sanfte Version Section -->
         <div
-          class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md flex flex-col justify-between very-soft"
+          class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between very-soft"
         >
           <div>
             <h2>Sehr Sanfte Version</h2>
@@ -57,6 +61,11 @@
               v-html="highlightedVerySoft"
             ></p>
           </div>
+          <Factuality
+            :articleId="articleId"
+            :verySoftPromptNum="verySoftPromptNum"
+            :sentenceNum="sentenceNum"
+          />
           <RatingButtons
             :articleId="articleId"
             :verySoftPromptNum="verySoftPromptNum"

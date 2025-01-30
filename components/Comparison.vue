@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h2>Kontext Artikel {1}</h2>
+    <h2 class="font-bold">Kontext Artikel {{ index + 1 }}</h2>
     <div class="flex flex-col justify-center items-center w-full px-5 md:px-10">
       <!-- Kontext Section -->
       <div class="mb-b">
@@ -31,6 +31,22 @@
             :softerText="softerVersion.sentence"
             :verySoftText="sentence.versions.verySoft[index]?.sentence"
           />
+          <!-- Short divider after each paraphrase -->
+          <div
+            class="w-full flex justify-center my-6 md:my-12"
+            v-if="index !== sentence.versions.softer.length - 1"
+          >
+            <hr class="border-t-2 border-gray-300 w-1/5" />
+          </div>
+        </div>
+        <div
+          class="w-full flex justify-center my-8 md:my-16"
+          v-if="
+            Object.keys(article.sentences).indexOf(sentenceKey) !==
+            Object.keys(article.sentences).length - 1
+          "
+        >
+          <hr class="border-t-2 border-gray-400 w-3/4" />
         </div>
       </div>
     </div>
@@ -41,6 +57,10 @@
 const props = defineProps({
   article: {
     type: Object,
+    required: true,
+  },
+  index: {
+    type: Number,
     required: true,
   },
 });

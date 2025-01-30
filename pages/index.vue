@@ -7,9 +7,51 @@
       </AtomsText>
     </div>
     <Demographics></Demographics>
-    <div v-for="article of shuffledData" v-bind:key="article.id">
-      <Comparison :article="article"></Comparison>
+    <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
+      <Comparison :article="article" :index="index"></Comparison>
     </div>
+    <div class="section">
+      <div class="my-4">
+        Zahlen von Toten und Verletzten sollen in der
+        <em>sehr sanften Version</em> immer durch allgemeine Kategorisierungen
+        ersetzt werden:
+        <br />
+        <div
+          class="flex items-center space-x-2 md:space-x-4 justify-center mt-2"
+        >
+          <span>Ich stimme sehr zu</span>
+          <div class="flex space-x-2">
+            <label
+              v-for="(value, index) in [2, 1, -1, -2]"
+              :key="index"
+              class="flex items-center space-x-4"
+            >
+              <input
+                type="radio"
+                name="rating"
+                :value="value"
+                class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+              />
+            </label>
+          </div>
+          <span>Ich stimme gar nicht zu</span>
+        </div>
+      </div>
+      <div class="my-4">
+        Ich kann mir grundsätzlich vorstellen folgende Versionen zu lesen,
+        sofern ich selbst immer einstellen kann, welche ich lese:
+        <br />
+        Auswahl original, sanfter, sehr sanft
+      </div>
+      <div class="my-4">
+        Ich kann mir vorstellen, dass folgende Versionen für mich
+        <em>hilfreich</em> sein können, sofern ich selbst immer einstellen kann,
+        welche ich lese:
+        <br />
+        Auswahl original, sanfter, sehr sanft
+      </div>
+    </div>
+
     <div class="section">
       <div
         v-if="!isValid"

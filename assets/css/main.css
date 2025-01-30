@@ -18,7 +18,7 @@
   }
   
   h2 {
-    @apply text-xl md:text-2xl text-primary font-bold mb-2 mt-4 text-center;
+    @apply text-xl md:text-2xl text-primary font-semibold mb-2 mt-4 text-center;
   }
   
   h3 {

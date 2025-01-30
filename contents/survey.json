@@ -11,10 +11,6 @@
                 "versions": {
                     "softer": [
                         {
-                            "prompt_id": "prompt_1",
-                            "sentence": "Softer version of sentence 1"
-                        },
-                        {
                             "prompt_id": "prompt_2",
                             "sentence": "Die israelische Armee hat in mehreren Aktionen im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet."
                         }
@@ -23,10 +19,6 @@
                         {
                             "prompt_id": "prompt_1",
                             "sentence": "Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge eine hohe Anzahl von Opfern verursacht."
-                        },
-                        {
-                            "prompt_id": "prompt_2",
-                            "sentence": "Very soft version of sentence 1"
                         }
                     ]
                 }
@@ -75,18 +67,43 @@
         },
         "sentences": {
             "sentence_1": {
-                "original": "Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                "original": "Konzert ohne Kopftuch: Iranische Sängerin verhaftet",
                 "versions": {
                     "softer": [
                         {
-                            "prompt_id": "prompt_y",
-                            "sentence": "Softer version Iranische Sängerin"
+                            "prompt_id": "prompt3_vs",
+                            "sentence": "Musikerin ohne Kopfbedeckung: Iranische Sängerin in Gewahrsam"
                         }
                     ],
                     "verySoft": [
                         {
                             "prompt_id": "prompt_y",
-                            "sentence": "Very soft version Iranische Sängerin"
+                            "sentence": "Sängerin im Iran verhaftet: Mutiges Konzert ohne Kopftuch"
+                        }
+                    ]
+                }
+            },
+            "sentence_2": {
+                "original": " Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "prompt_y",
+                            "sentence": "Die iranische Sängerin Parastu hat etwas ganz Besonderes gewagt: Sie hat ohne Kopftuch und im Kleid gesungen und das Konzert auf YouTube veröffentlicht. Dafür wurde sie leider verhaftet, genauso wie zwei Mitglieder ihrer Band."
+                        },
+                        {
+                            "prompt_id": "prompt5_s",
+                            "sentence": "Die iranische Musikerin Parastu hat im Iran mehrere gesellschaftliche Grenzen überschritten: Sie sang ohne Kopftuch, in einem Kleid und veröffentlichte das Konzert auf YouTube. Nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band."
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "prompt6_vs?",
+                            "sentence": "Die iranische Musikerin Parastu hat mehrere gesellschaftliche Normen in der islamischen Republik nicht beachtet: Sie sang ohne Kopfbedeckung, in einem Kleid und veröffentlichte die Aufnahme auf einer Online-Plattform – nun wurde die junge Frau deswegen in Gewahrsam genommen, ebenso wie zwei Mitglieder ihrer Band."
+                        },
+                        {
+                            "prompt_id": "prompt3_vs",
+                            "sentence": "Die iranische Musikerin Parastu hat mehrere gesellschaftliche Normen in der islamischen Republik nicht eingehalten: Sie sang ohne Kopfbedeckung, in einem Kleid und veröffentlichte das Konzert online – nun wurde die junge Frau deswegen in Gewahrsam genommen, ebenso wie zwei Mitglieder ihrer Band."
                         }
                     ]
                 }
