@@ -25,8 +25,10 @@
           in einer sanften und sehr sanften Version präsentiert. Um Ihnen den
           Vergleich einfacher zu machen, sind veränderte Satzteile markiert. Sie
           können zu jeder Version die Faktizität von korrekt bis inkorrekt und
-          die Sprachintensität von zu hart bis zu sanft bewerten. Um die
-          Bewertung
+          die Sprachintensität von zu hart bis zu sanft bewerten. Teils sehen
+          Sie auch denselben Satz in der umgeschriebenen Version noch einmal, um
+          bei gewissen Formulierungen zu bewerten, ob solche Phrasen überhaupt
+          umgeschrieben werden sollen.
         </AtomsText>
         <AtomsText>
           Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
