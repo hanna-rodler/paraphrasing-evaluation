@@ -1,0 +1,26 @@
+    // {
+    //     "id": "article_stocker",
+    //     "context": {
+    //         "title": "Stocker zu Verhandlungen mit FPÖ bereit",
+    //         "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>"
+    //     },
+    //     "sentences": {
+    //         "sentence_1": {
+    //             "original": "Stocker zu Verhandlungen mit FPÖ bereit",
+    //             "versions": {
+    //                 "softer": [
+    //                     {
+    //                         "prompt_id": "prompt_55",
+    //                         "sentence": "Stocker bereit für Gespräche mit der FPÖ"
+    //                     }
+    //                 ],
+    //                 "verySoft": [
+    //                     {
+    //                         "prompt_id": "prompt_55",
+    //                         "sentence": "Stocker offen für Gespräche mit der FPÖ"
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     }
+}

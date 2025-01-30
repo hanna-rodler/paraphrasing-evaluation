@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col justify-center items-center w-full">
     <div
-      class="w-full flex flex-col md:flex-col xl:flex-row md:space-y-4 xl:space-x-4 xl:space-y-0"
+      class="w-full flex flex-col md:flex-col 2xl:flex-row md:space-y-4 2xl:space-x-4 2xl:space-y-0"
     >
       <!-- Original Section -->
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 xl:w-1/2 md:space-x-4 softer"
+        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 softer"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
@@ -41,7 +41,7 @@
       </div>
 
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 xl:w-1/2 md:space-x-4 very-soft"
+        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 very-soft"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
@@ -144,14 +144,22 @@ function markHighlights(baseVersion, toMarkVersion) {
   let isHighlighting = false;
 
   for (let i = 0; i < toMarkVersionWords.length; i++) {
+    console.log(
+      "to mark ",
+      toMarkVersionWords[i],
+      "base ",
+      baseVersionWords[i]
+    );
     if (toMarkVersionWords[i] !== baseVersionWords[i]) {
       if (!isHighlighting) {
+        console.log("!isHighlighting, so beign span");
         highlightedHTML += '<span class="highlight">';
         isHighlighting = true;
       }
       highlightedHTML += toMarkVersionWords[i] + " ";
     } else {
       if (isHighlighting) {
+        console.log("isHighlighting, so end span");
         highlightedHTML += "</span>";
         isHighlighting = false;
       }

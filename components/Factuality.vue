@@ -2,7 +2,7 @@
   <div class="my-4">
     <div class="font-bold">Faktizität</div>
     <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-2">
-      <span>Korrekt</span>
+      <span>korrekt</span>
       <div class="flex space-x-2">
         <label
           v-for="(value, index) in [2, 1, -1, -2]"
@@ -18,7 +18,7 @@
           />
         </label>
       </div>
-      <span>Inkorrekt</span>
+      <span>inkorrekt</span>
     </div>
   </div>
 </template>

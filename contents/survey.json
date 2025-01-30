@@ -1,12 +1,37 @@
 [
     {
-        "id": "article_sellner",
+        "id": "article_tote_gaza",
         "context": {
             "title": "Viele Tote bei israelischen Angriffen in Gaza gemeldet",
             "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h4>Großer Gebäudekomplex gesprengt</h4><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>"
         },
         "sentences": {
             "sentence_1": {
+                "original": "Viele Tote bei israelischen Angriffen in Gaza gemeldet",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "prompt_2",
+                            "sentence": "Israelische Angriffe im Gazastreifen: Was bisher bekannt ist"
+                        },
+                        {
+                            "prompt_id": "prompt_8s",
+                            "sentence": "Wichtige Informationen über die Lage in Gaza"
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "prompt_5vs",
+                            "sentence": "Erhöhte Opferzahlen nach israelischen Aktionen in Gaza gemeldet"
+                        },
+                        {
+                            "prompt_id": "prompt_4vs",
+                            "sentence": "Unruhen zwischen Israel und Gaza"
+                        }
+                    ]
+                }
+            },
+            "sentence_2": {
                 "original": "Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet.",
                 "versions": {
                     "softer": [
@@ -23,7 +48,7 @@
                     ]
                 }
             },
-            "sentence_2": {
+            "sentence_3": {
                 "original": "Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.",
                 "versions": {
                     "softer": [
@@ -40,7 +65,7 @@
                     ]
                 }
             },
-            "sentence_3": {
+            "sentence_4": {
                 "original": "Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht.",
                 "versions": {
                     "softer": [
@@ -53,6 +78,23 @@
                         {
                             "prompt_id": "prompt_x",
                             "sentence": "Von israelischer Seite gab es bisher keine Angaben zu den Vorgängen oder zu dem Bericht."
+                        }
+                    ]
+                }
+            },
+            "sentence_x-3": {
+                "original": "Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern.",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "prompt_x",
+                            "sentence": "Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern."
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "prompt_9vs",
+                            "sentence": "Palästinensische Vertreter äußerten Bedenken, dass Israel den nördlichen Teil des Gazastreifens räumen möchte."
                         }
                     ]
                 }
@@ -84,23 +126,15 @@
                 }
             },
             "sentence_2": {
-                "original": " Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                "original": "Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
                 "versions": {
                     "softer": [
                         {
                             "prompt_id": "prompt_y",
                             "sentence": "Die iranische Sängerin Parastu hat etwas ganz Besonderes gewagt: Sie hat ohne Kopftuch und im Kleid gesungen und das Konzert auf YouTube veröffentlicht. Dafür wurde sie leider verhaftet, genauso wie zwei Mitglieder ihrer Band."
-                        },
-                        {
-                            "prompt_id": "prompt5_s",
-                            "sentence": "Die iranische Musikerin Parastu hat im Iran mehrere gesellschaftliche Grenzen überschritten: Sie sang ohne Kopftuch, in einem Kleid und veröffentlichte das Konzert auf YouTube. Nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band."
                         }
                     ],
                     "verySoft": [
-                        {
-                            "prompt_id": "prompt6_vs?",
-                            "sentence": "Die iranische Musikerin Parastu hat mehrere gesellschaftliche Normen in der islamischen Republik nicht beachtet: Sie sang ohne Kopfbedeckung, in einem Kleid und veröffentlichte die Aufnahme auf einer Online-Plattform – nun wurde die junge Frau deswegen in Gewahrsam genommen, ebenso wie zwei Mitglieder ihrer Band."
-                        },
                         {
                             "prompt_id": "prompt3_vs",
                             "sentence": "Die iranische Musikerin Parastu hat mehrere gesellschaftliche Normen in der islamischen Republik nicht eingehalten: Sie sang ohne Kopfbedeckung, in einem Kleid und veröffentlichte das Konzert online – nun wurde die junge Frau deswegen in Gewahrsam genommen, ebenso wie zwei Mitglieder ihrer Band."
@@ -111,25 +145,67 @@
         }
     },
     {
-        "id": "article_stocker",
+        "id": "article_sellner",
         "context": {
-            "title": "Stocker zu Verhandlungen mit FPÖ bereit",
-            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>"
+            "title": "Privatanklage von Sellner: Gericht will Auslieferung Voglauers",
+            "body": "<p>Das Landesgericht Klagenfurt hat gestern die Auslieferung der grünen Generalsekretärin und Nationalratsabgeordneten Olga Voglauer beantragt.</p><p>Grund ist eine Privatanklage wegen übler Nachrede des Rechtsextremisten Martin Sellner, dem sie das Zeigen des Hitlergrußes unterstellt hatte, berichtet das Nachrichtenmagazin „profil“ (Onlineausgabe). In einem zivilrechtlichen Verfahren ist Voglauer bereits zu einem Widerruf verurteilt worden.</p><h2>Vorwürfe zu Auftritt bei Demo</h2><p>Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht. Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt.</p><p>Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet. Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer aber auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“</p><h2>Nationalrat am Zug</h2><p>Das Auslieferungsbegehren muss nun im Nationalrat behandelt werden. Dabei muss darüber entschieden werden, ob Voglauers Kommentar im Rahmen ihrer parlamentarischen Tätigkeit erfolgte oder nicht.</p><p>Die Grünen wollten das gegenüber „profil“ nicht kommentieren: „Martin Sellner versucht in dieser vor allem medienrechtlichen Causa rund um einen Tweet mit allen Mitteln gegen politische Kritik vorzugehen. Die Vorgehensweise spricht für sich.“</p>"
         },
         "sentences": {
             "sentence_1": {
-                "original": "Stocker zu Verhandlungen mit FPÖ bereit",
+                "original": "Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer aber auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“",
                 "versions": {
                     "softer": [
                         {
-                            "prompt_id": "prompt_55",
-                            "sentence": "Stocker bereit für Gespräche mit der FPÖ"
+                            "prompt_id": "prompt3_vs",
+                            "sentence": "Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“"
                         }
                     ],
                     "verySoft": [
                         {
-                            "prompt_id": "prompt_55",
-                            "sentence": "Stocker offen für Gespräche mit der FPÖ"
+                            "prompt_id": "prompt_y",
+                            "sentence": "Nach Bekanntwerden des Vorfalls schrieb Voglauer auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht eine verbotene Geste zeigt?“"
+                        }
+                    ]
+                }
+            },
+            "sentence_2": {
+                "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht.",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "prompt_7s",
+                            "sentence": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht."
+                        },
+                        {
+                            "prompt_id": "prompt_x",
+                            "sentence": "Sellner, bis vor einem Jahr auch Sprecher der Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht."
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "prompt7_vs",
+                            "sentence": "Sellner, der bis vor einem Jahr Sprecher der Identitären war, hatte im Juli in Saarbrücken eine Veranstaltung besucht."
+                        },
+                        {
+                            "prompt_id": "prompt9_vs",
+                            "sentence": "Sellner, der bis vor einem Jahr auch Sprecher der von Behörden als problematisch eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht."
+                        }
+                    ]
+                }
+            },
+            "sentence_3": {
+                "original": "Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt. Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet.",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "prompt_7s",
+                            "sentence": "Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt. Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet."
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "prompt7_vs",
+                            "sentence": "Dort gab es Vorwürfe gegen ihn, die sich jedoch nicht bestätigt haben."
                         }
                     ]
                 }

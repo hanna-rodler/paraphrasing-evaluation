@@ -1,10 +1,43 @@
 <template>
-  <div class="w-11/12">
-    <div class="section">
-      <h1 class="font-bold text-2xl md:text-4xl">News Umfrage Titel</h1>
-      <AtomsText class="text-center">
-        Umfrage Einführungstext - Erklärung was kommt. Was beinhaltet politisch?
-      </AtomsText>
+  <div class="w-11/12 my-4 md:my-8">
+    <div class="section flex flex-col justify-center items-center">
+      <h1 class="font-bold text-2xl md:text-4xl">
+        Nachrichten-Paraphrasierung
+      </h1>
+      <div class="md:max-w-2xl px-4 md:px-0">
+        <AtomsText>
+          Liebe Teilnehmenden,<br />
+          im Jahr 2024 lag die Anzahl der Menschen die manchmal oder oft
+          Nachrichten vermieden haben bei durchschnittlich 39% in über 74
+          Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
+          lag ebenfalls bei 39%.<br />
+          Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
+          herauszufinden, inwiefern die Reduktion von Sprachintensität von
+          politischen Nachrichten beeinflusst wie regelmäßig politische
+          Nachrichten konsumiert werden und was für einen Einfluss dies auf eine
+          mögliche Überforderung von Lesenden hat.
+        </AtomsText>
+        <AtomsText>
+          Um zu untersuchen, wie die Sprachintensität wahrgenommen wird, werden
+          Ihnen politische Nachrichtenartikel von der ORF Website in
+          unterschiedlichen Sprachintensitäten präsentiert. Sie sehen einmal den
+          gesamten Nachrichtenartikel als Kontext und bekommen dann Sätze daraus
+          in einer sanften und sehr sanften Version präsentiert. Um Ihnen den
+          Vergleich einfacher zu machen, sind veränderte Satzteile markiert. Sie
+          können zu jeder Version die Faktizität von korrekt bis inkorrekt und
+          die Sprachintensität von zu hart bis zu sanft bewerten. Um die
+          Bewertung
+        </AtomsText>
+        <AtomsText>
+          Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
+          und werden nur im Rahmen der Masterarbeit verwendet. Ein Rückschluss
+          auf Ihre Person ist nicht möglich.<br />
+          Bei Fragen oder Anregungen können Sie Hanna Rodler unter
+          <a href="mailto:s2310629019@fhooe.at">s2310629019@fhooe.at</a>
+          kontaktieren.
+        </AtomsText>
+        <AtomsText>Vielen Dank für die Teilnahme an der Studie!</AtomsText>
+      </div>
     </div>
     <Demographics></Demographics>
     <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
