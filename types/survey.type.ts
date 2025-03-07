@@ -1,7 +1,7 @@
 export type age = number | "";
 export type country = "Österreich" | "Deutschland" | "Schweiz" | "";
 export type gender = "female" | "male" | "diverse" | "no_indication" | "";
-export type versions = "original" | "softer" | "verySoft";
+export type versions = "original" | "softer" | "verySoft" | "ich weiß es nicht";
 
 export type surveyResponseType = {
   articles: articleSelection;

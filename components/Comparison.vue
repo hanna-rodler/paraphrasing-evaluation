@@ -28,6 +28,7 @@
             :sentenceNum="sentenceKey"
             :originalText="sentence.original"
             :softerText="softerVersion.sentence"
+            :isLast="index === sentence.versions.softer.length - 1"
           />
           <!-- Short divider after each paraphrase -->
           <!-- <div
@@ -51,6 +52,7 @@
             :sentenceNum="sentenceKey"
             :originalText="sentence.original"
             :verySoftText="verySoftVersion.sentence"
+            :isLast="index === sentence.versions.verySoft.length - 1"
           />
           <!-- Short divider after each paraphrase -->
           <!-- <div

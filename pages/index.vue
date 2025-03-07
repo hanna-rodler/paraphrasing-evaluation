@@ -35,7 +35,7 @@
           und werden nur im Rahmen der Masterarbeit verwendet. Ein Rückschluss
           auf Ihre Person ist nicht möglich.<br />
           Bei Fragen oder Anregungen können Sie Hanna Rodler unter
-          <a href="mailto:s2310629019@fhooe.at">s2310629019@fhooe.at</a>
+          <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
           kontaktieren.
         </AtomsText>
         <AtomsText>Vielen Dank für die Teilnahme an der Studie!</AtomsText>
@@ -55,7 +55,15 @@
         id="form-error-msg"
         role="alert"
       >
-        Bitte füllen Sie alle Fragen aus.
+        Bitte füllen Sie alle allgemeinen Pflichtfragen aus.
+      </div>
+      <div
+        v-if="showArticleError"
+        role="alert"
+        id="articles-error-msg"
+        class="text-error text-center"
+      >
+        Bitte bewerten Sie mindestens 15 Versionen.
       </div>
       <div class="mt-5 flex justify-center flex-row">
         <AtomsButton
@@ -99,6 +107,7 @@ const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
 const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const generalRemark = useState<string>("generalRemark");
+const showArticleError = ref(false);
 
 const responseScheme: surveyResponseType = {
   articles: {
@@ -153,6 +162,14 @@ function checkValidity(showErrors: boolean) {
   const validity = {
     age: false,
     gender: false,
+    federalState: false,
+    country: false,
+    psychoSocialWorker: false,
+    softDeathInjNums: false,
+    verySoftDeathInjNums: false,
+    iWouldRead: false,
+    clientsWouldRead: false,
+    articles: false,
   };
   // validate age
   const ageInput = document.querySelector("input[name='age']");
@@ -192,30 +209,171 @@ function checkValidity(showErrors: boolean) {
     genderError.value = false;
   }
 
-  // validate articles
-  //   const articles = surveyResponse.value.articles;
-  //   let articlesValid = true;
-  //   for (let i = 0; i < articles.length; i++) {
-  //     if (articles[i].selectedSummary === "") {
-  //       if (showErrors) {
-  //         const question = document.querySelector(`[data-question-id='${i}']`);
-  //         question?.classList.add("form-error");
-  //         const errorMsg = document.querySelector(
-  //           `[data-question-id='${i}'].error-msg`
-  //         );
-  //         errorMsg?.classList.remove("hidden");
-  //       }
-  //       articlesValid = false;
-  //     }
-  //     if (articles[i].interest === -1) {
-  //       articlesValid = false;
-  //       // info: if selected is already shown for range
-  //     }
-  //   }
+  // valid country
+  const countryInput = document.querySelector("input[name='country']");
+  const countryError = useState("countryError");
+  const countryErrorIcon = document.querySelector(
+    "[data-error-icon='country']"
+  );
+  if (country.value === "") {
+    if (showErrors) {
+      countryInput?.classList.remove("input-info");
+      countryInput?.classList.add("input-error");
+      countryErrorIcon?.classList.remove("hidden");
+      countryError.value = true;
+    }
+  } else {
+    validity.country = true;
+    countryInput?.classList.remove("input-error");
+    countryInput?.classList.add("input-info");
+    countryErrorIcon?.classList.add("hidden");
+    countryError.value = false;
+  }
 
-  //   if (articlesValid) {
-  //     validity.articles = true;
-  //   }
+  // valid federal State
+  const federalStateInput = document.querySelector(
+    "input[name='federalState']"
+  );
+  const federalStateError = useState("federalStateError");
+  const federalStateErrorIcon = document.querySelector(
+    "[data-error-icon='federalState']"
+  );
+  if (federalState.value === "") {
+    if (showErrors) {
+      federalStateInput?.classList.remove("input-info");
+      federalStateInput?.classList.add("input-error");
+      federalStateErrorIcon?.classList.remove("hidden");
+      federalStateError.value = true;
+    }
+  } else {
+    validity.federalState = true;
+    federalStateInput?.classList.remove("input-error");
+    federalStateInput?.classList.add("input-info");
+    federalStateErrorIcon?.classList.add("hidden");
+    federalStateError.value = false;
+  }
+
+  // valid psychoSocialWorker
+  const psychoSocialWorkerInput = document.querySelector(
+    "input[name='psychoSocialWorker']"
+  );
+  const psychoSocialWorkerError = useState("psychoSocialWorkerError");
+  const psychoSocialWorkerErrorIcon = document.querySelector(
+    "[data-error-icon='psychoSocialWorker']"
+  );
+  if (psychoSocialWorker.value === null) {
+    if (showErrors) {
+      psychoSocialWorkerInput?.classList.remove("input-info");
+      psychoSocialWorkerInput?.classList.add("input-error");
+      psychoSocialWorkerErrorIcon?.classList.remove("hidden");
+      psychoSocialWorkerError.value = true;
+    }
+  } else {
+    validity.psychoSocialWorker = true;
+    psychoSocialWorkerInput?.classList.remove("input-error");
+    psychoSocialWorkerInput?.classList.add("input-info");
+    psychoSocialWorkerErrorIcon?.classList.add("hidden");
+    psychoSocialWorkerError.value = false;
+  }
+
+  // valid softDeathInjNums
+  const softDeathInjNumsInput = document.querySelector(
+    "input[name='softDeathInjNums']"
+  );
+  const softDeathInjNumsError = useState("softDeathInjNumsError");
+
+  if (softDeathInjNums.value === null) {
+    if (showErrors) {
+      softDeathInjNumsInput?.classList.remove("input-info");
+      softDeathInjNumsInput?.classList.add("input-error");
+      softDeathInjNumsError.value = true;
+    }
+  } else {
+    validity.softDeathInjNums = true;
+    softDeathInjNumsInput?.classList.remove("input-error");
+    softDeathInjNumsInput?.classList.add("input-info");
+    softDeathInjNumsError.value = false;
+  }
+
+  // valid verySoftDeathInjNums
+  const verySoftDeathInjNumsError = useState("verySoftDeathInjNumsError");
+
+  if (verySoftDeathInjNums.value === null) {
+    if (showErrors) {
+      verySoftDeathInjNumsError.value = true;
+    }
+  } else {
+    validity.verySoftDeathInjNums = true;
+    verySoftDeathInjNumsError.value = false;
+  }
+
+  // valid verySoftDeathInjNums
+  const iWouldReadError = useState("iWouldReadError");
+  if (iWouldRead.value.length === 0) {
+    if (showErrors) {
+      iWouldReadError.value = true;
+    }
+  } else {
+    validity.iWouldRead = true;
+    iWouldReadError.value = false;
+  }
+
+  // validity clientsWouldRead
+  const clientsWouldReadError = useState("clientsWouldReadError");
+  if (
+    psychoSocialWorker.value === true &&
+    clientsWouldRead.value.length === 0
+  ) {
+    if (showErrors) {
+      clientsWouldReadError.value = true;
+    }
+  } else {
+    validity.clientsWouldRead = true;
+    clientsWouldReadError.value = false;
+  }
+
+  // at least 15 sentences have a factuality and langIntensity
+  const articles = surveyResponse.value.articles;
+  console.log("articles", surveyResponse.value.articles);
+  let articlesValidCount = 0;
+  // iterate through object
+  for (const article in articles) {
+    const sentences = articles[article].softer;
+    for (const sentence in sentences) {
+      console.log("sentence", sentences[sentence]);
+      for (const version in sentences[sentence]) {
+        console.log("version", sentences[sentence][version]);
+        if (
+          sentences[sentence][version].factuality !== undefined &&
+          sentences[sentence][version].langIntensity !== undefined
+        ) {
+          articlesValidCount++;
+          console.log("articlesValid: ", articlesValidCount);
+        }
+      }
+    }
+    const verySoftSentences = articles[article].verySoft;
+    for (const sentence in verySoftSentences) {
+      console.log("sentence vs", verySoftSentences[sentence]);
+      for (const version in verySoftSentences[sentence]) {
+        console.log("version", verySoftSentences[sentence][version]);
+        if (
+          verySoftSentences[sentence][version].factuality !== undefined &&
+          verySoftSentences[sentence][version].langIntensity !== undefined
+        ) {
+          articlesValidCount++;
+          console.log("articlesValid VS: ", articlesValidCount);
+        }
+      }
+    }
+  }
+  if (articlesValidCount >= 3) {
+    validity.articles = true;
+    showArticleError.value = false;
+  } else {
+    validity.articles = false;
+    showArticleError.value = true;
+  }
 
   const allValid = Object.values(validity).every((value) => value === true);
 
@@ -235,7 +393,7 @@ const submitForm = () => {
   surveyResponse.value.generalRemark = generalRemark.value;
   console.log("clientsWouldRead", clientsWouldRead.value);
   console.log("psychoSocialWorker", psychoSocialWorker.value);
-  console.log("generalRemark", generalRemark.value);
+  console.log("iWouldRead", iWouldRead.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {

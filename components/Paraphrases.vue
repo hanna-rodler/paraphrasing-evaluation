@@ -7,11 +7,14 @@
         class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 softer"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h2>Original</h2>
+          <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
             v-html="originalText"
           ></p>
+          <div v-if="isLast">
+            Dieser Satz braucht nicht umgeschrieben zu werden
+          </div>
         </div>
 
         <div
@@ -44,11 +47,14 @@
         class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 very-soft"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h2>Original</h2>
+          <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
             v-html="originalText"
           ></p>
+          <div v-if="isLast">
+            Dieser Satz braucht nicht umgeschrieben zu werden
+          </div>
         </div>
         <div
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between very-soft"
@@ -108,6 +114,10 @@ const props = defineProps({
   verySoftText: {
     type: String,
     required: false,
+  },
+  isLast: {
+    type: Boolean,
+    required: true,
   },
 });
 

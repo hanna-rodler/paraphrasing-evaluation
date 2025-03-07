@@ -5,7 +5,7 @@
       <div class="flex space-x-2">
         <span>inkorrekt</span>
         <label
-          v-for="(value, index) in [-1, -2, 1, 2]"
+          v-for="(value, index) in [-2, -1, 1, 2]"
           :key="index"
           class="flex items-center space-x-4"
         >
@@ -49,13 +49,14 @@ const props = defineProps({
   },
 });
 
-const getRadioGroupName = () => {
+const getRadioGroupName = computed(() => {
   if (props.softerPromptNum) {
     return `softer-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}`;
   } else if (props.verySoftPromptNum) {
     return `very-soft-${props.articleId}-${props.sentenceNum}-${props.verySoftPromptNum}`;
   }
-};
+  console.log("group name");
+});
 
 const surveyResponse = useState<surveyResponseType>("surveyResponse");
 

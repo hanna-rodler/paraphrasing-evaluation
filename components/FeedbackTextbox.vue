@@ -1,7 +1,12 @@
 <template>
   <div class="mt-3 flex flex-col justify-center w-full">
     <label class="form-control w-lg" :for="`test`">
-      <div class="label">Haben Sie noch Anmerkungen?</div>
+      <div class="label">
+        Haben Sie noch Anmerkungen<span v-if="articleId">
+          zu diesem Artikel? (Sätze, die noch sanfter formuliert gehören oder
+          sonstige Anmerkungen)</span
+        ><span v-else>?</span>
+      </div>
     </label>
     <textarea
       class="textarea border rounded-md border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm h-24 w-full"

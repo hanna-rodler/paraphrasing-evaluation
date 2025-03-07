@@ -142,44 +142,63 @@
             class="text-error"
             role="alert"
           >
-            Bitte auswählen.
+            Bitte angeben.
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="flex justify-center items-center flex-col md:flex-row mb-4 mt-6"
-    >
-      <div class="md:mr-4">Arbeiten Sie im psychosozialen Bereich?</div>
-      <div class="flex flex-row items-center justify-center space-x-4">
-        <label
-          class="label cursor-pointer justify-start px-0 flex items-center space-x-4"
-          id="psychoSocialWorker-yes"
-        >
-          <input
-            type="radio"
-            name="psychosocial_worker"
-            for="psychoSocialWorker-yes"
-            value="true"
-            v-model="psychoSocialWorker"
-            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+    <div class="flex justify-center items-center flex-col mb-4 mt-6">
+      <div class="flex justify-center items-center flex-col md:flex-row">
+        <div class="md:mr-4 flex flex-row items-center justify-center">
+          <Icon
+            name="heroicons:exclamation-triangle"
+            size="18"
+            class="mr-2 hidden"
+            aria-label="Bitte ausfüllen"
+            id="psychoSocialWorker-error"
+            data-error-icon="psychoSocialWorker"
+            aria-hidden="true"
           />
-          <span>ja</span>
-        </label>
-        <label
-          class="label cursor-pointer justify-start px-0 flex items-center space-x-4"
-          id="psychoSocialWorker-no"
-        >
-          <input
-            type="radio"
-            name="psychosocial_worker"
-            for="psychoSocialWorker-no"
-            value="false"
-            v-model="psychoSocialWorker"
-            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
-          />
-          <span>nein</span>
-        </label>
+          <span>Arbeiten Sie im psychosozialen Bereich? *</span>
+        </div>
+        <div class="flex flex-row space-x-4">
+          <label
+            class="label cursor-pointer px-0 flex items-center space-x-4"
+            id="psychoSocialWorker-yes"
+          >
+            <input
+              type="radio"
+              name="psychoSocialWorker"
+              for="psychoSocialWorker-yes"
+              :value="true"
+              v-model="psychoSocialWorker"
+              class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+            />
+            <span class="ml-0" style="margin-left: 0">ja</span>
+          </label>
+          <label
+            class="label cursor-pointer justify-start px-0 flex items-center space-x-4"
+            id="psychoSocialWorker-no"
+          >
+            <input
+              type="radio"
+              name="psychoSocialWorker"
+              for="psychoSocialWorker-no"
+              :value="false"
+              v-model="psychoSocialWorker"
+              class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+            />
+            <span class="ml-0" style="margin-left: 0">nein</span>
+          </label>
+        </div>
+      </div>
+      <div
+        id="psychoSocialWorker-error"
+        v-if="psychoSocialWorkerError"
+        class="text-error"
+        role="alert"
+      >
+        Bitte auswählen.
       </div>
     </div>
   </div>
@@ -199,4 +218,8 @@ const ageError = useState<boolean>("ageError", () => false);
 const genderError = useState<boolean>("genderError", () => false);
 const countryError = useState<boolean>("countryError", () => false);
 const federalStateError = useState<boolean>("federalStateError", () => false);
+const psychoSocialWorkerError = useState<boolean>(
+  "psychoSocialWorkerError",
+  () => false
+);
 </script>
