@@ -45,47 +45,8 @@
     <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
       <Comparison :article="article" :index="index"></Comparison>
     </div>
-    <div class="section">
-      <div class="my-4">
-        Zahlen von Toten und Verletzten sollen in der
-        <em>sehr sanften Version</em> immer durch allgemeine Kategorisierungen
-        ersetzt werden:
-        <br />
-        <div
-          class="flex items-center space-x-2 md:space-x-4 justify-center mt-2"
-        >
-          <span>Ich stimme sehr zu</span>
-          <div class="flex space-x-2">
-            <label
-              v-for="(value, index) in [2, 1, -1, -2]"
-              :key="index"
-              class="flex items-center space-x-4"
-            >
-              <input
-                type="radio"
-                name="rating"
-                :value="value"
-                class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
-              />
-            </label>
-          </div>
-          <span>Ich stimme gar nicht zu</span>
-        </div>
-      </div>
-      <div class="my-4">
-        Ich kann mir grundsätzlich vorstellen folgende Versionen zu lesen,
-        sofern ich selbst immer einstellen kann, welche ich lese:
-        <br />
-        Auswahl original, sanfter, sehr sanft
-      </div>
-      <div class="my-4">
-        Ich kann mir vorstellen, dass folgende Versionen für mich
-        <em>hilfreich</em> sein können, sofern ich selbst immer einstellen kann,
-        welche ich lese:
-        <br />
-        Auswahl original, sanfter, sehr sanft
-      </div>
-    </div>
+
+    <AdditionalQuestions></AdditionalQuestions>
 
     <div class="section">
       <div
@@ -112,7 +73,13 @@
 </template>
 
 <script setup lang="ts">
-import type { surveyResponseType, gender, age } from "~/types/survey.type";
+import type {
+  age,
+  country,
+  gender,
+  surveyResponseType,
+  versions,
+} from "~/types/survey.type";
 import { ref, onMounted } from "vue";
 import surveyData from "~/contents/survey.json";
 
@@ -124,15 +91,34 @@ onMounted(() => {
 
 const gender = useState<gender>("gender");
 const age = useState<age>("age");
+const country = useState<country>("country");
+const federalState = useState<string>("federalState");
+const iWouldRead = useState<versions[] | null[]>("iWouldRead");
+const clientsWouldRead = useState<versions[] | null[]>("clientsWouldRead");
+const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
+const softDeathInjNums = useState<number | null>("softDeathInjNums");
+const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
+const generalRemark = useState<string>("generalRemark");
 
-const responseScheme: any = {
+const responseScheme: surveyResponseType = {
   articles: {
-    article_sellner: { softer: {}, verySoft: {} },
-    article_stocker: { softer: {}, verySoft: {} },
-    article_iran_saengerin: { softer: {}, verySoft: {} },
+    article_sellner: { softer: {}, verySoft: {}, remark: "" },
+    article_stocker: { softer: {}, verySoft: {}, remark: "" },
+    article_iran_saengerin: { softer: {}, verySoft: {}, remark: "" },
+    article_trump_grenell: { softer: {}, verySoft: {}, remark: "" },
+    article_sanctions_russia: { softer: {}, verySoft: {}, remark: "" },
+    article_tote_gaza: { softer: {}, verySoft: {}, remark: "" },
   },
   age: age.value,
   gender: gender.value,
+  country: country.value,
+  federalState: federalState.value,
+  iWouldRead: iWouldRead.value,
+  clientsWouldRead: clientsWouldRead.value,
+  verySoftDeathInjNums: verySoftDeathInjNums.value,
+  softDeathInjNums: softDeathInjNums.value,
+  psychoSocialWorker: psychoSocialWorker.value,
+  generalRemark: generalRemark.value,
 };
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
@@ -239,6 +225,17 @@ function checkValidity(showErrors: boolean) {
 const submitForm = () => {
   surveyResponse.value.age = age.value;
   surveyResponse.value.gender = gender.value;
+  surveyResponse.value.country = country.value;
+  surveyResponse.value.federalState = federalState.value;
+  surveyResponse.value.iWouldRead = iWouldRead.value;
+  surveyResponse.value.clientsWouldRead = clientsWouldRead.value;
+  surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
+  surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
+  surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
+  surveyResponse.value.generalRemark = generalRemark.value;
+  console.log("clientsWouldRead", clientsWouldRead.value);
+  console.log("psychoSocialWorker", psychoSocialWorker.value);
+  console.log("generalRemark", generalRemark.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {

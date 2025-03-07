@@ -147,14 +147,53 @@
         </div>
       </div>
     </div>
+    <div
+      class="flex justify-center items-center flex-col md:flex-row mb-4 mt-6"
+    >
+      <div class="md:mr-4">Arbeiten Sie im psychosozialen Bereich?</div>
+      <div class="flex flex-row items-center justify-center space-x-4">
+        <label
+          class="label cursor-pointer justify-start px-0 flex items-center space-x-4"
+          id="psychoSocialWorker-yes"
+        >
+          <input
+            type="radio"
+            name="psychosocial_worker"
+            for="psychoSocialWorker-yes"
+            value="true"
+            v-model="psychoSocialWorker"
+            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+          />
+          <span>ja</span>
+        </label>
+        <label
+          class="label cursor-pointer justify-start px-0 flex items-center space-x-4"
+          id="psychoSocialWorker-no"
+        >
+          <input
+            type="radio"
+            name="psychosocial_worker"
+            for="psychoSocialWorker-no"
+            value="false"
+            v-model="psychoSocialWorker"
+            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+          />
+          <span>nein</span>
+        </label>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-import type { gender, age } from "~/types/survey.type";
+import type { gender, age, country } from "~/types/survey.type";
 const gender = useState<gender>("gender", () => "");
 const age = useState<age>("age", () => "");
-const country = useState<gender>("country", () => "");
-const federalState = useState<age>("federalState", () => "");
+const country = useState<country>("country", () => "");
+const federalState = useState<string>("federalState", () => "");
+const psychoSocialWorker = useState<boolean | null>(
+  "psychoSocialWorker",
+  () => null
+);
 
 const ageError = useState<boolean>("ageError", () => false);
 const genderError = useState<boolean>("genderError", () => false);

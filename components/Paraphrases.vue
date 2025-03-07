@@ -1,21 +1,19 @@
 <template>
-  <div class="flex flex-col justify-center items-center w-full">
-    <div
-      class="w-full flex flex-col md:flex-col 2xl:flex-row md:space-y-4 2xl:space-x-4 2xl:space-y-0"
-    >
-      <!-- Original Section -->
+  <div class="flex flex-col justify-center items-center w-full my-4 md:my-8">
+    <div class="w-full flex flex-col md:space-y-4 2xl:space-x-4 2xl:space-y-0">
+      <!-- Softer Version Section -->
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 softer"
+        v-if="softerPromptNum && softerText"
+        class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 softer"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
-            v-html="highlightedOriginal"
+            v-html="originalText"
           ></p>
         </div>
 
-        <!-- Sanftere Version Section -->
         <div
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
         >
@@ -23,7 +21,7 @@
             <h2>Sanftere Version</h2>
             <div
               :id="`a-${articleId}-p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
-              v-html="highlightedSofter"
+              v-html="softerText"
             ></div>
           </div>
           <Factuality
@@ -40,17 +38,18 @@
         </div>
       </div>
 
+      <!-- Sehr Sanfte Version Section -->
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 very-soft"
+        v-if="verySoftPromptNum && verySoftText"
+        class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 very-soft"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
           <h2>Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
-            v-html="highlightedOriginalVerySoft"
+            v-html="originalText"
           ></p>
         </div>
-        <!-- Sehr Sanfte Version Section -->
         <div
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between very-soft"
         >
@@ -58,7 +57,7 @@
             <h2>Sehr Sanfte Version</h2>
             <p
               :id="`a-${articleId}-p-${verySoftPromptNum}_s-${sentenceNum}_v-very-soft`"
-              v-html="highlightedVerySoft"
+              v-html="verySoftText"
             ></p>
           </div>
           <Factuality
@@ -84,11 +83,11 @@ import { ref, onMounted } from "vue";
 const props = defineProps({
   softerPromptNum: {
     type: String,
-    required: true,
+    required: false,
   },
   verySoftPromptNum: {
     type: String,
-    required: true,
+    required: false,
   },
   articleId: {
     type: String,
@@ -104,11 +103,11 @@ const props = defineProps({
   },
   softerText: {
     type: String,
-    required: true,
+    required: false,
   },
   verySoftText: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
@@ -119,21 +118,25 @@ const highlightedVerySoft = ref(props.verySoftText);
 
 const highlightChanges = () => {
   const originalId = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-softer`;
-  const originalId2 = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-verySoft`;
-  const softerId = `a-${props.articleId}-p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
-  const verySoftId = `a-${props.articleId}-p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
-
   const originalText = document.getElementById(originalId).textContent;
-  const softerText = document.getElementById(softerId).textContent;
-  const verySoftText = document.getElementById(verySoftId).textContent;
+  if (props.verySoftPromptNum) {
+    const verySoftId = `a-${props.articleId}-p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
+    console.log("original Id", originalId, "very soft Id", verySoftId);
 
-  highlightedOriginal.value = markHighlights(softerText, originalText);
-  highlightedSofter.value = markHighlights(originalText, softerText);
-  highlightedVerySoft.value = markHighlights(originalText, verySoftText);
-  highlightedOriginalVerySoft.value = markHighlights(
-    verySoftText,
-    originalText
-  );
+    const verySoftText = document.getElementById(verySoftId).textContent;
+    highlightedVerySoft.value = markHighlights(originalText, verySoftText);
+    highlightedOriginalVerySoft.value = markHighlights(
+      verySoftText,
+      originalText
+    );
+  }
+  if (props.softerPromptNum) {
+    const softerId = `a-${props.articleId}-p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
+    console.log("original Id", originalId, "softer Id", softerId);
+    const softerText = document.getElementById(softerId).textContent;
+    highlightedOriginal.value = markHighlights(softerText, originalText);
+    highlightedSofter.value = markHighlights(originalText, softerText);
+  }
 };
 
 function markHighlights(baseVersion, toMarkVersion) {
@@ -176,8 +179,6 @@ function markHighlights(baseVersion, toMarkVersion) {
 
 onMounted(() => {
   // You can call highlightChanges automatically if needed
-  highlightChanges();
+  // highlightChanges();
 });
 </script>
-
-<style scoped></style>

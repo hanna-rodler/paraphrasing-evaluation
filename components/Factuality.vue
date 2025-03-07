@@ -2,29 +2,32 @@
   <div class="my-4">
     <div class="font-bold">Faktizität</div>
     <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-2">
-      <span>korrekt</span>
       <div class="flex space-x-2">
+        <span>inkorrekt</span>
         <label
-          v-for="(value, index) in [2, 1, -1, -2]"
+          v-for="(value, index) in [-1, -2, 1, 2]"
           :key="index"
           class="flex items-center space-x-4"
         >
           <input
             type="radio"
-            name="rating"
+            :name="getRadioGroupName"
             :value="value"
-            @change="setRating(value)"
+            @click="setRating(value)"
+            :checked="selectedRating === value"
             class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
           />
         </label>
       </div>
-      <span>inkorrekt</span>
+      <span>korrekt</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, defineProps } from "vue";
+import type { surveyResponseType } from "~/types/survey.type";
+
 const props = defineProps({
   softerPromptNum: {
     type: String,
@@ -46,37 +49,46 @@ const props = defineProps({
   },
 });
 
-const surveyResponse = useState("surveyResponse");
-const selectedRating = ref(null);
+const getRadioGroupName = () => {
+  if (props.softerPromptNum) {
+    return `softer-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}`;
+  } else if (props.verySoftPromptNum) {
+    return `very-soft-${props.articleId}-${props.sentenceNum}-${props.verySoftPromptNum}`;
+  }
+};
 
-function setRating(rating: Number) {
+const surveyResponse = useState<surveyResponseType>("surveyResponse");
+
+const selectedRating = ref<null | number>(null);
+
+function setRating(rating: number) {
   selectedRating.value = rating;
 
   if (props.softerPromptNum) {
     surveyResponse.value.articles[props.articleId].softer ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
+      `sentence__${props.sentenceNum}`
     ] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
-    ][`sentence-${props.sentenceNum}`] ??= {};
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.softerPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
-    ][`sentence-${props.sentenceNum}`].factuality = rating;
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.softerPromptNum}`].factuality = rating;
 
     console.log("Softer prompt num:", rating);
     // Send rating to backend
   } else if (props.verySoftPromptNum) {
     surveyResponse.value.articles[props.articleId].verySoft ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
+      `sentence__${props.sentenceNum}`
     ] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
-    ][`sentence-${props.sentenceNum}`] ??= {};
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.verySoftPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
-    ][`sentence-${props.sentenceNum}`].factuality = rating;
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.verySoftPromptNum}`].factuality = rating;
     console.log("Very soft prompt num:", rating);
     // Send rating to backend
   }
