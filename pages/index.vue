@@ -1,5 +1,11 @@
 <template>
   <div class="w-11/12 my-4 md:my-8">
+    <div class="fixed top-0 left-0 w-full h-4 bg-white shadow-lg">
+      <div
+        class="h-full bg-info transition-all duration-300"
+        :style="{ width: progressPercentage + '%' }"
+      ></div>
+    </div>
     <div class="section flex flex-col justify-center items-center">
       <h1 class="font-bold text-2xl md:text-4xl">
         Nachrichten-Paraphrasierung
@@ -90,6 +96,7 @@ import type {
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
 import surveyData from "~/contents/survey.json";
+import { countValidArticles } from "~/utils/validation";
 
 const isMounted = ref(false);
 onMounted(() => {
@@ -108,6 +115,19 @@ const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const generalRemark = useState<string>("generalRemark");
 const showArticleError = ref(false);
+const totalQuestionLength = ref<number>(63); // 5+ 3+ 40 TODO: adapt
+let answeredQuestionCount = ref<number>(0);
+let prevArticlesValidCount = 0;
+const progressPercentage = computed(() => {
+  console.log(
+    "answeredQuestionCount",
+    answeredQuestionCount.value,
+    "total",
+    totalQuestionLength.value,
+    answeredQuestionCount.value / totalQuestionLength.value
+  );
+  return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
+});
 
 const responseScheme: surveyResponseType = {
   articles: {
@@ -158,19 +178,22 @@ const isValid = computed(() => {
   return false;
 });
 
+const validity = {
+  age: false,
+  gender: false,
+  federalState: false,
+  country: false,
+  psychoSocialWorker: false,
+  softDeathInjNums: false,
+  verySoftDeathInjNums: false,
+  iWouldRead: false,
+  clientsWouldRead: false,
+  articles: false,
+};
+
 function checkValidity(showErrors: boolean) {
-  const validity = {
-    age: false,
-    gender: false,
-    federalState: false,
-    country: false,
-    psychoSocialWorker: false,
-    softDeathInjNums: false,
-    verySoftDeathInjNums: false,
-    iWouldRead: false,
-    clientsWouldRead: false,
-    articles: false,
-  };
+  let gotUpdated = false;
+
   // validate age
   const ageInput = document.querySelector("input[name='age']");
   const ageError = useState("ageError");
@@ -182,52 +205,67 @@ function checkValidity(showErrors: boolean) {
       ageErrorIcon?.classList.remove("hidden");
       ageError.value = true;
     }
+    if (validity.age) {
+      validity.age = false;
+      gotUpdated = true;
+    }
   } else {
-    validity.age = true;
-    ageInput?.classList.remove("input-error");
-    ageInput?.classList.add("input-info");
-    ageErrorIcon?.classList.add("hidden");
-    ageError.value = false;
+    if (!validity.age) {
+      validity.age = true;
+      ageInput?.classList.remove("input-error");
+      ageInput?.classList.add("input-info");
+      ageErrorIcon?.classList.add("hidden");
+      ageError.value = false;
+      gotUpdated = true;
+    }
   }
 
   // validate gender
-  const selectGender = document.querySelector("select[name='gender']");
-  const genderErrorIcon = document.querySelector("[data-error-icon='gender']");
-  const genderError = useState("genderError");
-  if (gender.value === "") {
-    if (showErrors) {
-      selectGender?.classList.remove("select-info");
-      selectGender?.classList.add("select-error");
-      genderErrorIcon?.classList.remove("hidden");
-      genderError.value = true;
+  if (!validity.gender) {
+    const selectGender = document.querySelector("select[name='gender']");
+    const genderErrorIcon = document.querySelector(
+      "[data-error-icon='gender']"
+    );
+    const genderError = useState("genderError");
+    if (gender.value === "") {
+      if (showErrors) {
+        selectGender?.classList.remove("select-info");
+        selectGender?.classList.add("select-error");
+        genderErrorIcon?.classList.remove("hidden");
+        genderError.value = true;
+      }
+    } else {
+      selectGender?.classList.add("select-info");
+      selectGender?.classList.remove("select-error");
+      genderErrorIcon?.classList.add("hidden");
+      validity.gender = true;
+      genderError.value = false;
+      gotUpdated = true;
     }
-  } else {
-    selectGender?.classList.add("select-info");
-    selectGender?.classList.remove("select-error");
-    genderErrorIcon?.classList.add("hidden");
-    validity.gender = true;
-    genderError.value = false;
   }
 
   // valid country
-  const countryInput = document.querySelector("input[name='country']");
-  const countryError = useState("countryError");
-  const countryErrorIcon = document.querySelector(
-    "[data-error-icon='country']"
-  );
-  if (country.value === "") {
-    if (showErrors) {
-      countryInput?.classList.remove("input-info");
-      countryInput?.classList.add("input-error");
-      countryErrorIcon?.classList.remove("hidden");
-      countryError.value = true;
+  if (!validity.country) {
+    const countryInput = document.querySelector("input[name='country']");
+    const countryError = useState("countryError");
+    const countryErrorIcon = document.querySelector(
+      "[data-error-icon='country']"
+    );
+    if (country.value === "") {
+      if (showErrors) {
+        countryInput?.classList.remove("input-info");
+        countryInput?.classList.add("input-error");
+        countryErrorIcon?.classList.remove("hidden");
+        countryError.value = true;
+      }
+    } else {
+      validity.country = true;
+      countryInput?.classList.remove("input-error");
+      countryInput?.classList.add("input-info");
+      countryErrorIcon?.classList.add("hidden");
+      countryError.value = false;
+      gotUpdated = true;
     }
-  } else {
-    validity.country = true;
-    countryInput?.classList.remove("input-error");
-    countryInput?.classList.add("input-info");
-    countryErrorIcon?.classList.add("hidden");
-    countryError.value = false;
   }
 
   // valid federal State
@@ -245,66 +283,78 @@ function checkValidity(showErrors: boolean) {
       federalStateErrorIcon?.classList.remove("hidden");
       federalStateError.value = true;
     }
+    if (validity.federalState) {
+      validity.federalState = false;
+      gotUpdated = true;
+    }
   } else {
-    validity.federalState = true;
-    federalStateInput?.classList.remove("input-error");
-    federalStateInput?.classList.add("input-info");
-    federalStateErrorIcon?.classList.add("hidden");
-    federalStateError.value = false;
+    if (!validity.federalState) {
+      validity.federalState = true;
+      federalStateInput?.classList.remove("input-error");
+      federalStateInput?.classList.add("input-info");
+      federalStateErrorIcon?.classList.add("hidden");
+      federalStateError.value = false;
+      gotUpdated = true;
+    }
   }
 
   // valid psychoSocialWorker
-  const psychoSocialWorkerInput = document.querySelector(
-    "input[name='psychoSocialWorker']"
-  );
-  const psychoSocialWorkerError = useState("psychoSocialWorkerError");
-  const psychoSocialWorkerErrorIcon = document.querySelector(
-    "[data-error-icon='psychoSocialWorker']"
-  );
-  if (psychoSocialWorker.value === null) {
-    if (showErrors) {
-      psychoSocialWorkerInput?.classList.remove("input-info");
-      psychoSocialWorkerInput?.classList.add("input-error");
-      psychoSocialWorkerErrorIcon?.classList.remove("hidden");
-      psychoSocialWorkerError.value = true;
+  console.log("valid psycho", validity.psychoSocialWorker);
+  if (!validity.psychoSocialWorker) {
+    const psychoSocialWorkerInput = document.querySelector(
+      "input[name='psychoSocialWorker']"
+    );
+    console.log("run validiy psycho");
+    const psychoSocialWorkerError = useState("psychoSocialWorkerError");
+    const psychoSocialWorkerErrorIcon = document.querySelector(
+      "[data-error-icon='psychoSocialWorker']"
+    );
+    if (psychoSocialWorker.value === null) {
+      if (showErrors) {
+        psychoSocialWorkerInput?.classList.remove("input-info");
+        psychoSocialWorkerInput?.classList.add("input-error");
+        psychoSocialWorkerErrorIcon?.classList.remove("hidden");
+        psychoSocialWorkerError.value = true;
+      }
+    } else {
+      if (!validity.psychoSocialWorker) {
+        validity.psychoSocialWorker = true;
+        psychoSocialWorkerInput?.classList.remove("input-error");
+        psychoSocialWorkerInput?.classList.add("input-info");
+        psychoSocialWorkerErrorIcon?.classList.add("hidden");
+        psychoSocialWorkerError.value = false;
+        gotUpdated = true;
+      }
     }
-  } else {
-    validity.psychoSocialWorker = true;
-    psychoSocialWorkerInput?.classList.remove("input-error");
-    psychoSocialWorkerInput?.classList.add("input-info");
-    psychoSocialWorkerErrorIcon?.classList.add("hidden");
-    psychoSocialWorkerError.value = false;
   }
 
   // valid softDeathInjNums
-  const softDeathInjNumsInput = document.querySelector(
-    "input[name='softDeathInjNums']"
-  );
-  const softDeathInjNumsError = useState("softDeathInjNumsError");
+  if (!validity.softDeathInjNums) {
+    const softDeathInjNumsError = useState("softDeathInjNumsError");
 
-  if (softDeathInjNums.value === null) {
-    if (showErrors) {
-      softDeathInjNumsInput?.classList.remove("input-info");
-      softDeathInjNumsInput?.classList.add("input-error");
-      softDeathInjNumsError.value = true;
+    if (softDeathInjNums.value === null) {
+      if (showErrors) {
+        softDeathInjNumsError.value = true;
+      }
+    } else {
+      validity.softDeathInjNums = true;
+      softDeathInjNumsError.value = false;
+      gotUpdated = true;
     }
-  } else {
-    validity.softDeathInjNums = true;
-    softDeathInjNumsInput?.classList.remove("input-error");
-    softDeathInjNumsInput?.classList.add("input-info");
-    softDeathInjNumsError.value = false;
   }
 
   // valid verySoftDeathInjNums
-  const verySoftDeathInjNumsError = useState("verySoftDeathInjNumsError");
-
-  if (verySoftDeathInjNums.value === null) {
-    if (showErrors) {
-      verySoftDeathInjNumsError.value = true;
+  if (!validity.verySoftDeathInjNums) {
+    const verySoftDeathInjNumsError = useState("verySoftDeathInjNumsError");
+    if (verySoftDeathInjNums.value === null) {
+      if (showErrors) {
+        verySoftDeathInjNumsError.value = true;
+      }
+    } else {
+      validity.verySoftDeathInjNums = true;
+      verySoftDeathInjNumsError.value = false;
+      gotUpdated = true;
     }
-  } else {
-    validity.verySoftDeathInjNums = true;
-    verySoftDeathInjNumsError.value = false;
   }
 
   // valid verySoftDeathInjNums
@@ -313,8 +363,15 @@ function checkValidity(showErrors: boolean) {
     if (showErrors) {
       iWouldReadError.value = true;
     }
+    if (validity.iWouldRead) {
+      validity.iWouldRead = false;
+      gotUpdated = true;
+    }
   } else {
-    validity.iWouldRead = true;
+    if (!validity.iWouldRead) {
+      validity.iWouldRead = true;
+      gotUpdated = true;
+    }
     iWouldReadError.value = false;
   }
 
@@ -327,52 +384,44 @@ function checkValidity(showErrors: boolean) {
     if (showErrors) {
       clientsWouldReadError.value = true;
     }
+    if (validity.clientsWouldRead === true) {
+      validity.clientsWouldRead = false;
+      gotUpdated = true;
+    }
   } else {
-    validity.clientsWouldRead = true;
-    clientsWouldReadError.value = false;
+    if (validity.clientsWouldRead === false) {
+      validity.clientsWouldRead = true;
+      clientsWouldReadError.value = false;
+      gotUpdated = true;
+    }
   }
 
   // at least 15 sentences have a factuality and langIntensity
-  const articles = surveyResponse.value.articles;
-  console.log("articles", surveyResponse.value.articles);
-  let articlesValidCount = 0;
+  let articlesValidCount = countValidArticles(surveyResponse.value.articles);
   // iterate through object
-  for (const article in articles) {
-    const sentences = articles[article].softer;
-    for (const sentence in sentences) {
-      console.log("sentence", sentences[sentence]);
-      for (const version in sentences[sentence]) {
-        console.log("version", sentences[sentence][version]);
-        if (
-          sentences[sentence][version].factuality !== undefined &&
-          sentences[sentence][version].langIntensity !== undefined
-        ) {
-          articlesValidCount++;
-          console.log("articlesValid: ", articlesValidCount);
-        }
-      }
-    }
-    const verySoftSentences = articles[article].verySoft;
-    for (const sentence in verySoftSentences) {
-      console.log("sentence vs", verySoftSentences[sentence]);
-      for (const version in verySoftSentences[sentence]) {
-        console.log("version", verySoftSentences[sentence][version]);
-        if (
-          verySoftSentences[sentence][version].factuality !== undefined &&
-          verySoftSentences[sentence][version].langIntensity !== undefined
-        ) {
-          articlesValidCount++;
-          console.log("articlesValid VS: ", articlesValidCount);
-        }
-      }
-    }
-  }
-  if (articlesValidCount >= 3) {
+  if (articlesValidCount >= 15) {
     validity.articles = true;
     showArticleError.value = false;
   } else {
     validity.articles = false;
     showArticleError.value = true;
+  }
+  if (prevArticlesValidCount !== articlesValidCount) {
+    prevArticlesValidCount = articlesValidCount;
+    gotUpdated = true;
+  }
+
+  console.log("updated ", gotUpdated);
+
+  if (gotUpdated) {
+    // filter answeredQuestionCount by true
+    answeredQuestionCount.value =
+      Object.values(validity).filter((value) => value === true).length +
+      articlesValidCount;
+    if (psychoSocialWorker.value === false) {
+      answeredQuestionCount.value = answeredQuestionCount.value - 1;
+    }
+    console.log("func answeredQuestionCount", answeredQuestionCount.value);
   }
 
   const allValid = Object.values(validity).every((value) => value === true);
@@ -393,7 +442,6 @@ const submitForm = () => {
   surveyResponse.value.generalRemark = generalRemark.value;
   console.log("clientsWouldRead", clientsWouldRead.value);
   console.log("psychoSocialWorker", psychoSocialWorker.value);
-  console.log("iWouldRead", iWouldRead.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {
