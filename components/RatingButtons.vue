@@ -76,37 +76,31 @@ const props = defineProps({
 const surveyResponse = useState("surveyResponse");
 const selectedRating = ref(null);
 
-function setRating(rating: Number) {
+function setRating(rating: number) {
   selectedRating.value = rating;
 
   if (props.softerPromptNum) {
     surveyResponse.value.articles[props.articleId].softer ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
+      `sentence__${props.sentenceNum}`
     ] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
-    ][`sentence-${props.sentenceNum}`] ??= {};
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.softerPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
-      `promptId-${props.softerPromptNum}`
-    ][`sentence-${props.sentenceNum}`].langIntensity = rating;
-
-    console.log("Softer prompt num:", rating);
-    // Send rating to backend
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.softerPromptNum}`].langIntensity = rating;
   } else if (props.verySoftPromptNum) {
     surveyResponse.value.articles[props.articleId].verySoft ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
+      `sentence__${props.sentenceNum}`
     ] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
-    ][`sentence-${props.sentenceNum}`] ??= {};
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.verySoftPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
-      `promptId-${props.verySoftPromptNum}`
-    ][`sentence-${props.sentenceNum}`].langIntensity = rating;
-    console.log("Very soft prompt num:", rating);
-    // Send rating to backend
+      `sentence__${props.sentenceNum}`
+    ][`promptId__${props.verySoftPromptNum}`].langIntensity = rating;
   }
-  console.log(surveyResponse.value.articles[props.articleId]);
 }
 </script>

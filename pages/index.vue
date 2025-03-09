@@ -1,5 +1,11 @@
 <template>
   <div class="w-11/12 my-4 md:my-8">
+    <div class="fixed top-0 left-0 w-full h-4 bg-white shadow-lg">
+      <div
+        class="h-full bg-info transition-all duration-300"
+        :style="{ width: progressPercentage + '%' }"
+      ></div>
+    </div>
     <div class="section flex flex-col justify-center items-center">
       <h1 class="font-bold text-2xl md:text-4xl">
         Nachrichten-Paraphrasierung
@@ -28,14 +34,14 @@
           die Sprachintensität von zu hart bis zu sanft bewerten. Teils sehen
           Sie auch denselben Satz in der umgeschriebenen Version noch einmal, um
           bei gewissen Formulierungen zu bewerten, ob solche Phrasen überhaupt
-          umgeschrieben werden sollen.
+          umgeschrieben werden sollen. TODO
         </AtomsText>
         <AtomsText>
           Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
           und werden nur im Rahmen der Masterarbeit verwendet. Ein Rückschluss
           auf Ihre Person ist nicht möglich.<br />
           Bei Fragen oder Anregungen können Sie Hanna Rodler unter
-          <a href="mailto:s2310629019@fhooe.at">s2310629019@fhooe.at</a>
+          <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
           kontaktieren.
         </AtomsText>
         <AtomsText>Vielen Dank für die Teilnahme an der Studie!</AtomsText>
@@ -45,47 +51,8 @@
     <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
       <Comparison :article="article" :index="index"></Comparison>
     </div>
-    <div class="section">
-      <div class="my-4">
-        Zahlen von Toten und Verletzten sollen in der
-        <em>sehr sanften Version</em> immer durch allgemeine Kategorisierungen
-        ersetzt werden:
-        <br />
-        <div
-          class="flex items-center space-x-2 md:space-x-4 justify-center mt-2"
-        >
-          <span>Ich stimme sehr zu</span>
-          <div class="flex space-x-2">
-            <label
-              v-for="(value, index) in [2, 1, -1, -2]"
-              :key="index"
-              class="flex items-center space-x-4"
-            >
-              <input
-                type="radio"
-                name="rating"
-                :value="value"
-                class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
-              />
-            </label>
-          </div>
-          <span>Ich stimme gar nicht zu</span>
-        </div>
-      </div>
-      <div class="my-4">
-        Ich kann mir grundsätzlich vorstellen folgende Versionen zu lesen,
-        sofern ich selbst immer einstellen kann, welche ich lese:
-        <br />
-        Auswahl original, sanfter, sehr sanft
-      </div>
-      <div class="my-4">
-        Ich kann mir vorstellen, dass folgende Versionen für mich
-        <em>hilfreich</em> sein können, sofern ich selbst immer einstellen kann,
-        welche ich lese:
-        <br />
-        Auswahl original, sanfter, sehr sanft
-      </div>
-    </div>
+
+    <AdditionalQuestions></AdditionalQuestions>
 
     <div class="section">
       <div
@@ -94,7 +61,15 @@
         id="form-error-msg"
         role="alert"
       >
-        Bitte füllen Sie alle Fragen aus.
+        Bitte füllen Sie alle allgemeinen Pflichtfragen aus.
+      </div>
+      <div
+        v-if="showArticleError"
+        role="alert"
+        id="articles-error-msg"
+        class="text-error text-center"
+      >
+        Bitte bewerten Sie mindestens 15 Versionen.
       </div>
       <div class="mt-5 flex justify-center flex-row">
         <AtomsButton
@@ -112,9 +87,16 @@
 </template>
 
 <script setup lang="ts">
-import type { surveyResponseType, gender, age } from "~/types/survey.type";
+import type {
+  age,
+  country,
+  gender,
+  surveyResponseType,
+  versions,
+} from "~/types/survey.type";
 import { ref, onMounted } from "vue";
 import surveyData from "~/contents/survey.json";
+import { countValidArticles } from "~/utils/validation";
 
 const isMounted = ref(false);
 onMounted(() => {
@@ -124,15 +106,48 @@ onMounted(() => {
 
 const gender = useState<gender>("gender");
 const age = useState<age>("age");
+const country = useState<country>("country");
+const federalState = useState<string>("federalState");
+const iWouldRead = useState<versions[] | null[]>("iWouldRead");
+const clientsWouldRead = useState<versions[] | null[]>("clientsWouldRead");
+const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
+const softDeathInjNums = useState<number | null>("softDeathInjNums");
+const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
+const generalRemark = useState<string>("generalRemark");
+const showArticleError = ref(false);
+const totalQuestionLength = ref<number>(63); // 5+ 3+ 40 TODO: adapt
+let answeredQuestionCount = ref<number>(0);
+let prevArticlesValidCount = 0;
+const progressPercentage = computed(() => {
+  console.log(
+    "answeredQuestionCount",
+    answeredQuestionCount.value,
+    "total",
+    totalQuestionLength.value,
+    answeredQuestionCount.value / totalQuestionLength.value
+  );
+  return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
+});
 
-const responseScheme: any = {
+const responseScheme: surveyResponseType = {
   articles: {
-    article_sellner: { softer: {}, verySoft: {} },
-    article_stocker: { softer: {}, verySoft: {} },
-    article_iran_saengerin: { softer: {}, verySoft: {} },
+    article_sellner: { softer: {}, verySoft: {}, remark: "" },
+    article_stocker: { softer: {}, verySoft: {}, remark: "" },
+    article_iran_saengerin: { softer: {}, verySoft: {}, remark: "" },
+    article_trump_grenell: { softer: {}, verySoft: {}, remark: "" },
+    article_sanctions_russia: { softer: {}, verySoft: {}, remark: "" },
+    article_tote_gaza: { softer: {}, verySoft: {}, remark: "" },
   },
   age: age.value,
   gender: gender.value,
+  country: country.value,
+  federalState: federalState.value,
+  iWouldRead: iWouldRead.value,
+  clientsWouldRead: clientsWouldRead.value,
+  verySoftDeathInjNums: verySoftDeathInjNums.value,
+  softDeathInjNums: softDeathInjNums.value,
+  psychoSocialWorker: psychoSocialWorker.value,
+  generalRemark: generalRemark.value,
 };
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
@@ -163,11 +178,22 @@ const isValid = computed(() => {
   return false;
 });
 
+const validity = {
+  age: false,
+  gender: false,
+  federalState: false,
+  country: false,
+  psychoSocialWorker: false,
+  softDeathInjNums: false,
+  verySoftDeathInjNums: false,
+  iWouldRead: false,
+  clientsWouldRead: false,
+  articles: false,
+};
+
 function checkValidity(showErrors: boolean) {
-  const validity = {
-    age: false,
-    gender: false,
-  };
+  let gotUpdated = false;
+
   // validate age
   const ageInput = document.querySelector("input[name='age']");
   const ageError = useState("ageError");
@@ -179,57 +205,224 @@ function checkValidity(showErrors: boolean) {
       ageErrorIcon?.classList.remove("hidden");
       ageError.value = true;
     }
+    if (validity.age) {
+      validity.age = false;
+      gotUpdated = true;
+    }
   } else {
-    validity.age = true;
-    ageInput?.classList.remove("input-error");
-    ageInput?.classList.add("input-info");
-    ageErrorIcon?.classList.add("hidden");
-    ageError.value = false;
+    if (!validity.age) {
+      validity.age = true;
+      ageInput?.classList.remove("input-error");
+      ageInput?.classList.add("input-info");
+      ageErrorIcon?.classList.add("hidden");
+      ageError.value = false;
+      gotUpdated = true;
+    }
   }
 
   // validate gender
-  const selectGender = document.querySelector("select[name='gender']");
-  const genderErrorIcon = document.querySelector("[data-error-icon='gender']");
-  const genderError = useState("genderError");
-  if (gender.value === "") {
-    if (showErrors) {
-      selectGender?.classList.remove("select-info");
-      selectGender?.classList.add("select-error");
-      genderErrorIcon?.classList.remove("hidden");
-      genderError.value = true;
+  if (!validity.gender) {
+    const selectGender = document.querySelector("select[name='gender']");
+    const genderErrorIcon = document.querySelector(
+      "[data-error-icon='gender']"
+    );
+    const genderError = useState("genderError");
+    if (gender.value === "") {
+      if (showErrors) {
+        selectGender?.classList.remove("select-info");
+        selectGender?.classList.add("select-error");
+        genderErrorIcon?.classList.remove("hidden");
+        genderError.value = true;
+      }
+    } else {
+      selectGender?.classList.add("select-info");
+      selectGender?.classList.remove("select-error");
+      genderErrorIcon?.classList.add("hidden");
+      validity.gender = true;
+      genderError.value = false;
+      gotUpdated = true;
     }
-  } else {
-    selectGender?.classList.add("select-info");
-    selectGender?.classList.remove("select-error");
-    genderErrorIcon?.classList.add("hidden");
-    validity.gender = true;
-    genderError.value = false;
   }
 
-  // validate articles
-  //   const articles = surveyResponse.value.articles;
-  //   let articlesValid = true;
-  //   for (let i = 0; i < articles.length; i++) {
-  //     if (articles[i].selectedSummary === "") {
-  //       if (showErrors) {
-  //         const question = document.querySelector(`[data-question-id='${i}']`);
-  //         question?.classList.add("form-error");
-  //         const errorMsg = document.querySelector(
-  //           `[data-question-id='${i}'].error-msg`
-  //         );
-  //         errorMsg?.classList.remove("hidden");
-  //       }
-  //       articlesValid = false;
-  //     }
-  //     if (articles[i].interest === -1) {
-  //       articlesValid = false;
-  //       // info: if selected is already shown for range
-  //     }
-  //   }
+  // valid country
+  if (!validity.country) {
+    const countryInput = document.querySelector("input[name='country']");
+    const countryError = useState("countryError");
+    const countryErrorIcon = document.querySelector(
+      "[data-error-icon='country']"
+    );
+    if (country.value === "") {
+      if (showErrors) {
+        countryInput?.classList.remove("input-info");
+        countryInput?.classList.add("input-error");
+        countryErrorIcon?.classList.remove("hidden");
+        countryError.value = true;
+      }
+    } else {
+      validity.country = true;
+      countryInput?.classList.remove("input-error");
+      countryInput?.classList.add("input-info");
+      countryErrorIcon?.classList.add("hidden");
+      countryError.value = false;
+      gotUpdated = true;
+    }
+  }
 
-  //   if (articlesValid) {
-  //     validity.articles = true;
-  //   }
+  // valid federal State
+  const federalStateInput = document.querySelector(
+    "input[name='federalState']"
+  );
+  const federalStateError = useState("federalStateError");
+  const federalStateErrorIcon = document.querySelector(
+    "[data-error-icon='federalState']"
+  );
+  if (federalState.value === "") {
+    if (showErrors) {
+      federalStateInput?.classList.remove("input-info");
+      federalStateInput?.classList.add("input-error");
+      federalStateErrorIcon?.classList.remove("hidden");
+      federalStateError.value = true;
+    }
+    if (validity.federalState) {
+      validity.federalState = false;
+      gotUpdated = true;
+    }
+  } else {
+    if (!validity.federalState) {
+      validity.federalState = true;
+      federalStateInput?.classList.remove("input-error");
+      federalStateInput?.classList.add("input-info");
+      federalStateErrorIcon?.classList.add("hidden");
+      federalStateError.value = false;
+      gotUpdated = true;
+    }
+  }
+
+  // valid psychoSocialWorker
+  console.log("valid psycho", validity.psychoSocialWorker);
+  if (!validity.psychoSocialWorker) {
+    const psychoSocialWorkerInput = document.querySelector(
+      "input[name='psychoSocialWorker']"
+    );
+    console.log("run validiy psycho");
+    const psychoSocialWorkerError = useState("psychoSocialWorkerError");
+    const psychoSocialWorkerErrorIcon = document.querySelector(
+      "[data-error-icon='psychoSocialWorker']"
+    );
+    if (psychoSocialWorker.value === null) {
+      if (showErrors) {
+        psychoSocialWorkerInput?.classList.remove("input-info");
+        psychoSocialWorkerInput?.classList.add("input-error");
+        psychoSocialWorkerErrorIcon?.classList.remove("hidden");
+        psychoSocialWorkerError.value = true;
+      }
+    } else {
+      if (!validity.psychoSocialWorker) {
+        validity.psychoSocialWorker = true;
+        psychoSocialWorkerInput?.classList.remove("input-error");
+        psychoSocialWorkerInput?.classList.add("input-info");
+        psychoSocialWorkerErrorIcon?.classList.add("hidden");
+        psychoSocialWorkerError.value = false;
+        gotUpdated = true;
+      }
+    }
+  }
+
+  // valid softDeathInjNums
+  if (!validity.softDeathInjNums) {
+    const softDeathInjNumsError = useState("softDeathInjNumsError");
+
+    if (softDeathInjNums.value === null) {
+      if (showErrors) {
+        softDeathInjNumsError.value = true;
+      }
+    } else {
+      validity.softDeathInjNums = true;
+      softDeathInjNumsError.value = false;
+      gotUpdated = true;
+    }
+  }
+
+  // valid verySoftDeathInjNums
+  if (!validity.verySoftDeathInjNums) {
+    const verySoftDeathInjNumsError = useState("verySoftDeathInjNumsError");
+    if (verySoftDeathInjNums.value === null) {
+      if (showErrors) {
+        verySoftDeathInjNumsError.value = true;
+      }
+    } else {
+      validity.verySoftDeathInjNums = true;
+      verySoftDeathInjNumsError.value = false;
+      gotUpdated = true;
+    }
+  }
+
+  // valid verySoftDeathInjNums
+  const iWouldReadError = useState("iWouldReadError");
+  if (iWouldRead.value.length === 0) {
+    if (showErrors) {
+      iWouldReadError.value = true;
+    }
+    if (validity.iWouldRead) {
+      validity.iWouldRead = false;
+      gotUpdated = true;
+    }
+  } else {
+    if (!validity.iWouldRead) {
+      validity.iWouldRead = true;
+      gotUpdated = true;
+    }
+    iWouldReadError.value = false;
+  }
+
+  // validity clientsWouldRead
+  const clientsWouldReadError = useState("clientsWouldReadError");
+  if (
+    psychoSocialWorker.value === true &&
+    clientsWouldRead.value.length === 0
+  ) {
+    if (showErrors) {
+      clientsWouldReadError.value = true;
+    }
+    if (validity.clientsWouldRead === true) {
+      validity.clientsWouldRead = false;
+      gotUpdated = true;
+    }
+  } else {
+    if (validity.clientsWouldRead === false) {
+      validity.clientsWouldRead = true;
+      clientsWouldReadError.value = false;
+      gotUpdated = true;
+    }
+  }
+
+  // at least 15 sentences have a factuality and langIntensity
+  let articlesValidCount = countValidArticles(surveyResponse.value.articles);
+  // iterate through object
+  if (articlesValidCount >= 15) {
+    validity.articles = true;
+    showArticleError.value = false;
+  } else {
+    validity.articles = false;
+    showArticleError.value = true;
+  }
+  if (prevArticlesValidCount !== articlesValidCount) {
+    prevArticlesValidCount = articlesValidCount;
+    gotUpdated = true;
+  }
+
+  console.log("updated ", gotUpdated);
+
+  if (gotUpdated) {
+    // filter answeredQuestionCount by true
+    answeredQuestionCount.value =
+      Object.values(validity).filter((value) => value === true).length +
+      articlesValidCount;
+    if (psychoSocialWorker.value === false) {
+      answeredQuestionCount.value = answeredQuestionCount.value - 1;
+    }
+    console.log("func answeredQuestionCount", answeredQuestionCount.value);
+  }
 
   const allValid = Object.values(validity).every((value) => value === true);
 
@@ -239,6 +432,16 @@ function checkValidity(showErrors: boolean) {
 const submitForm = () => {
   surveyResponse.value.age = age.value;
   surveyResponse.value.gender = gender.value;
+  surveyResponse.value.country = country.value;
+  surveyResponse.value.federalState = federalState.value;
+  surveyResponse.value.iWouldRead = iWouldRead.value;
+  surveyResponse.value.clientsWouldRead = clientsWouldRead.value;
+  surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
+  surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
+  surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
+  surveyResponse.value.generalRemark = generalRemark.value;
+  console.log("clientsWouldRead", clientsWouldRead.value);
+  console.log("psychoSocialWorker", psychoSocialWorker.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {

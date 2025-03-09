@@ -1,0 +1,124 @@
+    {
+        "id": "luftangriffe_gaza",
+        "context": {
+            "title": "Tote bei israelischen Angriffen in Gaza",
+            "body": "<p>Zahlreiche Tote hat es bei mehreren israelischen Angriffen im Gazastreifen gegeben. Bei einem Angriff auf ein früher als Schule genutztes Gebäude habe es sieben Tote und mehrere Verletzte gegeben, meldete die palästinensische Nachrichtenagentur WAFA.</p><p>Laut dem Bericht sollen in dem Gebäude in der Stadt Gaza Vertriebene untergebracht gewesen sein. Bei einem Luftangriff auf das Gemeindehaus in der Stadt Deir al-Balah im Zentrum des Gebiets kamen laut WAFA zehn Menschen ums Leben.</p>   <<fig>><p>Auch dort seien Dutzende Vertriebene untergekommen. Unter den Getöteten soll auch der Bürgermeister der Stadt sein. Die Angaben ließen sich noch nicht unabhängig verifizieren.</p><h4>Israel: Bürgermeister Ziel von Angriff</h4><p>Israels Armee teilte wenig später mit, dass der Bürgermeister auch als Kader des militärischen Flügels der Hamas tätig gewesen sei. Er habe die Kampfeinsätze der islamistischen Miliz – auf nicht näher beschriebene Weise – unterstützt.</p><p>Der Angriff habe ihm gegolten, so das Militär. Auch diese Angaben ließen sich zunächst nicht unabhängig überprüfen.</p><p>Die israelische Armee hatte bereits zuvor mitgeteilt, dass der Angriff in der Stadt Gaza Hamas-Terroristen gegolten habe, die dort Anschläge auf Israels Truppen in Gaza und auf israelisches Gebiet geplant hätten.</p><p>Das israelische Militär habe vor dem „präzisen Angriff“ zahlreiche Maßnahmen ergriffen, um die Gefahr für Zivilpersonen zu mindern, teilte die Armee weiter mit.</p>"
+        },
+        "sentences": {
+            "sentence_0": {
+                "original": "Tote bei israelischen Angriffen in Gaza",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "1x2",
+                            "sentence": "Opfer bei israelischen Aktionen in Gaza "
+                        },
+                        {
+                            "prompt_id": "6x2",
+                            "sentence": "Verluste bei israelischen Aktionen in Gaza"
+                        },
+                        {
+                            "prompt_id": "8x3",
+                            "sentence": "Schwierige Situation im Gazastreifen"
+                        },
+                        {
+                            "prompt_id": "2x1_3x2",
+                            "sentence": "Traurige Nachrichten aus Gaza: Menschen sterben bei Angriffen"
+                        },
+                        {
+                            "prompt_id": "3x1_7x1",
+                            "sentence": "Tragische Ereignisse im Gazastreifen"
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "6x2_7x1_9x2",
+                            "sentence": "Opfer bei israelischen Aktionen in Gaza "
+                        },
+                        {
+                            "prompt_id": "6x1_7x2",
+                            "sentence": "Verluste bei israelischen Aktionen in Gaza"
+                        },
+                        {
+                            "prompt_id": "3x3_10x2",
+                            "sentence": "Unruhen im Gaza"
+                        },
+                        {
+                            "prompt_id": "2x2_9x1",
+                            "sentence": "Konflikt in Gaza: Israelische Angriffe"
+                        },
+                        {
+                            "prompt_id": "5x3",
+                            "sentence": "Besorgniserregende Ereignisse im Gazastreifen "
+                        }
+                    ]
+                }
+            },
+            "sentence_1": {
+                "original": "Zahlreiche Tote hat es bei mehreren israelischen Angriffen im Gazastreifen gegeben.",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "2x2_3x1",
+                            "sentence": "In Gaza gab es mehrere Angriffe durch Israel, bei denen viele Menschen starben."
+                        },
+                        {
+                            "prompt_id": "3x1_7-x1",
+                            "sentence": "In Gaza sind viele Menschen bei mehreren israelischen Angriffen ums Leben gekommen."
+                        },
+                        {
+                            "prompt_id": "4x1_7-x1",
+                            "sentence": "Im Gazastreifen hat es bei mehreren israelischen Angriffen zahlreiche Todesopfer gegeben"
+                        },
+                        {
+                            "prompt_id": "6x2_6-x1",
+                            "sentence": "Bei mehreren israelischen Einsätzen im Gazastreifen gab es zahlreiche Opfer."
+                        },
+                        {
+                            "prompt_id": "8x2",
+                            "sentence": "Im Gazastreifen gab es mehrere Vorfälle, bei denen Menschen verletzt wurden und einige sogar ihr Leben verloren."
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "2x3_10x3",
+                            "sentence": "In Gaza gab es mehrere israelische Angriffe."
+                        },
+                        {
+                            "prompt_id": "6x2_7x1_9x2",
+                            "sentence": "Es gab mehrere Opfer bei verschiedenen israelischen Aktionen im Gazastreifen."
+                        },
+                        {
+                            "prompt_id": "6-x1_7x2",
+                            "sentence": "Es gab mehrere Verluste bei verschiedenen israelischen Aktionen im Gazastreifen."
+                        },
+                        {
+                            "prompt_id": "1x1_4x1_5x1",
+                            "sentence": "Im Gazastreifen gab es mehrere Vorfälle, bei denen Menschen zu Schaden kamen."
+                        },
+                        {
+                            "prompt_id": "8x3",
+                            "sentence": "Viele Menschen sind bei mehreren Vorfällen im Gazastreifen ums Leben gekommen."
+                        }
+                    ]
+                }
+            },
+            "sentence_2": {
+                "original": "s...",
+                "versions": {
+                    "softer": [
+                        {
+                            "prompt_id": "",
+                            "sentence": ""
+                        }
+                    ],
+                    "verySoft": [
+                        {
+                            "prompt_id": "",
+                            "sentence": ""
+                        }
+                    ]
+                }
+            }
+        }
+    },

@@ -1,21 +1,22 @@
 <template>
-  <div class="flex flex-col justify-center items-center w-full">
-    <div
-      class="w-full flex flex-col md:flex-col 2xl:flex-row md:space-y-4 2xl:space-x-4 2xl:space-y-0"
-    >
-      <!-- Original Section -->
+  <div class="flex flex-col justify-center items-center w-full my-4 md:my-8">
+    <div class="w-full flex flex-col md:space-y-4 2xl:space-x-4 2xl:space-y-0">
+      <!-- Softer Version Section -->
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 softer"
+        v-if="softerPromptNum && softerText"
+        class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 softer"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h2>Original</h2>
+          <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
-            v-html="highlightedOriginal"
+            v-html="highlightedOriginalSofter"
           ></p>
+          <div v-if="isLast">
+            Dieser Satz braucht nicht umgeschrieben zu werden TODO
+          </div>
         </div>
 
-        <!-- Sanftere Version Section -->
         <div
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
         >
@@ -40,17 +41,21 @@
         </div>
       </div>
 
+      <!-- Sehr Sanfte Version Section -->
       <div
-        class="w-full flex flex-col md:flex-row md:1/2 2xl:w-1/2 md:space-x-4 very-soft"
+        v-if="verySoftPromptNum && verySoftText"
+        class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 very-soft"
       >
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h2>Original</h2>
+          <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
             v-html="highlightedOriginalVerySoft"
           ></p>
+          <div v-if="isLast">
+            Dieser Satz braucht nicht umgeschrieben zu werden TODO
+          </div>
         </div>
-        <!-- Sehr Sanfte Version Section -->
         <div
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between very-soft"
         >
@@ -84,11 +89,11 @@ import { ref, onMounted } from "vue";
 const props = defineProps({
   softerPromptNum: {
     type: String,
-    required: true,
+    required: false,
   },
   verySoftPromptNum: {
     type: String,
-    required: true,
+    required: false,
   },
   articleId: {
     type: String,
@@ -104,36 +109,62 @@ const props = defineProps({
   },
   softerText: {
     type: String,
-    required: true,
+    required: false,
   },
   verySoftText: {
     type: String,
-    required: true,
+    required: false,
+  },
+  originalSofter: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  originalVerySoft: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  isLast: {
+    type: Boolean,
+    required: false,
   },
 });
 
-const highlightedOriginal = ref(props.originalText);
+const highlightedOriginalSofter = ref(props.originalText);
 const highlightedOriginalVerySoft = ref(props.originalText);
 const highlightedSofter = ref(props.softerText);
 const highlightedVerySoft = ref(props.verySoftText);
 
 const highlightChanges = () => {
-  const originalId = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-softer`;
-  const originalId2 = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-verySoft`;
-  const softerId = `a-${props.articleId}-p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
-  const verySoftId = `a-${props.articleId}-p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
-
-  const originalText = document.getElementById(originalId).textContent;
-  const softerText = document.getElementById(softerId).textContent;
-  const verySoftText = document.getElementById(verySoftId).textContent;
-
-  highlightedOriginal.value = markHighlights(softerText, originalText);
-  highlightedSofter.value = markHighlights(originalText, softerText);
-  highlightedVerySoft.value = markHighlights(originalText, verySoftText);
-  highlightedOriginalVerySoft.value = markHighlights(
-    verySoftText,
-    originalText
-  );
+  const originalText = props.originalText;
+  if (props.verySoftPromptNum) {
+    if (props.originalVerySoft !== "") {
+      highlightedVerySoft.value = props.verySoftText;
+      highlightedOriginalVerySoft.value = props.originalVerySoft;
+    } else {
+      highlightedVerySoft.value = markHighlights(
+        originalText,
+        props.verySoftText
+      );
+      highlightedOriginalVerySoft.value = markHighlights(
+        props.verySoftText,
+        originalText
+      );
+    }
+  }
+  if (props.softerPromptNum) {
+    if (props.originalSofter !== "") {
+      highlightedSofter.value = props.softerText;
+      highlightedOriginalSofter.value = props.originalSofter;
+    } else {
+      highlightedOriginalSofter.value = markHighlights(
+        props.softerText,
+        originalText
+      );
+      highlightedSofter.value = markHighlights(originalText, props.softerText);
+    }
+  }
 };
 
 function markHighlights(baseVersion, toMarkVersion) {
@@ -144,22 +175,16 @@ function markHighlights(baseVersion, toMarkVersion) {
   let isHighlighting = false;
 
   for (let i = 0; i < toMarkVersionWords.length; i++) {
-    console.log(
-      "to mark ",
-      toMarkVersionWords[i],
-      "base ",
-      baseVersionWords[i]
-    );
     if (toMarkVersionWords[i] !== baseVersionWords[i]) {
       if (!isHighlighting) {
-        console.log("!isHighlighting, so beign span");
+        // console.log("!isHighlighting, so beign span");
         highlightedHTML += '<span class="highlight">';
         isHighlighting = true;
       }
       highlightedHTML += toMarkVersionWords[i] + " ";
     } else {
       if (isHighlighting) {
-        console.log("isHighlighting, so end span");
+        // console.log("isHighlighting, so end span");
         highlightedHTML += "</span>";
         isHighlighting = false;
       }
@@ -175,9 +200,6 @@ function markHighlights(baseVersion, toMarkVersion) {
 }
 
 onMounted(() => {
-  // You can call highlightChanges automatically if needed
   highlightChanges();
 });
 </script>
-
-<style scoped></style>
