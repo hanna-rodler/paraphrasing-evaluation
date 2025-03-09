@@ -28,17 +28,17 @@
             :sentenceNum="sentenceKey"
             :originalText="sentence.original"
             :softerText="softerVersion.sentence"
+            :originalSofter="
+              softerVersion.original ? softerVersion.original : ''
+            "
             :isLast="index === sentence.versions.softer.length - 1"
           />
-          <!-- Short divider after each paraphrase -->
-          <!-- <div
-            class="w-full flex justify-center my-6 md:my-12"
-            v-if="index !== sentence.versions.softer.length - 1"
-          >
-            <hr class="border-t-2 border-gray-300 w-1/5" />
-          </div> -->
+          <!-- todo. DIESER Satz kann im Original bleiben -->
         </div>
-        <div class="w-full flex justify-center my-6 md:my-12">
+        <div
+          v-if="article.sentences.length > 0"
+          class="w-full flex justify-center my-6 md:my-12"
+        >
           <hr class="border-t-2 border-gray-300 w-1/5" />
         </div>
         <!-- Loop through "very soft" versions of that sentence-->
@@ -52,15 +52,13 @@
             :sentenceNum="sentenceKey"
             :originalText="sentence.original"
             :verySoftText="verySoftVersion.sentence"
+            :originalVerySoft="
+              verySoftVersion.original ? verySoftVersion.original : ''
+            "
             :isLast="index === sentence.versions.verySoft.length - 1"
           />
           <!-- Short divider after each paraphrase -->
-          <!-- <div
-            class="w-full flex justify-center my-6 md:my-12"
-            v-if="index !== sentence.versions.softer.length - 1"
-          >
-            <hr class="border-t-2 border-gray-300 w-1/5" />
-          </div> -->
+          <!-- TODO: Dieser Satz kann im Original bleiben. -->
         </div>
         <div
           class="w-full flex justify-center my-8 md:my-16"

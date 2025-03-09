@@ -34,7 +34,7 @@
           die Sprachintensität von zu hart bis zu sanft bewerten. Teils sehen
           Sie auch denselben Satz in der umgeschriebenen Version noch einmal, um
           bei gewissen Formulierungen zu bewerten, ob solche Phrasen überhaupt
-          umgeschrieben werden sollen.
+          umgeschrieben werden sollen. TODO
         </AtomsText>
         <AtomsText>
           Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
