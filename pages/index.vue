@@ -95,7 +95,7 @@ import type {
   versions,
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
-import surveyData from "~/contents/survey.json";
+import surveyData from "~/contents/one-version-survey.json";
 import { countValidArticles } from "~/utils/validation";
 
 const isMounted = ref(false);

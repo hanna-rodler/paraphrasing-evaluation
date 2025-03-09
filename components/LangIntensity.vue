@@ -1,17 +1,17 @@
 <template>
-  <div class="my-4">
-    <div class="font-bold">Faktizität</div>
-    <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-2">
+  <div class="mt-4 mb-2">
+    <div class="font-bold">Sprachintensität im Vergleich zum Original</div>
+    <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-3">
       <div class="flex space-x-2">
-        <span>inkorrekt</span>
+        <span>sehr hart</span>
         <label
-          v-for="(value, index) in [-2, -1, 1, 2]"
+          v-for="(value, index) in [-2, -1, 0, 1, 2]"
           :key="index"
           class="flex items-center space-x-4"
         >
           <input
             type="radio"
-            :name="`factuality-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
+            :name="`langIntensity-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
             :value="value"
             @click="setRating(value)"
             :checked="selectedRating === value"
@@ -19,15 +19,13 @@
           />
         </label>
       </div>
-      <span>korrekt</span>
+      <span>sehr sanft</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, defineProps } from "vue";
-import type { surveyResponseType } from "~/types/survey.type";
-
 const props = defineProps({
   softerPromptNum: {
     type: String,
@@ -49,10 +47,8 @@ const props = defineProps({
   },
 });
 
-const surveyResponse = useState<surveyResponseType>("surveyResponse");
-
-const selectedRating = ref<null | number>(null);
-
+const surveyResponse = useState("surveyResponse");
+const selectedRating = ref(null);
 function setRating(rating: number) {
   selectedRating.value = rating;
 
@@ -66,9 +62,7 @@ function setRating(rating: number) {
     ][`promptId__${props.softerPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].softer[
       `sentence__${props.sentenceNum}`
-    ][`promptId__${props.softerPromptNum}`].factuality = rating;
-
-    // Send rating to backend
+    ][`promptId__${props.softerPromptNum}`].langIntensity = rating;
   }
   if (props.verySoftPromptNum) {
     surveyResponse.value.articles[props.articleId].verySoft ??= {};
@@ -80,9 +74,8 @@ function setRating(rating: number) {
     ][`promptId__${props.verySoftPromptNum}`] ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
       `sentence__${props.sentenceNum}`
-    ][`promptId__${props.verySoftPromptNum}`].factuality = rating;
-    // Send rating to backend
+    ][`promptId__${props.verySoftPromptNum}`].langIntensity = rating;
   }
-  console.log("factuality", surveyResponse.value.articles[props.articleId]);
+  console.log("lang Intensity", surveyResponse.value.articles[props.articleId]);
 }
 </script>
