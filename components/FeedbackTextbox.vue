@@ -27,7 +27,7 @@ const props = defineProps({
   articleId: {
     type: String,
     required: false,
-    default: "general",
+    default: null,
   },
 });
 

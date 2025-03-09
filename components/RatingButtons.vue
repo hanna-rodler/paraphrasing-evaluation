@@ -90,9 +90,6 @@ function setRating(rating: number) {
     surveyResponse.value.articles[props.articleId].softer[
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.softerPromptNum}`].langIntensity = rating;
-
-    console.log("Softer prompt num:", rating);
-    // Send rating to backend
   } else if (props.verySoftPromptNum) {
     surveyResponse.value.articles[props.articleId].verySoft ??= {};
     surveyResponse.value.articles[props.articleId].verySoft[
@@ -104,9 +101,6 @@ function setRating(rating: number) {
     surveyResponse.value.articles[props.articleId].verySoft[
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.verySoftPromptNum}`].langIntensity = rating;
-    console.log("Very soft prompt num:", rating);
-    // Send rating to backend
   }
-  console.log(surveyResponse.value.articles[props.articleId]);
 }
 </script>

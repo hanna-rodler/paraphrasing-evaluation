@@ -55,7 +55,6 @@ const getRadioGroupName = computed(() => {
   } else if (props.verySoftPromptNum) {
     return `very-soft-${props.articleId}-${props.sentenceNum}-${props.verySoftPromptNum}`;
   }
-  console.log("group name");
 });
 
 const surveyResponse = useState<surveyResponseType>("surveyResponse");
@@ -77,7 +76,6 @@ function setRating(rating: number) {
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.softerPromptNum}`].factuality = rating;
 
-    console.log("Softer prompt num:", rating);
     // Send rating to backend
   } else if (props.verySoftPromptNum) {
     surveyResponse.value.articles[props.articleId].verySoft ??= {};
@@ -90,9 +88,7 @@ function setRating(rating: number) {
     surveyResponse.value.articles[props.articleId].verySoft[
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.verySoftPromptNum}`].factuality = rating;
-    console.log("Very soft prompt num:", rating);
     // Send rating to backend
   }
-  console.log(surveyResponse.value.articles[props.articleId]);
 }
 </script>

@@ -10,10 +10,10 @@
           <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
-            v-html="originalText"
+            v-html="highlightedOriginalSofter"
           ></p>
           <div v-if="isLast">
-            Dieser Satz braucht nicht umgeschrieben zu werden
+            Dieser Satz braucht nicht umgeschrieben zu werden TODO
           </div>
         </div>
 
@@ -24,7 +24,7 @@
             <h2>Sanftere Version</h2>
             <div
               :id="`a-${articleId}-p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
-              v-html="softerText"
+              v-html="highlightedSofter"
             ></div>
           </div>
           <Factuality
@@ -50,10 +50,10 @@
           <h2 class="text-black">Original</h2>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-verySoft`"
-            v-html="originalText"
+            v-html="highlightedOriginalVerySoft"
           ></p>
           <div v-if="isLast">
-            Dieser Satz braucht nicht umgeschrieben zu werden
+            Dieser Satz braucht nicht umgeschrieben zu werden TODO
           </div>
         </div>
         <div
@@ -63,7 +63,7 @@
             <h2>Sehr Sanfte Version</h2>
             <p
               :id="`a-${articleId}-p-${verySoftPromptNum}_s-${sentenceNum}_v-very-soft`"
-              v-html="verySoftText"
+              v-html="highlightedVerySoft"
             ></p>
           </div>
           <Factuality
@@ -115,37 +115,55 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  originalSofter: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  originalVerySoft: {
+    type: String,
+    required: false,
+    default: "",
+  },
   isLast: {
     type: Boolean,
-    required: true,
+    required: false,
   },
 });
 
-const highlightedOriginal = ref(props.originalText);
+const highlightedOriginalSofter = ref(props.originalText);
 const highlightedOriginalVerySoft = ref(props.originalText);
 const highlightedSofter = ref(props.softerText);
 const highlightedVerySoft = ref(props.verySoftText);
 
 const highlightChanges = () => {
-  const originalId = `a-${props.articleId}-p-${props.softerPromptNum}-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-original-softer`;
-  const originalText = document.getElementById(originalId).textContent;
+  const originalText = props.originalText;
   if (props.verySoftPromptNum) {
-    const verySoftId = `a-${props.articleId}-p-${props.verySoftPromptNum}_s-${props.sentenceNum}_v-very-soft`;
-    console.log("original Id", originalId, "very soft Id", verySoftId);
-
-    const verySoftText = document.getElementById(verySoftId).textContent;
-    highlightedVerySoft.value = markHighlights(originalText, verySoftText);
-    highlightedOriginalVerySoft.value = markHighlights(
-      verySoftText,
-      originalText
-    );
+    if (props.originalVerySoft !== "") {
+      highlightedVerySoft.value = props.verySoftText;
+      highlightedOriginalVerySoft.value = props.originalVerySoft;
+    } else {
+      highlightedVerySoft.value = markHighlights(
+        originalText,
+        props.verySoftText
+      );
+      highlightedOriginalVerySoft.value = markHighlights(
+        props.verySoftText,
+        originalText
+      );
+    }
   }
   if (props.softerPromptNum) {
-    const softerId = `a-${props.articleId}-p-${props.softerPromptNum}_s-${props.sentenceNum}_v-softer`;
-    console.log("original Id", originalId, "softer Id", softerId);
-    const softerText = document.getElementById(softerId).textContent;
-    highlightedOriginal.value = markHighlights(softerText, originalText);
-    highlightedSofter.value = markHighlights(originalText, softerText);
+    if (props.originalSofter !== "") {
+      highlightedSofter.value = props.softerText;
+      highlightedOriginalSofter.value = props.originalSofter;
+    } else {
+      highlightedOriginalSofter.value = markHighlights(
+        props.softerText,
+        originalText
+      );
+      highlightedSofter.value = markHighlights(originalText, props.softerText);
+    }
   }
 };
 
@@ -157,22 +175,16 @@ function markHighlights(baseVersion, toMarkVersion) {
   let isHighlighting = false;
 
   for (let i = 0; i < toMarkVersionWords.length; i++) {
-    console.log(
-      "to mark ",
-      toMarkVersionWords[i],
-      "base ",
-      baseVersionWords[i]
-    );
     if (toMarkVersionWords[i] !== baseVersionWords[i]) {
       if (!isHighlighting) {
-        console.log("!isHighlighting, so beign span");
+        // console.log("!isHighlighting, so beign span");
         highlightedHTML += '<span class="highlight">';
         isHighlighting = true;
       }
       highlightedHTML += toMarkVersionWords[i] + " ";
     } else {
       if (isHighlighting) {
-        console.log("isHighlighting, so end span");
+        // console.log("isHighlighting, so end span");
         highlightedHTML += "</span>";
         isHighlighting = false;
       }
@@ -188,7 +200,6 @@ function markHighlights(baseVersion, toMarkVersion) {
 }
 
 onMounted(() => {
-  // You can call highlightChanges automatically if needed
-  // highlightChanges();
+  highlightChanges();
 });
 </script>
