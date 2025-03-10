@@ -3,7 +3,8 @@
         "id": "article_tote_gaza",
         "context": {
             "title": "Tote bei israelischen Angriffen in Gaza",
-            "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h2>Großer Gebäudekomplex gesprengt</h2><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>"
+            "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h4>Großer Gebäudekomplex gesprengt</h4><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>",
+            "date": "04.01.2025"
         },
         "sentences": {
             "sentence_0": {
@@ -15,15 +16,18 @@
                     {
                         "softer_prompt_id": "1x2",
                         "very_soft_prompt_id": "6x1_7x2",
-                        "sentence": "Verluste bei israelischen Aktionen in Gaza"
+                        "sentence": "<span class='highlight'>Verluste</span> bei israelischen <span class='highlight'>Aktionen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
                     },
                     {
                         "softer_prompt_id": "6x2",
-                        "sentence": "Opfer bei israelischen Einsätzen in Gaza"
+                        "sentence": "<span class='highlight'>Opfer</span> bei israelischen <span class='highlight'>Einsätzen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
                     },
                     {
                         "very_softer_prompt_id": "6x2_7x1_9x2",
-                        "sentence": "Opfer bei israelischen Aktionen in Gaza "
+                        "sentence": "<span class='highlight'>Opfer</span> bei israelischen <span class='highlight'>Aktionen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
                     },
                     {
                         "softer_prompt_id": "2x2",
@@ -47,7 +51,7 @@
                     },
                     {
                         "very_soft_prompt_id": "8x2",
-                        "sentence": "Menschen sterben bei Vorfällen in Gaza"
+                        "sentence": "<span class='highlight'>Menschen sterben bei Vorfällen</span> in Gaza"
                     },
                     {
                         "very_soft_prompt_id": "3x3_10x2",
@@ -66,7 +70,7 @@
                 "very_soft_prompt_id": null,
                 "versions": [
                     {
-                        "prompt_id": "prompt_2",
+                        "prompt_id": "TODO",
                         "sentence": "Die israelische Armee hat in mehreren Aktionen im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet."
                     },
                     {
@@ -82,24 +86,19 @@
                 "very_soft_prompt_id": null,
                 "versions": [
                     {
-                        "softer_prompt_id": "1-x2_6x1",
-                        "sentence": "Zahlreiche weitere Personen seien bei den Vorfällen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, so die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen."
-                    },
-                    {
                         "softer_prompt_id": "6-x1_7x2",
-                        "sentence": "Weitere Personen wurden in den Gebieten Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt. Diese Informationen stammen von medizinischen Kreisen im Gazastreifen."
+                        "sentence": "<span class='highlight'>Weitere Personen</span> wurden in den Gebieten Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt. <span class='highlight'>Diese Informationen stammen</span> von medizinischen Kreisen im Gazastreifen.",
+                        "original": "<span class='highlight'>Zahlreiche weitere Menschen</span> seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb die Agentur unter Berufung auf Angaben von gestern aus</span> medizinischen Kreisen in dem Küstenstreifen."
                     },
                     {
-                        "softer_prompt_id": "2x2_3x2",
-                        "sentence": "Viele weitere Menschen wurden verletzt, besonders in den Gebieten Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens. Diese Informationen stammen von medizinischen Kreisen in Gaza."
-                    },
-                    {
-                        "softer_prompt_id": "2x1_3x1_5-x1_8-x1",
-                        "sentence": "Viele weitere Menschen wurden in den Gebieten Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt. Diese Informationen stammen von medizinischen Kreisen in Gaza."
+                        "softer_prompt_id": "2x2_2-x1_3x2_3-x1_5-x1_8-x1",
+                        "sentence": "<span class='highlight'>Viele</span> weitere Menschen wurden verletzt, <span class='highlight'>besonders in den Gebieten</span> Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens. <span class='highlight'>Diese Informationen stammen von</span> medizinischen Kreisen in Gaza.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
                     },
                     {
                         "softer_prompt_id": "1x1_5-x1_8-x1",
-                        "sentence": "Viele weitere Personen seien bei den Vorfällen in Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, berichtete die Agentur unter Berufung auf medizinische Quellen. "
+                        "sentence": "<span class='highlight'>Viele</span> weitere Personen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, berichtete die Agentur unter Berufung auf medizinische <span class='highlight'>Quellen</span>.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
                     },
                     {
                         "very_soft_prompt_id": "1-x2_5-x1_6x2_7x2_9x3",
@@ -107,7 +106,9 @@
                     },
                     {
                         "very_soft_prompt_id": "7-x1_8x2_8-x1",
-                        "sentence": "Weitere Menschen seien bei den Vorfällen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen."
+                        "softer_prompt_id": "1-x2_6x1",
+                        "sentence": "<span class='highlight'>Weitere</span> Menschen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
                     },
                     {
                         "very_soft_prompt_id": "2x2_2-x1_10x3",
@@ -174,10 +175,6 @@
                         "sentence": "Die Armee erklärte, dass die Gebäude eine Gefahr darstellten, da sie für Angriffe auf Israel genutzt wurden."
                     },
                     {
-                        "very_soft_prompt_id": "TODO",
-                        "sentence": "TODO"
-                    },
-                    {
                         "very_soft_prompt_id": "1x1_5x1_5-x1",
                         "sentence": "Die Armee erklärte, dass die Gebäude aufgrund ihrer Nähe zur israelischen Stadt Sderot und ihrer militärischen Infrastruktur eine Gefahr darstellten. "
                     },
@@ -234,7 +231,8 @@
         "id": "article_iran_saengerin",
         "context": {
             "title": "Konzert ohne Kopftuch: Iranische Sängerin verhaftet",
-            "body": "<p>Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.</p><p>Ihr Anwalt Milad Panahipur berichtete gestern, die Sängerin sei im Norden des Landes festgesetzt worden, die beiden Musiker in ihrem Musikstudio in der Hauptstadt Teheran. Die drei seien an einem ihm unbekannten Ort und hätten keinen Kontakt zur Außenwelt, sagte er dem Internetportal Emtedad. Menschen im In- und Ausland hatten die Frau in Onlinemedien für ihre mutige Initiative gelobt.</p><h4>„Frau, Leben, Freiheit“</h4><p>Im Iran sind viele Frauen unzufrieden mit den strengen islamischen Gesetzen und Kleidungsvorschriften. Im Herbst 2022 gingen Massen unter dem Motto „Frau, Leben, Freiheit“ gegen die repressive Politik auf die Straße, doch die Demonstrationen wurden gewaltsam niedergeschlagen.</p><p>Viele Frauen in den Metropolen widersetzen sich inzwischen aus Protest den islamischen Kleidervorschriften, insbesondere dem obligatorischen Kopftuch. Dagegen will nun das von islamischen Hardlinern dominierte Parlament mit einem neuen Gesetz und drakonischen Strafen vorgehen.</p>"
+            "body": "<p>Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.</p><p>Ihr Anwalt Milad Panahipur berichtete gestern, die Sängerin sei im Norden des Landes festgesetzt worden, die beiden Musiker in ihrem Musikstudio in der Hauptstadt Teheran. Die drei seien an einem ihm unbekannten Ort und hätten keinen Kontakt zur Außenwelt, sagte er dem Internetportal Emtedad. Menschen im In- und Ausland hatten die Frau in Onlinemedien für ihre mutige Initiative gelobt.</p><h4>„Frau, Leben, Freiheit“</h4><p>Im Iran sind viele Frauen unzufrieden mit den strengen islamischen Gesetzen und Kleidungsvorschriften. Im Herbst 2022 gingen Massen unter dem Motto „Frau, Leben, Freiheit“ gegen die repressive Politik auf die Straße, doch die Demonstrationen wurden gewaltsam niedergeschlagen.</p><p>Viele Frauen in den Metropolen widersetzen sich inzwischen aus Protest den islamischen Kleidervorschriften, insbesondere dem obligatorischen Kopftuch. Dagegen will nun das von islamischen Hardlinern dominierte Parlament mit einem neuen Gesetz und drakonischen Strafen vorgehen.</p>",
+            "date": "14.12.2024"
         },
         "sentences": {
             "sentence_0": {
@@ -315,7 +313,8 @@
         "id": "article_sellner",
         "context": {
             "title": "Privatanklage von Sellner: Gericht will Auslieferung Voglauers",
-            "body": "<p>Das Landesgericht Klagenfurt hat gestern die Auslieferung der grünen Generalsekretärin und Nationalratsabgeordneten Olga Voglauer beantragt.</p><p>Grund ist eine Privatanklage wegen übler Nachrede des Rechtsextremisten Martin Sellner, dem sie das Zeigen des Hitlergrußes unterstellt hatte, berichtet das Nachrichtenmagazin „profil“ (Onlineausgabe). In einem zivilrechtlichen Verfahren ist Voglauer bereits zu einem Widerruf verurteilt worden.</p><h4>Vorwürfe zu Auftritt bei Demo</h4><p>Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht. Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt.</p><p>Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet. Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer aber auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“</p><h4>Nationalrat am Zug</h4><p>Das Auslieferungsbegehren muss nun im Nationalrat behandelt werden. Dabei muss darüber entschieden werden, ob Voglauers Kommentar im Rahmen ihrer parlamentarischen Tätigkeit erfolgte oder nicht.</p><p>Die Grünen wollten das gegenüber „profil“ nicht kommentieren: „Martin Sellner versucht in dieser vor allem medienrechtlichen Causa rund um einen Tweet mit allen Mitteln gegen politische Kritik vorzugehen. Die Vorgehensweise spricht für sich.“</p>"
+            "body": "<p>Das Landesgericht Klagenfurt hat gestern die Auslieferung der grünen Generalsekretärin und Nationalratsabgeordneten Olga Voglauer beantragt.</p><p>Grund ist eine Privatanklage wegen übler Nachrede des Rechtsextremisten Martin Sellner, dem sie das Zeigen des Hitlergrußes unterstellt hatte, berichtet das Nachrichtenmagazin „profil“ (Onlineausgabe). In einem zivilrechtlichen Verfahren ist Voglauer bereits zu einem Widerruf verurteilt worden.</p><h4>Vorwürfe zu Auftritt bei Demo</h4><p>Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht. Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt.</p><p>Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet. Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer aber auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“</p><h4>Nationalrat am Zug</h4><p>Das Auslieferungsbegehren muss nun im Nationalrat behandelt werden. Dabei muss darüber entschieden werden, ob Voglauers Kommentar im Rahmen ihrer parlamentarischen Tätigkeit erfolgte oder nicht.</p><p>Die Grünen wollten das gegenüber „profil“ nicht kommentieren: „Martin Sellner versucht in dieser vor allem medienrechtlichen Causa rund um einen Tweet mit allen Mitteln gegen politische Kritik vorzugehen. Die Vorgehensweise spricht für sich.“</p>",
+            "date": "14.12.2024"
         },
         "sentences": {
             "sentence_1": {
@@ -379,7 +378,8 @@
         "id": "article_stocker",
         "context": {
             "title": "Stocker zu Verhandlungen mit FPÖ bereit",
-            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>"
+            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>",
+            "date": "05.01.2025"
         },
         "sentences": {
             "sentence_0": {
@@ -447,7 +447,8 @@
         "id": "article_trump_grenell",
         "context": {
             "title": "Trump macht Ex-Botschafter Grenell zum Sondergesandten",
-            "body": "<p>Der ehemalige US-Botschafter in Deutschland, Richard Grenell, soll künftig Gesandter für Sondermissionen des designierten US-Präsidenten Donald Trump werden. „Ric wird an einigen der heißesten Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social. „Ric wird weiterhin für Frieden durch Stärke kämpfen“ und werde die USA immer an die erste Stelle setzen, so Trump.</p>   <<fig>><p>Während seiner Zeit in Berlin, wohin ihn Trump 2018 in seiner ersten Amtszeit als Präsident entsandt hatte, sparte Grenell nicht mit Kritik an der damaligen CDU-Bundeskanzlerin Angela Merkel und an Deutschland. Dabei ging es vor allem um Deutschlands finanziellen Beitrag zum Verteidigungsbündnis NATO. Auch danach teilte der 58-Jährige immer wieder gegen Deutschland aus. Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X aufs Korn nahm, nannte Grenell den Beitrag Wahlbeeinflussung.</p><p>Der Getreue Trumps war zuvor als möglicher Außenminister gehandelt worden. Die Nominierung ging aber an Marco Rubio, einen Senator aus Florida.</p><h4>Truth-Social-CEO führt Geheimdienstbeirat an</h4><p>Trump gab noch eine weitere Personalie bekannt: Der Chef von Truth Social, Devin Nunes, soll den Vorsitz des künftigen nachrichtendienstlichen Beirats des Präsidenten übernehmen. Den Posten bei Truth Social werde er aber behalten, verkündete Trump auf der Plattform. Bevor Nunes die Rolle bei dem Medienunternehmen 2022 erhielt, saß er als republikanischer Abgeordneter im US-Repräsentantenhaus und tat sich bereits in dieser Zeit als eifriger Unterstützer Trumps hervor.</p><p>Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an Abhöranschuldigungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt. Trump schrieb, Nunes werde seine Erfahrung als ehemaliger Vorsitzender des Geheimdienstausschusses nutzen, um ihm unabhängige Einschätzungen zur Effektivität und Angemessenheit der Aktivitäten der US-Geheimdienste zu liefern.</p>"
+            "body": "<p>Der ehemalige US-Botschafter in Deutschland, Richard Grenell, soll künftig Gesandter für Sondermissionen des designierten US-Präsidenten Donald Trump werden. „Ric wird an einigen der heißesten Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social. „Ric wird weiterhin für Frieden durch Stärke kämpfen“ und werde die USA immer an die erste Stelle setzen, so Trump.</p><p>Während seiner Zeit in Berlin, wohin ihn Trump 2018 in seiner ersten Amtszeit als Präsident entsandt hatte, sparte Grenell nicht mit Kritik an der damaligen CDU-Bundeskanzlerin Angela Merkel und an Deutschland. Dabei ging es vor allem um Deutschlands finanziellen Beitrag zum Verteidigungsbündnis NATO. Auch danach teilte der 58-Jährige immer wieder gegen Deutschland aus. Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X aufs Korn nahm, nannte Grenell den Beitrag Wahlbeeinflussung.</p><p>Der Getreue Trumps war zuvor als möglicher Außenminister gehandelt worden. Die Nominierung ging aber an Marco Rubio, einen Senator aus Florida.</p><h4>Truth-Social-CEO führt Geheimdienstbeirat an</h4><p>Trump gab noch eine weitere Personalie bekannt: Der Chef von Truth Social, Devin Nunes, soll den Vorsitz des künftigen nachrichtendienstlichen Beirats des Präsidenten übernehmen. Den Posten bei Truth Social werde er aber behalten, verkündete Trump auf der Plattform. Bevor Nunes die Rolle bei dem Medienunternehmen 2022 erhielt, saß er als republikanischer Abgeordneter im US-Repräsentantenhaus und tat sich bereits in dieser Zeit als eifriger Unterstützer Trumps hervor.</p><p>Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an Abhöranschuldigungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt. Trump schrieb, Nunes werde seine Erfahrung als ehemaliger Vorsitzender des Geheimdienstausschusses nutzen, um ihm unabhängige Einschätzungen zur Effektivität und Angemessenheit der Aktivitäten der US-Geheimdienste zu liefern.</p>",
+            "date": "15.12.2024"
         },
         "sentences": {
             "sentence_0": {
@@ -563,7 +564,8 @@
         "id": "article_sanctions_russia",
         "context": {
             "title": "Neue Sanktionen gegen Russland beschlossen",
-            "body": "<p>Die EU-Staaten haben sich wegen des anhaltenden russischen Angriffskrieges gegen die Ukraine auf ein neues Paket mit Sanktionen verständigt. Das teilte die derzeitige ungarische EU-Ratspräsidentschaft gestern in Brüssel mit.</p><p>Mit den geplanten Strafmaßnahmen soll vor allem schärfer gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.</p><h4>Schwarze Liste</h4><p>Plan sei es, mehr als 50 weiteren Schiffen das Einlaufen in Häfen in der EU zu verbieten. Zudem sollen sie nicht mehr von Dienstleistungen europäischer Unternehmen profitieren können. In einem ersten Schritt hatte die EU im Juni bereits rund zwei Dutzend Schiffe auf eine entsprechende Schwarze Liste gesetzt.</p><p>Zudem ist im Rahmen des mittlerweile 15. Sanktionspaktes vorgesehen, Handelsbeschränkungen gegen mehr als 30 weitere Akteure zu verhängen, die nach EU-Erkenntnissen Verbindungen zum Verteidigungs- und Sicherheitssektor Russlands unterhalten oder diesen anderweitig unterstützen.</p><p>Auch ist nach Angaben der derzeitigen ungarischen EU-Ratspräsidentschaft geplant, gegen etliche weitere Personen Einreiseverbote und Vermögenssperren zu erlassen.</p>"
+            "body": "<p>Die EU-Staaten haben sich wegen des anhaltenden russischen Angriffskrieges gegen die Ukraine auf ein neues Paket mit Sanktionen verständigt. Das teilte die derzeitige ungarische EU-Ratspräsidentschaft gestern in Brüssel mit.</p><p>Mit den geplanten Strafmaßnahmen soll vor allem schärfer gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.</p><h4>Schwarze Liste</h4><p>Plan sei es, mehr als 50 weiteren Schiffen das Einlaufen in Häfen in der EU zu verbieten. Zudem sollen sie nicht mehr von Dienstleistungen europäischer Unternehmen profitieren können. In einem ersten Schritt hatte die EU im Juni bereits rund zwei Dutzend Schiffe auf eine entsprechende Schwarze Liste gesetzt.</p><p>Zudem ist im Rahmen des mittlerweile 15. Sanktionspaktes vorgesehen, Handelsbeschränkungen gegen mehr als 30 weitere Akteure zu verhängen, die nach EU-Erkenntnissen Verbindungen zum Verteidigungs- und Sicherheitssektor Russlands unterhalten oder diesen anderweitig unterstützen.</p><p>Auch ist nach Angaben der derzeitigen ungarischen EU-Ratspräsidentschaft geplant, gegen etliche weitere Personen Einreiseverbote und Vermögenssperren zu erlassen.</p>",
+            "date": "11.12.2024"
         },
         "sentences": {
             "sentence_0": {
@@ -574,12 +576,12 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1-x1_5-x1_8x2",
-                        "very_soft_prompt_id": "1x1_3x2_4x1_5x3_6x2_8x3_10x1",
+                        "very_soft_prompt_id": "1x1_3x2_5x3_6x2_8x3_10x1",
                         "sentence": "Neue Maßnahmen gegen Russland beschlossen"
                     },
                     {
                         "softer_prompt_id": "1-x1_6x3_7-x2_8x2",
-                        "very_soft_prompt_id": "1x2_2x1_4x1_6x1_7x3_9x3",
+                        "very_soft_prompt_id": "1x2_2x1_6x1_7x3_9x3",
                         "sentence": "Neue Maßnahmen gegen Russland vereinbart"
                     },
                     {
@@ -620,7 +622,7 @@
                         "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit Sanktionen <span class='highlight'>verständigt</span>."
                     },
                     {
-                        "very_soft_prompt_id": "4-x3_6x1_7x1_9x1",
+                        "very_soft_prompt_id": "6x1_7x1_9x1",
                         "sentence": "Die EU-Staaten haben sich aufgrund der anhaltenden <span class='highlight'>Spannungen mit der Ukraine</span> auf ein neues Paket mit <span class='highlight'>Maßnahmen geeinigt</span>.",
                         "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
                     },
@@ -639,28 +641,39 @@
             "sentence_2": {
                 "orig_sentence_num": "3",
                 "original": "Mit den geplanten Strafmaßnahmen soll vor allem schärfer gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.",
-                "softer_prompt_id": "TODO",
-                "very_soft_prompt_id": "TODO",
+                "softer_prompt_id": null,
+                "very_soft_prompt_id": null,
                 "versions": [
                     {
                         "softer_prompt_id": "1x2_1-x1_5-x1_6x3",
                         "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch die russische Schattenflotte stärker reguliert werden, wie mehrere Diplomaten der dpa mitteilten."
                     },
                     {
-                        "softer_prompt_id": "1x1_5-x1_6x2_7x1_7-x2_8x2_8-x1",
-                        "sentence": "TODO"
+                        "very_soft_prompt_id": "1x2_1-x1",
+                        "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch russische Schiffe stärker reguliert werden, wie mehrere Diplomaten der dpa mitteilten"
                     },
                     {
-                        "very_soft_prompt_id": "",
-                        "sentence": "TODO"
+                        "softer_prompt_id": "8-x1",
+                        "very_soft_prompt_id": "8x2_10x2",
+                        "sentence": "Mit den geplanten Maßnahmen soll vor allem gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten. "
                     },
                     {
-                        "very_soft_prompt_id": "",
-                        "sentence": "TODO"
+                        "softer_prompt_id": "3-x2_4-x2",
+                        "very_soft_prompt_id": "7x1_7-x1_8x1_9x2",
+                        "sentence": "Mit den geplanten Maßnahmen soll vor allem strenger gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten."
                     },
                     {
-                        "very_soft_prompt_id": "4-x3_6x1_7x1_9x1",
-                        "sentence": "TODO"
+                        "softer_prompt_id": "4x1_5x1",
+                        "sentence": "Die geplanten Maßnahmen zielen darauf ab, den Transport von Öl und Ölprodukten durch die russische Schattenflotte zu erschweren, wie mehrere Diplomaten der dpa mitteilten."
+                    },
+                    {
+                        "softer_prompt_id": "8-x1",
+                        "very_soft_prompt_id": "2-x1_3-x3_5x2",
+                        "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch russische Schiffe eingeschränkt werden, wie mehrere Diplomaten der dpa mitteilten."
+                    },
+                    {
+                        "softer_prompt_id": "2x1_2-x1_3-x1",
+                        "sentence": "Mit diesen neuen Strafmaßnahmen soll besonders hart gegen die sogenannte Schattenflotte Russlands vorgegangen werden. Diese Flotte transportiert Öl und Ölprodukte. Mehrere Diplomaten haben der Deutschen Presse-Agentur (dpa) davon erzählt. "
                     }
                 ]
             }
