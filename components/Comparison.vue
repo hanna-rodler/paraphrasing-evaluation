@@ -5,7 +5,10 @@
       <!-- Kontext Section -->
       <div class="mb-2 md:mb-4">
         <div>
-          <h3>{{ article.context.title }}</h3>
+          <h3 class="mb-0">{{ article.context.title }}</h3>
+          <span class="text-gray-800 text-sm mb-6">
+            Artikel von {{ article.context.date }}
+          </span>
           <!-- // render body as html  -->
           <div v-html="article.context.body"></div>
         </div>
@@ -41,21 +44,16 @@
             -->
           <!-- todo. DIESER Satz kann im Original bleiben -->
         </div>
-        <div
-          v-if="article.sentences.length > 0"
-          class="w-full flex justify-center my-6 md:my-12"
-        >
-          <hr class="border-t-2 border-gray-300 w-1/5" />
-        </div>
         <!-- Loop through "very soft" versions of that sentence-->
         <div
-          class="w-full flex justify-center my-8 md:my-16"
+          class="w-full flex flex-col items-center my-8 md:mt-16 md:mb-10"
           v-if="
             Object.keys(article.sentences).indexOf(index) !==
             Object.keys(article.sentences).length - 1
           "
         >
           <hr class="border-t-2 border-gray-400 w-3/4" />
+          <h2 class="mt-6">Nächster Satz</h2>
         </div>
       </div>
     </div>

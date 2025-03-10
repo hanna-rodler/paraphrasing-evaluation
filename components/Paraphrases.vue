@@ -4,7 +4,7 @@
       <!-- Softer Version Section -->
       <div class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 softer">
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h2 class="text-black">Original</h2>
+          <h3 class="paraphrase text-black">Original</h3>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
             v-html="highlightedOriginal"
@@ -15,7 +15,7 @@
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
         >
           <div>
-            <h2>Sanftere Version</h2>
+            <h3 class="paraphrase">Sanftere Version</h3>
             <div
               :id="`a-${articleId}-p-${softerPromptNum}_s-${sentenceNum}_v-softer`"
               v-html="highlightedVersionText"

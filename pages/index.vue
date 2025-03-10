@@ -115,7 +115,7 @@ const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const generalRemark = useState<string>("generalRemark");
 const showArticleError = ref(false);
-const totalQuestionLength = ref<number>(63); // 5+ 3+ 40 TODO: adapt
+const totalQuestionLength = ref<number>(102); // 5+ 3+ 40 TODO: adapt
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
@@ -299,12 +299,10 @@ function checkValidity(showErrors: boolean) {
   }
 
   // valid psychoSocialWorker
-  console.log("valid psycho", validity.psychoSocialWorker);
   if (!validity.psychoSocialWorker) {
     const psychoSocialWorkerInput = document.querySelector(
       "input[name='psychoSocialWorker']"
     );
-    console.log("run validiy psycho");
     const psychoSocialWorkerError = useState("psychoSocialWorkerError");
     const psychoSocialWorkerErrorIcon = document.querySelector(
       "[data-error-icon='psychoSocialWorker']"
@@ -418,7 +416,10 @@ function checkValidity(showErrors: boolean) {
     answeredQuestionCount.value =
       Object.values(validity).filter((value) => value === true).length +
       articlesValidCount;
-    if (psychoSocialWorker.value === false) {
+    if (
+      psychoSocialWorker.value === false ||
+      psychoSocialWorker.value === null
+    ) {
       answeredQuestionCount.value = answeredQuestionCount.value - 1;
     }
     console.log("func answeredQuestionCount", answeredQuestionCount.value);

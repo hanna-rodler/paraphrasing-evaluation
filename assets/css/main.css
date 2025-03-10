@@ -22,7 +22,11 @@
   }
   
   h3 {
-    @apply text-lg font-bold text-black mt-5 mb-3;
+    @apply text-lg font-semibold text-black mt-5 mb-3;
+  }
+
+  h3.paraphrase {
+    @apply text-lg font-semibold text-primary text-center mt-5 mb-3;
   }
   
   h4 {

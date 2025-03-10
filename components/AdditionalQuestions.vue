@@ -218,7 +218,6 @@ const clientsWouldReadError = useState<boolean>(
 
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const showSocialWorkerQuestion = computed(() => {
-  console.log("show social worker", psychoSocialWorker.value);
   return psychoSocialWorker.value === true ? true : false;
 });
 
