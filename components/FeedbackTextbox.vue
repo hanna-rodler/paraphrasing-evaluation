@@ -1,7 +1,7 @@
 <template>
   <div class="mt-3 flex flex-col justify-center w-full">
     <label class="form-control w-lg" :for="`test`">
-      <div class="label">
+      <div class="label mb-2">
         Haben Sie noch Anmerkungen<span v-if="articleId">
           zu diesem Artikel? (Sätze, die noch sanfter formuliert gehören oder
           sonstige Anmerkungen)</span
@@ -40,14 +40,13 @@ const surveyResponse = useState<surveyResponseType>("surveyResponse");
 const debouncedSave = useDebounceFn(() => {
   if (remark.value !== "") {
     if (!props.articleId) {
-      console.log("save to general remarks:");
       generalRemark.value = remark.value;
     } else if (props.articleId) {
-      console.log("save to article remarks :", props.articleId);
       surveyResponse.value.articles[props.articleId].remark = remark.value;
-      console.log(surveyResponse.value.articles[props.articleId].remark);
-      // surveyResponse.value.articles[props.content.id].generalRemark = generalRemark.value;
-      // console.log(surveyResponse.value.articles[props.content.id]);
+      console.log(
+        "remark",
+        surveyResponse.value.articles[props.articleId].remark
+      );
     }
   }
 }, 300);

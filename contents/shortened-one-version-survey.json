@@ -68,21 +68,21 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1x3_4-x1_6x1_6-x1",
-                        "sentence": "Die israelische Armee hat bei mehreren Einsätzen im Gazastreifen nach Angaben der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschenleben gefordert."
+                        "very_soft_prompt_id": "7-x1_7--x1_9-x2",
+                        "sentence": "Die israelische Armee hat bei mehreren Einsätzen im Gazastreifen nach Angaben der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschenleben gefordert.",
+                        "comment": "merged with 'Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert.' weil es hier 'Menschenleben gefordert gibt' und 'Aktionen' auch schon getestet wird. [9x2_9--x1_7-x1_7--x1]"
                     },
                     {
-                        "softer_prompt_id": "8x2_6--x1",
+                        "softer_prompt_id": "6--x1_7-x1_8x2_9-x2",
+                        "very_soft_prompt_id": "7-x1_9-x2",
                         "sentence": "Die israelische Armee hat in mehreren <span class='highlight'>Aktionen</span> im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
-                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet."
+                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet.",
+                        "comment": "merged with 'Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert.' weil es hier 'Menschenleben gefordert gibt' und 'Aktionen' [7x1, 9x2, auch schon getestet wird. [9x2_9--x1_7-x1_7--x1]"
                     },
                     {
                         "softer_prompt_id": "2x3_3x3_4--x1_5--x1_7x2_8-x1",
                         "sentence": "Die israelische Armee hat im Gazastreifen mehrere Angriffe <span class='highlight'>durchgeführt</span>. Dabei sind laut der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschen <span class='highlight'>ums Leben gekommen</span>.",
                         "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen <span class='highlight'>getötet</span>."
-                    },
-                    {
-                        "very_soft_prompt_id": "7x1_9x2_9--x1_7--x1",
-                        "sentence": "Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert."
                     },
                     {
                         "very_soft_prompt_id": "8x2",
@@ -102,11 +102,6 @@
                         "very_soft_prompt_id": "3--x1_10x2",
                         "sentence": "Die israelische Armee hat mehrere Angriffe im Gazastreifen <span class='highlight'>durchgeführt</span>. Dabei <span class='highlight'>wurden Menschen verletzt</span>, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
                         "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
-                    },
-                    {
-                        "very_soft_prompt_id": "1x1_1-x2_5-x1",
-                        "sentence": "Die israelische Armee hat mehrere Einsätze im Gazastreifen durchgeführt.",
-                        "kick": "evtl, weil nur ein echtes. Aber trotzdem Kategorie wichtig"
                     }
                 ]
             },
@@ -136,10 +131,11 @@
                         "sentence": "Zahlreiche weitere Menschen seien bei den Vorfällen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen. "
                     },
                     {
+                        "softer_prompt_id": "1-x2_1-x1_5-x1_6x1_8-x1",
                         "very_soft_prompt_id": "7-x1_8x2_8-x1",
-                        "softer_prompt_id": "1-x2_6x1",
                         "sentence": "<span class='highlight'>Weitere</span> Menschen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.",
-                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>.",
+                        "comment": "merged with '<span class='highlight'>Viele</span> weitere Personen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, berichtete die Agentur unter Berufung auf medizinische <span class='highlight'>Quellen</span>.' becaus of 'Vorfälle' [8x1_1x1_5x1]"
                     },
                     {
                         "very_soft_prompt_id": "2x2_2-x1_10x3",
@@ -151,7 +147,7 @@
                         "very_soft_prompt_id": "3x2_5x1",
                         "sentence": "Die Einsätze fanden in verschiedenen Teilen des Gazastreifens statt.",
                         "grouping": "lost verletzte",
-                        "kick": "evtl, merge mit lost verletzte"
+                        "kick": "evtl, merge mit lost verletzte und mit Einsätze"
                     }
                 ]
             },
@@ -162,15 +158,10 @@
                 "very_soft_prompt_id": null,
                 "versions": [
                     {
-                        "softer_prompt_id": "1-x3_2x2_2-x1_3x2_6-x2_7x2",
+                        "softer_prompt_id": "1-x3_2x2_2-x1_3x2_5-x2_6-x2_7x2_7-x1",
                         "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah vier bewaffnete Hamas-Kämpfer in einem Fahrzeug <span class='highlight'>durch einen gezielten Schlag</span> getroffen wurden.",
-                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben."
-                    },
-                    {
-                        "softer_prompt_id": "5x2_7x1",
-                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah vier bewaffnete Hamas-Kämpfer <span class='highlight'>durch einen gezielten Schlag</span> getroffen wurden.",
-                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer <span class='highlight'>in einem Fahrzeug</span> getroffen zu haben.",
-                        "kick": "evtl. sehr ähnlich zu oberem. Nur ohne Fahrzeug."
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben.",
+                        "comment": "ohne Fahrzeug: 'Später teilte das Militär mit, dass in Deir al-Balah vier bewaffnete Hamas-Kämpfer durch einen gezielten Schlag getroffen wurden.' [5x2_7x1]"
                     },
                     {
                         "very_soft_prompt_id": "6x2_7-x1_8x2_8-x1",
@@ -223,8 +214,8 @@
                         "comment": "merged with milit. Infrastruktur"
                     },
                     {
-                        "very_soft_prompt_id": "6x2_6-x1_7-x1",
                         "softer_prompt_id": "2-x2_5--x1",
+                        "very_soft_prompt_id": "6x2_6-x1_7-x1",
                         "sentence": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Verteidigungsstellungen</span>, Tunneln und Abschussrampen eine Gefahr gewesen, erklärte die Armee",
                         "original": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Panzerabwehrstellungen</span>, Tunneln und Abschussrampen <span class='highlight'>für Raketenangriffe auf Israel</span> eine Gefahr gewesen, erklärte die Armee.",
                         "comment": "merged with 'Die Gebäude waren nur etwa drei Kilometer von der israelischen Stadt Sderot entfernt. Die Armee sagte, dass diese Gebäude mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen eine Gefahr für Israel darstellten.' aufgrund Satzstellung"
@@ -296,10 +287,6 @@
                         "sentence": "Konzert ohne Kopftuch: Iranische Sängerin in Gewahrsam"
                     },
                     {
-                        "softer_prompt_id": "1x2_5x1",
-                        "sentence": "Konzert ohne Kopftuch: Iranische Sängerin in Haft"
-                    },
-                    {
                         "softer_prompt_id": "4x1_4--x1_5--x1",
                         "sentence": "Mutige Iranische Sängerin verhaftet: Ein Lied für die Freiheit"
                     },
@@ -321,8 +308,8 @@
                 "versions": [
                     {
                         "softer_prompt_id": "2x2",
-                        "sentence": "Die iranische Musikerin Parastu hat in der islamischen Republik <span class='highlight'>etwas getan, was dort als sehr mutig gilt</span>: Sie sang ohne Kopftuch und im Kleid bei einem Konzert. Das Video davon stellte sie auf YouTube – und wurde dafür <span class='highlight'>verhaftet</span>, genauso wie zwei Mitglieder ihrer Band.",
-                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus</span> in der islamischen Republik <span class='highlight'>gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen <span class='highlight'>verhaftet</span>, ebenso wie zwei Mitglieder ihrer Band."
+                        "sentence": "Die iranische Musikerin Parastu hat in der islamischen Republik <span class='highlight'>etwas getan, was dort als sehr mutig gilt</span>: Sie sang ohne Kopftuch und im Kleid bei einem Konzert. Das Video davon stellte sie auf YouTube – und wurde dafür verhaftet, genauso wie zwei Mitglieder ihrer Band.",
+                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus</span> in der islamischen Republik <span class='highlight'>gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band."
                     },
                     {
                         "softer_prompt_id": "3-x1_7x1_7-x1_7-x1",
@@ -463,11 +450,6 @@
                 "very_soft_prompt_id": "",
                 "versions": [
                     {
-                        "softer_prompt_id": "2x3_3x3_4--x2_8--x2",
-                        "sentence": "Stocker <span class='highlight'>erinnerte daran, dass er in der Vergangenheit</span> die FPÖ und Kickl <span class='highlight'>stark kritisiert hat</span>.",
-                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
-                    },
-                    {
                         "softer_prompt_id": "1x2_4x1_6x2",
                         "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>kritische Haltung gegenüber</span> der FPÖ und Herbert Kickl",
                         "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
@@ -479,9 +461,11 @@
                         "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
                     },
                     {
+                        "softer_prompt_id": "2-x3_3-x3_4--x2_8--x2",
                         "very_soft_prompt_id": "6x2_6-x1_8x1_9x1_9-x1",
                         "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>starke Kritik</span> an der FPÖ und an Kickl.",
-                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
+                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl.",
+                        "comment": "merged with 2x3_3x3_4--x2_8--x2 'Stocker <span class='highlight'>erinnerte daran, dass er in der Vergangenheit</span> die FPÖ und Kickl <span class='highlight'>stark kritisiert hat</span>.' wegen beides stark kritisiert"
                     }
                 ]
             }
@@ -628,10 +612,6 @@
                     {
                         "softer_prompt_id": "2x3_3x3",
                         "sentence": "Neue Strafen gegen Russland wegen Ukraine-Krieg"
-                    },
-                    {
-                        "softer_prompt_id": "4x2_4-x2",
-                        "sentence": "Neue Sanktionen gegen Russland: Was das für uns bedeutet"
                     }
                 ]
             },

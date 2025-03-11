@@ -10,31 +10,33 @@
       <h1 class="font-bold text-2xl md:text-4xl">
         Nachrichten-Paraphrasierung
       </h1>
-      <div class="md:max-w-2xl px-4 md:px-0">
+      <div class="subSection px-4 md:px-0">
         <AtomsText>
           Liebe Teilnehmenden,<br />
           im Jahr 2024 lag die Anzahl der Menschen die manchmal oder oft
-          Nachrichten vermieden haben bei durchschnittlich 39% in über 74
+          Nachrichten vermieden haben bei durchschnittlich 39 % in über 74
           Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
-          lag ebenfalls bei 39%.<br />
+          lag ebenfalls bei 39 %.<br />
           Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
           herauszufinden, inwiefern die Reduktion von Sprachintensität von
           politischen Nachrichten beeinflusst wie regelmäßig politische
           Nachrichten konsumiert werden und was für einen Einfluss dies auf eine
-          mögliche Überforderung von Lesenden hat.
+          mögliche Überforderung von Lesenden hat. Hierzu soll eine App
+          entwickelt werden, die es den Lesenden je nach Stimmungslage und
+          Kapazitäten ermöglicht eine sanftere Version oder das Original zu
+          lesen.
         </AtomsText>
         <AtomsText>
-          Um zu untersuchen, wie die Sprachintensität wahrgenommen wird, werden
-          Ihnen politische Nachrichtenartikel von der ORF Website in
-          unterschiedlichen Sprachintensitäten präsentiert. Sie sehen einmal den
-          gesamten Nachrichtenartikel als Kontext und bekommen dann Sätze daraus
-          in einer sanften und sehr sanften Version präsentiert. Um Ihnen den
-          Vergleich einfacher zu machen, sind veränderte Satzteile markiert. Sie
-          können zu jeder Version die Faktizität von korrekt bis inkorrekt und
-          die Sprachintensität von zu hart bis zu sanft bewerten. Teils sehen
-          Sie auch denselben Satz in der umgeschriebenen Version noch einmal, um
-          bei gewissen Formulierungen zu bewerten, ob solche Phrasen überhaupt
-          umgeschrieben werden sollen. TODO
+          Um im ersten Schritt zu untersuchen, wie die Sprachintensität
+          wahrgenommen wird, werden Ihnen politische Nachrichtenartikel von der
+          ORF Website in einer umformulierten Version präsentiert. Sie sehen
+          zuerst den gesamten Nachrichtenartikel als Kontext und bekommen dann
+          pro Satz mehrere Versionen zum Bewerten angezeigt. Sie müssen das
+          Original nicht jedes Mal erneut lesen. Veränderte Satzteile sind für
+          den vereinfachten Vergleich markiert. Wenn ein neuer Satz kommt, ist
+          dies gekennzeichnet. Bitte bewerten Sie zu jeder Version die
+          Sprachintensität und wie faktisch korrekt die Version im Vergleich zum
+          Original ist.
         </AtomsText>
         <AtomsText>
           Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
@@ -48,6 +50,7 @@
       </div>
     </div>
     <Demographics></Demographics>
+    <SelfAssessment></SelfAssessment>
     <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
       <Comparison :article="article" :index="index"></Comparison>
     </div>
@@ -95,13 +98,12 @@ import type {
   versions,
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
-import surveyData from "~/contents/one-version-survey.json";
+import surveyData from "~/contents/shortened-one-version-survey.json";
 import { countValidArticles } from "~/utils/validation";
 
 const isMounted = ref(false);
 onMounted(() => {
   isMounted.value = true;
-  console.log("Component is mounted");
 });
 
 const gender = useState<gender>("gender");
