@@ -41,7 +41,6 @@
 </template>
 
 <script setup>
-import RatingButtons from "./RatingButtons.vue";
 import { ref, onMounted } from "vue";
 
 const props = defineProps({
