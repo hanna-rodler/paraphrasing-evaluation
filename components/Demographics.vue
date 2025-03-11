@@ -201,6 +201,43 @@
         Bitte auswählen.
       </div>
     </div>
+    <div class="mb-4 mt-6 flex flex-col items-center">
+      <div class="-ml-52">Wie oft lesen Sie Nachrichten? *<br /></div>
+      <div class="flex flex-col items-center">
+        <div class="w-42">
+          <div v-for="version in versionOptions" :key="version.value">
+            <label
+              class="label cursor-pointer justify-start px-0 flex items-center space-x-2"
+            >
+              <input
+                type="radio"
+                :name="`newsConsumption-frequency`"
+                class="checkbox w-4 h-4 border-black rounded-sm"
+                :value="version.value"
+                v-model="newsConsumption"
+              />
+              <span>{{ version.label }}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        id="newsConsumption-error"
+        v-if="newsConsumptionError"
+        class="text-error text-center mt-2 flex items-center justify-center"
+        role="alert"
+      >
+        <Icon
+          name="heroicons:exclamation-triangle"
+          size="18"
+          class="mr-2 text-error"
+          id="newsConsumption-icon-error"
+          data-error-icon="newsConsumption"
+          aria-hidden="true"
+        />
+        <span>Bitte auswählen.</span>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -213,6 +250,7 @@ const psychoSocialWorker = useState<boolean | null>(
   "psychoSocialWorker",
   () => null
 );
+const newsConsumption = useState<string>("newsConsumption", () => "");
 
 const ageError = useState<boolean>("ageError", () => false);
 const genderError = useState<boolean>("genderError", () => false);
@@ -222,4 +260,17 @@ const psychoSocialWorkerError = useState<boolean>(
   "psychoSocialWorkerError",
   () => false
 );
+const newsConsumptionError = useState<boolean>(
+  "newsConsumptionError",
+  () => false
+);
+
+const versionOptions = ref([
+  { value: "never", label: "nie" },
+  { value: "lessThanOnceWeekly", label: "weniger als 1 Mal pro Woche" },
+  { value: "oneToThreeTimesWeekly", label: "1-3 Mal pro Woche" },
+  { value: "fourToSixTimesWeekly", label: "4-6 Mal pro Woche" },
+  { value: "daily", label: "täglich" },
+  { value: "severalTimesDaily", label: "merhmals täglich" },
+]);
 </script>

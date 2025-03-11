@@ -1,0 +1,709 @@
+[
+    {
+        "id": "article_tote_gaza",
+        "context": {
+            "title": "Tote bei israelischen Angriffen in Gaza",
+            "body": "<p>Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet. Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.</p><p>Von israelischer Seite gab es bisher keine Angaben zum Kampfgeschehen oder zu dem Bericht. Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben. Die Angaben beider Seiten ließen sich nicht unabhängig verifizieren.</p><h4>Großer Gebäudekomplex gesprengt</h4><p>In Beit Hanun im äußersten Nordosten des Gazastreifens sprengte die israelische Armee nach eigenen Angaben einen großen Gebäudekomplex. Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.</p><p>Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern. Rechtsextreme Kreise in Israel fordern die Errichtung von Siedlungen im Gazastreifen. Regierungschef Benjamin Netanjahu hat jedoch mehrmals versichert, das sei nicht geplant.</p>",
+            "date": "04.01.2025"
+        },
+        "sentences": {
+            "sentence_0": {
+                "orig_sentence_num": "0",
+                "original": "Viele Tote bei israelischen Angriffen in Gaza gemeldet",
+                "softer_prompt_id": null,
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x2",
+                        "very_soft_prompt_id": "6x1_7x2",
+                        "sentence": "<span class='highlight'>Verluste</span> bei israelischen <span class='highlight'>Aktionen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
+                    },
+                    {
+                        "softer_prompt_id": "6x2",
+                        "sentence": "<span class='highlight'>Opfer</span> bei israelischen <span class='highlight'>Einsätzen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
+                    },
+                    {
+                        "very_soft_prompt_id": "6x2_7x1_9x2",
+                        "sentence": "<span class='highlight'>Opfer</span> bei israelischen <span class='highlight'>Aktionen</span> in Gaza",
+                        "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
+                    },
+                    {
+                        "softer_prompt_id": "2x2",
+                        "sentence": "Traurige Nachrichten aus Gaza"
+                    },
+                    {
+                        "softer_prompt_id": "2x1_3x2",
+                        "sentence": "Traurige Nachrichten aus Gaza: Menschen sterben bei Angriffen"
+                    },
+                    {
+                        "softer_prompt_id": "3x1_7x1",
+                        "sentence": "Tragische Ereignisse im Gazastreifen"
+                    },
+                    {
+                        "softer_prompt_id": "8x3",
+                        "very_soft_prompt_id": null,
+                        "sentence": "Schwierige Situation im Gazastreifen"
+                    },
+                    {
+                        "very_soft_prompt_id": "8x2",
+                        "sentence": "<span class='highlight'>Menschen sterben bei Vorfällen</span> in Gaza"
+                    },
+                    {
+                        "very_soft_prompt_id": "3x3_10x2",
+                        "sentence": "Unruhen in Gaza"
+                    },
+                    {
+                        "very_soft_prompt_id": "2x2_9x1",
+                        "sentence": "Konflikt in Gaza: Israelische Angriffe "
+                    }
+                ]
+            },
+            "sentence_1": {
+                "orig_sentence_num": "1",
+                "original": "Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet.",
+                "softer_prompt_id": "7-x1",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x3_4-x1_6x1_6-x1",
+                        "very_soft_prompt_id": "7-x1_7--x1_9-x2",
+                        "sentence": "Die israelische Armee hat bei mehreren Einsätzen im Gazastreifen nach Angaben der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschenleben gefordert.",
+                        "comment": "merged with 'Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert.' weil es hier 'Menschenleben gefordert gibt' und 'Aktionen' auch schon getestet wird. [9x2_9--x1_7-x1_7--x1]"
+                    },
+                    {
+                        "softer_prompt_id": "6--x1_7-x1_8x2_9-x2",
+                        "very_soft_prompt_id": "7-x1_9-x2",
+                        "sentence": "Die israelische Armee hat in mehreren <span class='highlight'>Aktionen</span> im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet.",
+                        "comment": "merged with 'Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert.' weil es hier 'Menschenleben gefordert gibt' und 'Aktionen' [7x1, 9x2, auch schon getestet wird. [9x2_9--x1_7-x1_7--x1]"
+                    },
+                    {
+                        "softer_prompt_id": "2x3_3x3_4--x1_5--x1_7x2_8-x1",
+                        "sentence": "Die israelische Armee hat im Gazastreifen mehrere Angriffe <span class='highlight'>durchgeführt</span>. Dabei sind laut der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschen <span class='highlight'>ums Leben gekommen</span>.",
+                        "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen <span class='highlight'>getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "8x2",
+                        "sentence": "Die israelische Armee hat bei mehreren Vorfällen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge vielen Menschen das Leben genommen."
+                    },
+                    {
+                        "very_soft_prompt_id": "6x2_6--x1_7-x1_8-x1",
+                        "sentence": "Die israelische Armee hat bei mehreren <span class='highlight'>Aktionen</span> im Gazastreifen gemäß einem Bericht der palästinensischen Nachrichtenagentur WAFA eine <span class='highlight'>erhebliche Anzahl von Menschenleben gefordert</span>.",
+                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "2x3_10-x1_3--x1",
+                        "sentence": "Im Gazastreifen <span class='highlight'>gab es kürzlich mehrere Angriffe durch die israelische Armee</span>. Dabei wurden <span class='highlight'>viele Menschen verletzt</span>, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die <span class='highlight'>israelische Armee hat bei mehreren Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "3--x1_10x2",
+                        "sentence": "Die israelische Armee hat mehrere Angriffe im Gazastreifen <span class='highlight'>durchgeführt</span>. Dabei <span class='highlight'>wurden Menschen verletzt</span>, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    }
+                ]
+            },
+            "sentence_2": {
+                "orig_sentence_num": "2",
+                "original": "Zahlreiche weitere Menschen seien bei den Angriffen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.",
+                "softer_prompt_id": "4-x3",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "6-x1_7x2",
+                        "sentence": "<span class='highlight'>Weitere Personen</span> wurden in den Gebieten Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt. <span class='highlight'>Diese Informationen stammen</span> von medizinischen Kreisen im Gazastreifen.",
+                        "original": "<span class='highlight'>Zahlreiche weitere Menschen</span> seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb die Agentur unter Berufung auf Angaben von gestern aus</span> medizinischen Kreisen in dem Küstenstreifen."
+                    },
+                    {
+                        "softer_prompt_id": "2x2_2-x1_3x2_3-x1_5-x1_8-x1",
+                        "sentence": "<span class='highlight'>Viele</span> weitere Menschen wurden verletzt, <span class='highlight'>besonders in den Gebieten</span> Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens. <span class='highlight'>Diese Informationen stammen von</span> medizinischen Kreisen in Gaza.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
+                    },
+                    {
+                        "softer_prompt_id": "1x1_5-x1_8-x1",
+                        "sentence": "<span class='highlight'>Viele</span> weitere Personen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, berichtete die Agentur unter Berufung auf medizinische <span class='highlight'>Quellen</span>.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "1-x2_5-x1_6x2_7x2_9x3",
+                        "sentence": "Zahlreiche weitere Menschen seien bei den Vorfällen in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen. "
+                    },
+                    {
+                        "softer_prompt_id": "1-x2_1-x1_5-x1_6x1_8-x1",
+                        "very_soft_prompt_id": "7-x1_8x2_8-x1",
+                        "sentence": "<span class='highlight'>Weitere</span> Menschen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen.",
+                        "original": "<span class='highlight'>Zahlreiche</span> weitere Menschen seien bei den <span class='highlight'>Angriffen</span> in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, <span class='highlight'>schrieb</span> die Agentur unter Berufung auf Angaben von gestern aus <span class='highlight'>medizinischen Kreisen in dem Küstenstreifen</span>.",
+                        "comment": "merged with '<span class='highlight'>Viele</span> weitere Personen seien bei den <span class='highlight'>Vorfällen</span> in Dschabalija im Norden, Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, berichtete die Agentur unter Berufung auf medizinische <span class='highlight'>Quellen</span>.' becaus of 'Vorfälle' [8x1_1x1_5x1]"
+                    },
+                    {
+                        "very_soft_prompt_id": "2x2_2-x1_10x3",
+                        "sentence": "<span class='highlight'>Die</span> Angriffe <span class='highlight'>fanden in verschiedenen Teilen des Gazastreifens statt</span>.",
+                        "original": "<span class='highlight'>Zahlreiche weitere Menschen seien bei den </span> Angriffen <span class='highlight'>in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen</span>.",
+                        "grouping": "lost verletzte"
+                    },
+                    {
+                        "very_soft_prompt_id": "3x2_5x1",
+                        "sentence": "Die Einsätze fanden in verschiedenen Teilen des Gazastreifens statt.",
+                        "grouping": "lost verletzte",
+                        "kick": "evtl, merge mit lost verletzte und mit Einsätze"
+                    }
+                ]
+            },
+            "sentence_3": {
+                "orig_sentence_num": "4",
+                "original": "Später gab das Militär bekannt, in Deir al-Balah mit einem Präzisionsschlag vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben.",
+                "softer_prompt_id": "4x1_4-x2_5-x1_8-x2",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1-x3_2x2_2-x1_3x2_5-x2_6-x2_7x2_7-x1",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah vier bewaffnete Hamas-Kämpfer in einem Fahrzeug <span class='highlight'>durch einen gezielten Schlag</span> getroffen wurden.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben.",
+                        "comment": "ohne Fahrzeug: 'Später teilte das Militär mit, dass in Deir al-Balah vier bewaffnete Hamas-Kämpfer durch einen gezielten Schlag getroffen wurden.' [5x2_7x1]"
+                    },
+                    {
+                        "very_soft_prompt_id": "6x2_7-x1_8x2_8-x1",
+                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>gezielten Einsatz</span> <span class='highlight'>mehrere</span> bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben.",
+                        "original": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>Präzisionsschlag</span> <span class='highlight'>vier</span> bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben."
+                    },
+                    {
+                        "very_soft_prompt_id": "5-x1_6-x1_7x2_9x3",
+                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>gezielten Einsatz</span> vier bewaffnete Hamas-<span class='highlight'>Mitglieder</span> in einem Fahrzeug getroffen zu haben.",
+                        "original": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>Präzisionsschlag</span> vier bewaffnete Hamas-<span class='highlight'>Kämpfer</span> in einem Fahrzeug getroffen zu haben."
+                    },
+                    {
+                        "very_soft_prompt_id": "1-x1_10x1_10-x1",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass sie</span> in Deir al-Balah einen <span class='highlight'>gezielten Schlag</span> gegen bewaffnete <span class='highlight'>Kämpfer</span> <span class='highlight'>durchgeführt</span> haben.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier</span> bewaffnete <span class='highlight'>Hamas-</span>Kämpfer <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x2_3x1",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah ein <span class='highlight'>gezielter Einsatz gegen</span> bewaffnete <span class='highlight'>Personen durchgeführt</span> wurde.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag vier</span> bewaffnete <span class='highlight'>Hamas-Kämpfer in einem Fahrzeug getroffen</span> zu haben."
+                    },
+                    {
+                        "very_soft_prompt_id": "5x2",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah eine <span class='highlight'>gezielte Aktion</span> gegen bewaffnete <span class='highlight'>Individuen durchgeführt</span> wurde.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier bewaffnete Hamas-Kämpfer</span> <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben.",
+                        "kick": "evtl mit bewaffnete Personsen zusammenführen"
+                    },
+                    {
+                        "very_soft_prompt_id": "2x2_2-x1",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass sie in einem Gebiet namens</span> Deir al-Balah einen <span class='highlight'>gezielten Angriff durchgeführt</span> haben.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier bewaffnete Hamas-Kämpfer</span> <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben."
+                    }
+                ]
+            },
+            "sentence_4": {
+                "orig_sentence_num": "8",
+                "original": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen, erklärte die Armee.",
+                "softer_prompt_id": "4x3",
+                "very_soft_prompt_id": "7x2_8x2_9x3",
+                "versions": [
+                    {
+                        "very_soft_prompt_id": "2-x1_3x1_3-x2_10x3",
+                        "sentence": "Die Armee erklärte, <span class='highlight'>dass die Gebäude eine Gefahr darstellten, da sie für Angriffe auf Israel genutzt wurden</span>.",
+                        "original": "Die <span class='highlight'>nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen</span>, erklärte die Armee."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x1_1-x1_5x1_5-x2",
+                        "sentence": "Die Armee erklärte, <span class='highlight'>dass die Gebäude aufgrund ihrer Nähe zur</span> israelischen Stadt Sderot <span class='highlight'>und ihrer militärischen Infrastruktur eine Gefahr darstellten</span>.",
+                        "original": "Die <span class='highlight'>nur etwa drei Kilometer von der</span> israelischen Stadt Sderot <span class='highlight'>entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen</span>, erklärte die Armee.",
+                        "comment": "merged with milit. Infrastruktur"
+                    },
+                    {
+                        "softer_prompt_id": "2-x2_5--x1",
+                        "very_soft_prompt_id": "6x2_6-x1_7-x1",
+                        "sentence": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Verteidigungsstellungen</span>, Tunneln und Abschussrampen eine Gefahr gewesen, erklärte die Armee",
+                        "original": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Panzerabwehrstellungen</span>, Tunneln und Abschussrampen <span class='highlight'>für Raketenangriffe auf Israel</span> eine Gefahr gewesen, erklärte die Armee.",
+                        "comment": "merged with 'Die Gebäude waren nur etwa drei Kilometer von der israelischen Stadt Sderot entfernt. Die Armee sagte, dass diese Gebäude mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen eine Gefahr für Israel darstellten.' aufgrund Satzstellung"
+                    }
+                ]
+            },
+            "sentence_5": {
+                "orig_sentence_num": "9",
+                "original": "Palästinenser werfen Israel vor, es wolle den gesamten Norden des Gazastreifens entvölkern.",
+                "softer_prompt_id": "4-x1_4x3_5-x3_6-x3_7-x3_8-x1",
+                "very_soft_prompt_id": "3-x1_6x3_7x2_8x3_9x1",
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x1_1-x2",
+                        "sentence": "Palästinensische <span class='highlight'>Vertreter</span> <span class='highlight'>äußern die Befürchtung</span>, Israel wolle den gesamten Norden des Gazastreifens entvölkern.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den gesamten Norden des Gazastreifens entvölkern."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x1_5x1_5-x1",
+                        "sentence": "Palästinensische <span class='highlight'>Vertreter</span> <span class='highlight'>äußerten Bedenken</span>, dass Israel den Norden des Gazastreifens entvölkern wolle.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens entvölkern."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x1_1-x1_9x1",
+                        "sentence": "Palästinenser <span class='highlight'>äußern Bedenken</span>, dass Israel den gesamten Norden des Gazastreifens <span class='highlight'>räumen möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den gesamten Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "3x1_3-x1",
+                        "sentence": "Palästinenser <span class='highlight'>sorgen sich</span>, dass Israel den Norden des Gazastreifens <span class='highlight'>räumen möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
+                    },
+                    {
+                        "softer_prompt_id": "2x2",
+                        "sentence": "Palästinenser <span class='highlight'>beschuldigen</span> Israel, den Norden des Gazastreifens <span class='highlight'>leer räumen</span> zu wollen.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
+                    },
+                    {
+                        "softer_prompt_id": "10x1_10-x1",
+                        "sentence": "Palästinenser <span class='highlight'>sagen</span>, dass Israel den Norden des Gazastreifens <span class='highlight'>leeren möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": "article_iran_saengerin",
+        "context": {
+            "title": "Konzert ohne Kopftuch: Iranische Sängerin verhaftet",
+            "body": "<p>Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.</p><p>Ihr Anwalt Milad Panahipur berichtete gestern, die Sängerin sei im Norden des Landes festgesetzt worden, die beiden Musiker in ihrem Musikstudio in der Hauptstadt Teheran. Die drei seien an einem ihm unbekannten Ort und hätten keinen Kontakt zur Außenwelt, sagte er dem Internetportal Emtedad. Menschen im In- und Ausland hatten die Frau in Onlinemedien für ihre mutige Initiative gelobt.</p><h4>„Frau, Leben, Freiheit“</h4><p>Im Iran sind viele Frauen unzufrieden mit den strengen islamischen Gesetzen und Kleidungsvorschriften. Im Herbst 2022 gingen Massen unter dem Motto „Frau, Leben, Freiheit“ gegen die repressive Politik auf die Straße, doch die Demonstrationen wurden gewaltsam niedergeschlagen.</p><p>Viele Frauen in den Metropolen widersetzen sich inzwischen aus Protest den islamischen Kleidervorschriften, insbesondere dem obligatorischen Kopftuch. Dagegen will nun das von islamischen Hardlinern dominierte Parlament mit einem neuen Gesetz und drakonischen Strafen vorgehen.</p>",
+            "date": "14.12.2024"
+        },
+        "sentences": {
+            "sentence_0": {
+                "orig_sentence_num": "0",
+                "original": "Konzert ohne Kopftuch: Iranische Sängerin verhaftet",
+                "softer_prompt_id": "2x3",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "3x3_7x3_1-x1",
+                        "very_soft_prompt_id": "1x1_2x3_3x3_5x1_8x3_10x2",
+                        "sentence": "Konzert ohne Kopftuch: Iranische Sängerin festgenommen."
+                    },
+                    {
+                        "softer_prompt_id": "6x3",
+                        "very_soft_prompt_id": "1x2_5x2_9x3",
+                        "sentence": "Konzert ohne Kopftuch: Iranische Sängerin in Gewahrsam"
+                    },
+                    {
+                        "softer_prompt_id": "4x1_4--x1_5--x1",
+                        "sentence": "Mutige Iranische Sängerin verhaftet: Ein Lied für die Freiheit"
+                    },
+                    {
+                        "softer_prompt_id": "8x2",
+                        "sentence": "Musikerin Parastu: Ein Lied ohne Kopftuch"
+                    },
+                    {
+                        "very_soft_prompt_id": "6x1_7x3",
+                        "sentence": "Konzert ohne Kopfbedeckung: Iranische Sängerin in Gewahrsam"
+                    }
+                ]
+            },
+            "sentence_1": {
+                "orig_sentence_num": "1",
+                "original": "Die iranische Musikerin Parastu hat mehrere Tabus in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                "softer_prompt_id": "4x1_5x1",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "2x2",
+                        "sentence": "Die iranische Musikerin Parastu hat in der islamischen Republik <span class='highlight'>etwas getan, was dort als sehr mutig gilt</span>: Sie sang ohne Kopftuch und im Kleid bei einem Konzert. Das Video davon stellte sie auf YouTube – und wurde dafür verhaftet, genauso wie zwei Mitglieder ihrer Band.",
+                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus</span> in der islamischen Republik <span class='highlight'>gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band."
+                    },
+                    {
+                        "softer_prompt_id": "3-x1_7x1_7-x1_7-x1",
+                        "sentence": "Die iranische Musikerin Parastu hat in der islamischen Republik mehrere <span class='highlight'>Regeln</span> gebrochen: Sie sang ohne Kopftuch, in einem Kleid und veröffentlichte das Konzert auf YouTube. Daraufhin wurde sie <span class='highlight'>festgenommen</span>, ebenso wie zwei Mitglieder ihrer Band.",
+                        "original": "Die iranische Musikerin Parastu hat mehrere <span class='highlight'>Tabus</span> in der islamischen Republik gebrochen: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen <span class='highlight'>verhaftet</span>, ebenso wie zwei Mitglieder ihrer Band."
+                    },
+                    {
+                        "softer_prompt_id": "8x3",
+                        "sentence": "Die iranische Sängerin Parastu hat <span class='highlight'>etwas Besonderes</span> gemacht: Sie hat ein Konzert gegeben, bei dem sie ohne Kopftuch und im Kleid aufgetreten ist. Das hat sie auf YouTube veröffentlicht. Jetzt wurde sie deswegen verhaftet, zusammen mit zwei Mitgliedern ihrer Band.",
+                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus in der islamischen Republik gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet</span>, ebenso wie zwei Mitglieder ihrer Band."
+                    },
+                    {
+                        "softer_prompt_id": "4x1_5x1",
+                        "sentence": "Die iranische Musikerin Parastu hat im Iran mehrere <span class='highlight'>gesellschaftliche Grenzen überschritten</span>: Sie sang ohne Kopftuch, in einem Kleid und veröffentlichte das Konzert auf YouTube. Nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band.",
+                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus in der islamischen Republik gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen verhaftet, ebenso wie zwei Mitglieder ihrer Band."
+                    },
+                    {
+                        "very_soft_prompt_id": "2-x3_3x3_7-x1_8x2_8-x1_10-x2",
+                        "sentence": "Die iranische Musikerin Parastu hat <span class='highlight'>einige Regeln</span> in der islamischen Republik <span class='highlight'>nicht befolgt</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen <span class='highlight'>festgenommen</span>, ebenso wie zwei Mitglieder ihrer Band",
+                        "original": "Die iranische Musikerin Parastu hat <span class='highlight'>mehrere Tabus</span> in der islamischen Republik <span class='highlight'>gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun wurde die junge Frau deswegen <span class='highlight'>verhaftet</span>, ebenso wie zwei Mitglieder ihrer Band."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x2_5x2",
+                        "sentence": "Die iranische Musikerin Parastu hat mehrere <span class='highlight'>gesellschaftliche Normen</span> in der islamischen Republik <span class='highlight'>herausgefordert</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun <span class='highlight'>befindet sie sich in Gewahrsam</span>, ebenso wie zwei Mitglieder ihrer Band.“",
+                        "original": "Die iranische Musikerin Parastu hat mehrere <span class='highlight'>Tabus</span> in der islamischen Republik <span class='highlight'>gebrochen</span>: Sie sang ohne Kopftuch, im Kleid und veröffentlichte das Konzert auf YouTube – nun <span class='highlight'>wurde die junge Frau deswegen verhaftet</span>, ebenso wie zwei Mitglieder ihrer Band."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": "article_sellner",
+        "context": {
+            "title": "Privatanklage von Sellner: Gericht will Auslieferung Voglauers",
+            "body": "<p>Das Landesgericht Klagenfurt hat gestern die Auslieferung der grünen Generalsekretärin und Nationalratsabgeordneten Olga Voglauer beantragt.</p><p>Grund ist eine Privatanklage wegen übler Nachrede des Rechtsextremisten Martin Sellner, dem sie das Zeigen des Hitlergrußes unterstellt hatte, berichtet das Nachrichtenmagazin „profil“ (Onlineausgabe). In einem zivilrechtlichen Verfahren ist Voglauer bereits zu einem Widerruf verurteilt worden.</p><h4>Vorwürfe zu Auftritt bei Demo</h4><p>Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht. Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt.</p><p>Die Polizei nahm daraufhin Ermittlungen auf, die Vorwürfe hatten sich aber nicht erhärtet. Nach Bekanntwerden des angeblichen Vorfalls schrieb Voglauer aber auf X: „Wird die FPÖ auch weiterhin die Nähe zu einer Organisation suchen, deren bekanntestes Gesicht den Hitlergruß zeigt?“</p><h4>Nationalrat am Zug</h4><p>Das Auslieferungsbegehren muss nun im Nationalrat behandelt werden. Dabei muss darüber entschieden werden, ob Voglauers Kommentar im Rahmen ihrer parlamentarischen Tätigkeit erfolgte oder nicht.</p><p>Die Grünen wollten das gegenüber „profil“ nicht kommentieren: „Martin Sellner versucht in dieser vor allem medienrechtlichen Causa rund um einen Tweet mit allen Mitteln gegen politische Kritik vorzugehen. Die Vorgehensweise spricht für sich.“</p>",
+            "date": "14.12.2024"
+        },
+        "sentences": {
+            "sentence_1": {
+                "orig_sentence_num": "5",
+                "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht.",
+                "softer_prompt_id": "1-x2_2-x3_3-x2_4-x3_5-x3_6-x1_7-x3_8-x3",
+                "very_soft_prompt_id": "1x1_6x2_8x3_10x1",
+                "versions": [
+                    {
+                        "very_soft_prompt_id": "3x1_10-x1",
+                        "sentence": "Martin Sellner, der früher Sprecher einer <span class='highlight'>Gruppe</span> war, die als rechtsextrem eingestuft wurde, war im Juli in Saarbrücken bei einer <span class='highlight'>Veranstaltung</span>.",
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz</span> als rechtsextrem eingestuften <span class='highlight'>Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x2_2x1",
+                        "sentence": "Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken eine Gegenveranstaltung der „Omas gegen Rechts“ besucht.",
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz als rechtsextrem eingestuften</span>Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ <span class='highlight'>gegen seinen eigenen Auftritt</span> besucht."
+                    },
+                    {
+                        "very_soft_prompt_id": "2-x1_10x1",
+                        "sentence": "Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.",
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz als rechtsextrem eingestuften</span> Identitären, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                    },
+                    {
+                        "very_soft_prompt_id": "5x2_5-x1_2-x1",
+                        "sentence": "Sellner, der bis vor einem Jahr Sprecher einer <span class='highlight'>als extrem</span> eingestuften <span class='highlight'>Gruppe</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.",
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher <span class='highlight'>der vom Verfassungsschutz als rechtsextrem</span> eingestuften <span class='highlight'>Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                    },
+                    {
+                        "very_soft_prompt_id": "3x1_3-x1",
+                        "sentence": "Sellner, der bis vor einem Jahr auch Sprecher einer <span class='highlight'>Gruppe</span> war, die vom Verfassungsschutz <span class='highlight'>beobachtet wird</span>, hatte im Juli in Saarbrücken eine <span class='highlight'>Veranstaltung</span> besucht.",
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als <span class='highlight'>rechtsextrem eingestuften Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                    },
+                    {
+                        "very_soft_prompt_id": "6-x1_7-x2_9x2",
+                        "sentence": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsgerichtet eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht."
+                    }
+                ]
+            },
+            "sentence_2": {
+                "orig_sentence_num": "6",
+                "original": "Anwesende hatten behauptet, er habe dort den Hitlergruß gezeigt.",
+                "softer_prompt_id": "1x2_1-x1_2-x3_3x3_4-x3_5x3_6x2_6-x1_7x3_8x1_8-x2",
+                "very_soft_prompt_id": "1-x2_3-x3_5-x3_6-x2_7-x3_8-x1",
+                "versions": [
+                    {
+                        "very_soft_prompt_id": "2-x1_3-x2_5-x1_6x3_7x3_10-x1",
+                        "sentence": "Anwesende hatten behauptet, er habe dort <span class='highlight'>eine verbotene Geste</span> gezeigt.",
+                        "original": "Anwesende hatten behauptet, er habe dort <span class='highlight'>den Hitlergruß</span> gezeigt."
+                    },
+                    {
+                        "very_soft_prompt_id": "1-x1_1x1_3-x1_5x1",
+                        "sentence": "Anwesende hatten behauptet, er habe <span class='highlight'>sich unangemessen verhalten</span>.",
+                        "original": "Anwesende hatten behauptet, er habe dort <span class='highlight'>den Hitlergruß gezeigt</span>."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": "article_stocker",
+        "context": {
+            "title": "Stocker zu Verhandlungen mit FPÖ bereit",
+            "body": "<p>ÖVP-Generalsekretär Christian Stocker, frisch designierter interimistischer ÖVP-Chef, hat eben eine erste Stellungnahme abgegeben.</p><p>Stocker dankte zunächst Karl Nehammer für seine Arbeit als ÖVP-Chef und Kanzler. Er begrüßte das geplante Treffen von Bundespräsident Alexander Van der Bellen mit FPÖ-Chef Herbert Kickl. Er werde eine Einladung der FPÖ, sofern sie erfolge, zu Koalitionsverhandlungen annehmen.</p><h4>Rasche Regierungsbildung wichtig</h4><p>Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl. Die Republik brauche aber rasch eine Regierung, das habe Priorität. Die ÖVP werde sich der staatspolitischen Aufgabe nicht entziehen, so Stocker.</p><p>Ob er als Vizekanzler zur Verfügung stehen würde, beantwortete Stocker nicht.</p>",
+            "date": "05.01.2025"
+        },
+        "sentences": {
+            "sentence_0": {
+                "orig_sentence_num": "0",
+                "original": "Stocker zu Verhandlungen mit FPÖ bereit",
+                "softer_prompt_id": null,
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x2_4x1_5-x2_6x3",
+                        "very_soft_prompt_id": "1x1_5x3_7x1_9x2",
+                        "sentence": "Stocker <span class='highlight'>offen für Gespräche</span> mit FPÖ",
+                        "original": "Stocker <span class='highlight'>zu Verhandlungen</span> mit FPÖ bereit"
+                    },
+                    {
+                        "softer_prompt_id": "1x1_3x3_4x2_7x2_7-x1",
+                        "very_soft_prompt_id": "1-x2_2x3_3x3_6-x3_7x1_7-x1_8x3_9x1",
+                        "sentence": "Stocker <span class='highlight'>bereit für Gespräche</span> mit FPÖ",
+                        "original": "Stocker <span class='highlight'>zu Verhandlungen</span> mit FPÖ bereit"
+                    },
+                    {
+                        "softer_prompt_id": "2x2",
+                        "sentence": "Stocker <span class='highlight'>will</span> mit FPÖ <span class='highlight'>verhandeln</span>",
+                        "original": "Stocker <span class='highlight'>zu Verhandlungen</span> mit FPÖ <span class='highlight'>bereit</span>"
+                    },
+                    {
+                        "softer_prompt_id": "2x1_8x1_8-x2",
+                        "sentence": "Stocker <span class='highlight'>bereit</span>, mit FPÖ <span class='highlight'>zu reden</span>",
+                        "original": "Stocker <span class='highlight'>zu Verhandlungen</span> mit FPÖ <span class='highlight'>bereit</span>"
+                    }
+                ]
+            },
+            "sentence_1": {
+                "orig_sentence_num": "6",
+                "original": "Stocker verwies selbst auf seine eigene harsche Kritik an der FPÖ und an Kickl.",
+                "softer_prompt_id": "",
+                "very_soft_prompt_id": "",
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x2_4x1_6x2",
+                        "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>kritische Haltung gegenüber</span> der FPÖ und Herbert Kickl",
+                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
+                    },
+                    {
+                        "softer_prompt_id": "1-x1_4-x1_5-x3_6x1_7x3_8-x1",
+                        "very_soft_prompt_id": "1x2_1-x1_2-x3_3x1_3-x2_5x2_5-x1_7-x3_8x2_9-x1_10-x3",
+                        "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>Kritik</span> an der FPÖ und an Kickl.",
+                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
+                    },
+                    {
+                        "softer_prompt_id": "2-x3_3-x3_4--x2_8--x2",
+                        "very_soft_prompt_id": "6x2_6-x1_8x1_9x1_9-x1",
+                        "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>starke Kritik</span> an der FPÖ und an Kickl.",
+                        "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl.",
+                        "comment": "merged with 2x3_3x3_4--x2_8--x2 'Stocker <span class='highlight'>erinnerte daran, dass er in der Vergangenheit</span> die FPÖ und Kickl <span class='highlight'>stark kritisiert hat</span>.' wegen beides stark kritisiert"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": "article_trump_grenell",
+        "context": {
+            "title": "Trump macht Ex-Botschafter Grenell zum Sondergesandten",
+            "body": "<p>Der ehemalige US-Botschafter in Deutschland, Richard Grenell, soll künftig Gesandter für Sondermissionen des designierten US-Präsidenten Donald Trump werden. „Ric wird an einigen der heißesten Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social. „Ric wird weiterhin für Frieden durch Stärke kämpfen“ und werde die USA immer an die erste Stelle setzen, so Trump.</p><p>Während seiner Zeit in Berlin, wohin ihn Trump 2018 in seiner ersten Amtszeit als Präsident entsandt hatte, sparte Grenell nicht mit Kritik an der damaligen CDU-Bundeskanzlerin Angela Merkel und an Deutschland. Dabei ging es vor allem um Deutschlands finanziellen Beitrag zum Verteidigungsbündnis NATO. Auch danach teilte der 58-Jährige immer wieder gegen Deutschland aus. Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X aufs Korn nahm, nannte Grenell den Beitrag Wahlbeeinflussung.</p><p>Der Getreue Trumps war zuvor als möglicher Außenminister gehandelt worden. Die Nominierung ging aber an Marco Rubio, einen Senator aus Florida.</p><h4>Truth-Social-CEO führt Geheimdienstbeirat an</h4><p>Trump gab noch eine weitere Personalie bekannt: Der Chef von Truth Social, Devin Nunes, soll den Vorsitz des künftigen nachrichtendienstlichen Beirats des Präsidenten übernehmen. Den Posten bei Truth Social werde er aber behalten, verkündete Trump auf der Plattform. Bevor Nunes die Rolle bei dem Medienunternehmen 2022 erhielt, saß er als republikanischer Abgeordneter im US-Repräsentantenhaus und tat sich bereits in dieser Zeit als eifriger Unterstützer Trumps hervor.</p><p>Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an Abhöranschuldigungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt. Trump schrieb, Nunes werde seine Erfahrung als ehemaliger Vorsitzender des Geheimdienstausschusses nutzen, um ihm unabhängige Einschätzungen zur Effektivität und Angemessenheit der Aktivitäten der US-Geheimdienste zu liefern.</p>",
+            "date": "15.12.2024"
+        },
+        "sentences": {
+            "sentence_0": {
+                "orig_sentence_num": "2",
+                "original": "„Ric wird an einigen der heißesten Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social. ",
+                "softer_prompt_id": "2x1_3x1",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1-x1_6x2_6-x1",
+                        "sentence": "„Ric wird in einigen der herausforderndsten Regionen der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social."
+                    },
+                    {
+                        "softer_prompt_id": "1-x1_2x2_8x3",
+                        "very_soft_prompt_id": "2x1_8x1_10x3",
+                        "sentence": "„Ric wird an einigen der wichtigsten Orte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social."
+                    },
+                    {
+                        "softer_prompt_id": "3-x2_4x1_4-x2_5x2_5-x1",
+                        "very_soft_prompt_id": "1x1_5-x3_6x3",
+                        "sentence": "„Ric wird an einigen der <span class='highlight'>wichtigsten</span> Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, <span class='highlight'>teilte</span> Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social <span class='highlight'>mit</span>.",
+                        "original": "„Ric wird an einigen der <span class='highlight'>heißesten</span> Brennpunkte der Welt arbeiten, darunter Venezuela und Nordkorea“, <span class='highlight'>schrieb</span> Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social."
+                    },
+                    {
+                        "very_soft_prompt_id": "7x3_8x1_9x3",
+                        "sentence": "„Ric wird an einigen der herausforderndsten Orte der Welt arbeiten, darunter Venezuela und Nordkorea“, schrieb Trump gestern auf der von ihm mitbegründeten Onlineplattform Truth Social."
+                    }
+                ]
+            },
+            "sentence_1": {
+                "orig_sentence_num": "3",
+                "original": "„Ric wird weiterhin für Frieden durch Stärke kämpfen“ und werde die USA immer an die erste Stelle setzen, so Trump. ",
+                "softer_prompt_id": "2-x3_3-x3_8-x2",
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x3_4x3_5x3_6x2_6-x1_7x1_7-x2_8-x1",
+                        "sentence": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>eintreten</span>“ und die <span class='highlight'>Interessen der USA stets</span> an erster Stelle setzen, so Trump.",
+                        "original": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>kämpfen</span>“ und werde die <span class='highlight'>USA immer</span> an die erste Stelle setzen, so Trump."
+                    },
+                    {
+                        "very_soft_prompt_id": "1-x2_2x2_3x1_7x1_8x1_9x2_8x1_10x1",
+                        "sentence": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>eintreten</span>“ und die USA immer an die erste Stelle setzen, so Trump.",
+                        "original": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>kämpfen</span>“ und werde die USA immer an die erste Stelle setzen, so Trump.",
+                        "kick": "evtl"
+                    },
+                    {
+                        "very_soft_prompt_id": "1x1_3x2_5x1",
+                        "sentence": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>eintreten</span>“ und die <span class='highlight'>Interessen der USA vertreten</span>, so Trump.",
+                        "original": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>kämpfen</span>“ und werde die <span class='highlight'>USA immer an die erste Stelle setzen</span>, so Trump. "
+                    },
+                    {
+                        "very_soft_prompt_id": "6x2_5-x2",
+                        "sentence": "„Ric wird weiterhin für Frieden durch <span class='highlight'>Stabilität eintreten</span>“ und werde die USA immer an die erste Stelle setzen, so Trump.",
+                        "original": "„Ric wird weiterhin für Frieden durch <span class='highlight'>Stärke kämpfen</span>“ und werde die USA immer an die erste Stelle setzen, so Trump."
+                    }
+                ]
+            },
+            "sentence_2": {
+                "orig_sentence_num": "7",
+                "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X aufs Korn nahm, nannte Grenell den Beitrag Wahlbeeinflussung. ",
+                "softer_prompt_id": "2x1_3x1",
+                "very_soft_prompt_id": "8x2",
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x3_2-x2_3-x1_4x3_5x3_6x3_7-x1_8-x3",
+                        "very_soft_prompt_id": "1-x3_3x3_5-x1_5-x1_6-x1_7x2_8x1_9x2_9-x1_10x2",
+                        "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kommentierte, bezeichnete</span> Grenell den Beitrag als Wahlbeeinflussung",
+                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm, nannte</span> Grenell den Beitrag Wahlbeeinflussung.",
+                        "comment": "merged with very softer verision. Difference: 'nannte' statt bezeichnete"
+                    },
+                    {
+                        "softer_prompt_id": "3x1_7x2",
+                        "very_soft_prompt_id": "2x3_7x1_10x1",
+                        "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kritisierte</span>, nannte Grenell den Beitrag Wahlbeeinflussung",
+                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm</span>, nannte Grenell den Beitrag Wahlbeeinflussung."
+                    },
+                    {
+                        "very_soft_prompt_id": "5x1_6x1",
+                        "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kommentierte</span>, <span class='highlight'>bezeichnete</span> Grenell den Beitrag als <span class='highlight'>Einflussnahme</span>.",
+                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm</span>, <span class='highlight'>nannte</span> Grenell den Beitrag <span class='highlight'>Wahlbeeinflussung</span>."
+                    }
+                ]
+            },
+            "sentence_3": {
+                "orig_sentence_num": "4",
+                "original": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an Abhöranschuldigungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt.",
+                "softer_prompt_id": "1x1_2x3_3x3_4-x2_5-x3_8x2",
+                "very_soft_prompt_id": "",
+                "versions": [
+                    {
+                        "very_soft_prompt_id": "7x1_9x3",
+                        "sentence": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an <span class='highlight'>Untersuchungen zu Abhörvorwürfen</span> gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt.",
+                        "original": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an <span class='highlight'>Abhöranschuldigungen</span> gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt."
+                    },
+                    {
+                        "very_soft_prompt_id": "5-x1_6x1_6-x2_7x1_8x2",
+                        "sentence": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an Untersuchungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016 beteiligt."
+                    },
+                    {
+                        "very_soft_prompt_id": "2x3_3x3_5x1_10x1",
+                        "sentence": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an <span class='highlight'>Untersuchungen</span> beteiligt.",
+                        "original": "Als Vorsitzender des Geheimdienstausschusses im US-Repräsentantenhaus war Nunes während Trumps erster Amtszeit an <span class='highlight'>Abhöranschuldigungen gegen das FBI und andere Geheimdienste beim Wahlkampf 2016</span> beteiligt."
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": "article_sanctions_russia",
+        "context": {
+            "title": "Neue Sanktionen gegen Russland beschlossen",
+            "body": "<p>Die EU-Staaten haben sich wegen des anhaltenden russischen Angriffskrieges gegen die Ukraine auf ein neues Paket mit Sanktionen verständigt. Das teilte die derzeitige ungarische EU-Ratspräsidentschaft gestern in Brüssel mit.</p><p>Mit den geplanten Strafmaßnahmen soll vor allem schärfer gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.</p><h4>Schwarze Liste</h4><p>Plan sei es, mehr als 50 weiteren Schiffen das Einlaufen in Häfen in der EU zu verbieten. Zudem sollen sie nicht mehr von Dienstleistungen europäischer Unternehmen profitieren können. In einem ersten Schritt hatte die EU im Juni bereits rund zwei Dutzend Schiffe auf eine entsprechende Schwarze Liste gesetzt.</p><p>Zudem ist im Rahmen des mittlerweile 15. Sanktionspaktes vorgesehen, Handelsbeschränkungen gegen mehr als 30 weitere Akteure zu verhängen, die nach EU-Erkenntnissen Verbindungen zum Verteidigungs- und Sicherheitssektor Russlands unterhalten oder diesen anderweitig unterstützen.</p><p>Auch ist nach Angaben der derzeitigen ungarischen EU-Ratspräsidentschaft geplant, gegen etliche weitere Personen Einreiseverbote und Vermögenssperren zu erlassen.</p>",
+            "date": "11.12.2024"
+        },
+        "sentences": {
+            "sentence_0": {
+                "orig_sentence_num": "0",
+                "original": "Neue Sanktionen gegen Russland beschlossen",
+                "softer_prompt_id": "2x1_3x1",
+                "very_soft_prompt_id": "2x2_10x2",
+                "versions": [
+                    {
+                        "softer_prompt_id": "1-x1_5-x1_8x2",
+                        "very_soft_prompt_id": "1x1_3x2_5x3_6x2_8x3_10x1",
+                        "sentence": "Neue Maßnahmen gegen Russland beschlossen"
+                    },
+                    {
+                        "softer_prompt_id": "1-x1_6x3_7-x2_8x2",
+                        "very_soft_prompt_id": "1x2_2x1_6x1_7x3_9x3",
+                        "sentence": "Neue Maßnahmen gegen Russland vereinbart"
+                    },
+                    {
+                        "softer_prompt_id": "2x3_3x3",
+                        "sentence": "Neue Strafen gegen Russland wegen Ukraine-Krieg"
+                    }
+                ]
+            },
+            "sentence_1": {
+                "orig_sentence_num": "1",
+                "original": "Die EU-Staaten haben sich wegen des anhaltenden russischen Angriffskrieges gegen die Ukraine auf ein neues Paket mit Sanktionen verständigt.",
+                "softer_prompt_id": null,
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "2x2_3x2_3-x1",
+                        "sentence": "Die Länder der Europäischen Union (EU) haben sich auf neue <span class='highlight'>Strafen gegen Russland geeinigt</span>. <span class='highlight'>Der Grund dafür ist der andauernde</span> Angriffskrieg <span class='highlight'>Russlands gegen die Ukraine</span>.",
+                        "original": "Die <span class='highlight'>EU-Staaten </span> haben sich <span class='highlight'>wegen des anhaltenden russischen Angriffskrieges gegen die Ukraine auf ein neues Paket mit Sanktionen verständigt</span>.",
+                        "kick": "evtl"
+                    },
+                    {
+                        "softer_prompt_id": "1x1_5-x1_6x2_7x1_7-x2_8x2_8-x1",
+                        "sentence": "Die EU-Staaten haben sich aufgrund des <span class='highlight'>andauernden Konflikts zwischen Russland und der Ukraine</span> auf ein neues Paket mit <span class='highlight'>Maßnahmen geeinigt.</span>",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "3x3_5-x1_6-x1",
+                        "sentence": "Die EU-Staaten haben sich aufgrund der anhaltenden <span class='highlight'>Spannungen zwischen Russland und der Ukraine</span> auf <span class='highlight'>neue Maßnahmen geeinigt.</span>",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "2x2_2-x1_8-x3_10x2",
+                        "sentence": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>Konflikts zwischen Russland und der Ukraine</span> auf ein neues Paket mit Sanktionen <span class='highlight'>geeinigt</span>.",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit Sanktionen <span class='highlight'>verständigt</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "6x1_7x1_9x1",
+                        "sentence": "Die EU-Staaten haben sich aufgrund der anhaltenden <span class='highlight'>Spannungen mit der Ukraine</span> auf ein neues Paket mit <span class='highlight'>Maßnahmen geeinigt</span>.",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x3_5x2_10-x1",
+                        "sentence": "Die EU-Staaten haben sich aufgrund der anhaltenden <span class='highlight'>Spannungen mit Russland</span> auf ein neues Paket mit <span class='highlight'>Maßnahmen geeinigt</span>.",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges gegen die Ukraine</span> auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "7x2_9x2",
+                        "sentence": "Die EU-Staaten haben sich aufgrund der anhaltenden <span class='highlight'>russischen Handlungen</span> gegen die Ukraine auf ein neues Paket mit <span class='highlight'>Maßnahmen geeinigt</span>.",
+                        "original": "Die EU-Staaten haben sich wegen des anhaltenden <span class='highlight'>russischen Angriffskrieges</span> gegen die Ukraine auf ein neues Paket mit <span class='highlight'>Sanktionen verständigt</span>."
+                    }
+                ]
+            },
+            "sentence_2": {
+                "orig_sentence_num": "3",
+                "original": "Mit den geplanten Strafmaßnahmen soll vor allem schärfer gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.",
+                "softer_prompt_id": null,
+                "very_soft_prompt_id": null,
+                "versions": [
+                    {
+                        "softer_prompt_id": "1x2_1-x1_5-x1_6x3",
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch die russische Schattenflotte <span class='highlight'>stärker reguliert</span> werden, wie mehrere Diplomaten der dpa mitteilten.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem</span> <span class='highlight'>schärfer</span> gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x2_1-x1",
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch die russische <span class='highlight'>Schiffe</span> <span class='highlight'>stärker reguliert</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem</span> <span class='highlight'>schärfer</span> gegen die russische <span class='highlight'>Schattenflotte</span> für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
+                    },
+                    {
+                        "softer_prompt_id": "8-x1",
+                        "very_soft_prompt_id": "8x2_10x2",
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll vor allem gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll vor allem <span class='highlight'>schärfer</span> gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten."
+                    },
+                    {
+                        "softer_prompt_id": "3-x2_4-x2",
+                        "very_soft_prompt_id": "7x1_7-x1_8x1_9x2",
+                        "sentence": "Mit den geplanten Maßnahmen soll vor allem strenger gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten."
+                    },
+                    {
+                        "softer_prompt_id": "4x1_5x1",
+                        "sentence": "Die geplanten <span class='highlight'>Maßnahmen</span> <span class='highlight'>zielen darauf ab</span>, den Transport von Öl und Ölprodukten durch die russische Schattenflotte zu erschweren, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem schärfer gegen</span> die russische Schattenflotte für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
+                    },
+                    {
+                        "softer_prompt_id": "8-x1",
+                        "very_soft_prompt_id": "2-x1_3-x3_5x2",
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch russische <span class='highlight'>Schiffe</span> <span class='highlight'>eingeschränkt</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem schärfer gegen</span> die russische <span class='highlight'>Schattenflotte</span> für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
+                    },
+                    {
+                        "softer_prompt_id": "2x1_2-x1_3-x1",
+                        "sentence": "Mit diesen <span class='highlight'>neuen</span> Strafmaßnahmen soll <span class='highlight'>besonders hart</span> gegen die <span class='highlight'>sogenannte Schattenflotte Russlands</span> vorgegangen werden. Diese Flotte transportiert Öl und Ölprodukte. Mehrere Diplomaten haben der Deutschen Presse-Agentur (dpa) davon <span class='highlight'>erzählt</span>.",
+                        "original": "Mit den <span class='highlight'>geplanten</span> Strafmaßnahmen soll <span class='highlight'>vor allem schärfer</span> gegen die <span class='highlight'>russische Schattenflotte</span> für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
+                    }
+                ]
+            }
+        }
+    }
+]

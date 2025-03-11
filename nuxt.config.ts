@@ -42,6 +42,10 @@ export default defineNuxtConfig({
   app: {
     // baseURL: process.env.NUXT_APP_BASE_URL,
     head: {
+      title: "News Umfrage",
+      htmlAttrs: {
+        lang: "de",
+      },
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {

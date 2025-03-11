@@ -22,11 +22,15 @@
   }
   
   h3 {
-    @apply text-lg font-bold text-black mt-5 mb-3;
+    @apply text-lg font-semibold text-black mt-5 mb-3;
+  }
+
+  h3.paraphrase {
+    @apply text-lg font-semibold text-center mt-5 mb-3;
   }
   
   h4 {
-    @apply text-base text-black font-medium mb-3 mt-4;
+    @apply text-base text-black font-medium mb-2 mt-4;
   }
   
   .text {
@@ -55,4 +59,24 @@
 }
 .very-soft .highlight {
     background-color: #85E15E;
+}
+
+.radioScaleContainer {
+  @apply flex items-center flex-col sm:flex-row space-x-2 sm:space-x-4 justify-center mt-2;
+}
+
+.radioScaleInput {
+  @apply cursor-pointer w-4 h-4 text-primary my-1.5 sm:mx-2;
+}
+
+.radioScaleLabelContainer {
+  @apply flex flex-col sm:flex-row sm:space-x-2;
+}
+
+.radioScaleLabel {
+  @apply flex items-center space-y-4 sm:space-x-4;
+}
+
+.subSection {
+  @apply md:max-w-3xl;
 }

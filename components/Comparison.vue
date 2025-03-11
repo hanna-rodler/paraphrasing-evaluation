@@ -3,9 +3,12 @@
     <h2 class="font-bold">Kontext Artikel {{ index + 1 }}</h2>
     <div class="flex flex-col justify-center items-center w-full px-5 md:px-10">
       <!-- Kontext Section -->
-      <div class="mb-b">
+      <div class="mb-2 md:mb-4 subSection">
         <div>
-          <h3>{{ article.context.title }}</h3>
+          <h3 class="mb-0">{{ article.context.title }}</h3>
+          <div class="text-gray-800 text-sm mb-2">
+            Artikel von {{ article.context.date }}
+          </div>
           <!-- // render body as html  -->
           <div v-html="article.context.body"></div>
         </div>
@@ -14,60 +17,43 @@
     <div>
       <!-- Loop through each sentence -->
       <div
-        v-for="(sentence, sentenceKey) in article.sentences"
-        :key="sentenceKey"
+        v-for="(sentence, index) in article.sentences"
+        :key="'sentence' + index"
       >
         <!-- Loop through "softer" versions of the sentence -->
         <div
-          v-for="(softerVersion, index) in sentence.versions.softer"
-          :key="'softer-' + index"
+          v-for="(version, index) in sentence.versions"
+          :key="'version-' + index"
         >
           <Paraphrases
-            :articleId="article.id"
-            :softerPromptNum="softerVersion.prompt_id"
-            :sentenceNum="sentenceKey"
-            :originalText="sentence.original"
-            :softerText="softerVersion.sentence"
-            :originalSofter="
-              softerVersion.original ? softerVersion.original : ''
+            :article-id="article.id"
+            :sentence-num="sentence.orig_sentence_num"
+            :original-text="sentence.original"
+            :softer-prompt-num="
+              version.softer_prompt_id ? version.softer_prompt_id : ''
             "
-            :isLast="index === sentence.versions.softer.length - 1"
+            :verySoftPromptNum="
+              version.very_soft_prompt_id ? version.very_soft_prompt_id : ''
+            "
+            :version-text="version.sentence"
+            :highlighted-original-text="
+              version.original ? version.original : ''
+            "
           />
+          <!--
+            -->
           <!-- todo. DIESER Satz kann im Original bleiben -->
-        </div>
-        <div
-          v-if="article.sentences.length > 0"
-          class="w-full flex justify-center my-6 md:my-12"
-        >
-          <hr class="border-t-2 border-gray-300 w-1/5" />
         </div>
         <!-- Loop through "very soft" versions of that sentence-->
         <div
-          v-for="(verySoftVersion, index) in sentence.versions.verySoft"
-          :key="'verySoft-' + index"
-        >
-          <Paraphrases
-            :articleId="article.id"
-            :verySoftPromptNum="verySoftVersion.prompt_id"
-            :sentenceNum="sentenceKey"
-            :originalText="sentence.original"
-            :verySoftText="verySoftVersion.sentence"
-            :originalVerySoft="
-              verySoftVersion.original ? verySoftVersion.original : ''
-            "
-            :isLast="index === sentence.versions.verySoft.length - 1"
-          />
-          <!-- Short divider after each paraphrase -->
-          <!-- TODO: Dieser Satz kann im Original bleiben. -->
-        </div>
-        <div
-          class="w-full flex justify-center my-8 md:my-16"
+          class="w-full flex flex-col items-center my-8 md:mt-16 md:mb-10"
           v-if="
-            Object.keys(article.sentences).indexOf(sentenceKey) !==
+            Object.keys(article.sentences).indexOf(index) !==
             Object.keys(article.sentences).length - 1
           "
         >
           <hr class="border-t-2 border-gray-400 w-3/4" />
+          <h2 class="mt-6">Nächster Satz</h2>
         </div>
       </div>
     </div>
