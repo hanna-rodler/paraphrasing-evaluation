@@ -25,7 +25,7 @@
                         "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
                     },
                     {
-                        "very_softer_prompt_id": "6x2_7x1_9x2",
+                        "very_soft_prompt_id": "6x2_7x1_9x2",
                         "sentence": "<span class='highlight'>Opfer</span> bei israelischen <span class='highlight'>Aktionen</span> in Gaza",
                         "original": "<span class='highlight'>Viele Tote</span> bei israelischen <span class='highlight'>Angriffen</span> in Gaza <span class='highlight'>gemeldet</span>"
                     },
@@ -66,16 +66,50 @@
             "sentence_1": {
                 "orig_sentence_num": "1",
                 "original": "Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet.",
-                "softer_prompt_id": null,
+                "softer_prompt_id": "7-x1",
                 "very_soft_prompt_id": null,
                 "versions": [
                     {
-                        "prompt_id": "TODO",
-                        "sentence": "Die israelische Armee hat in mehreren Aktionen im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet."
+                        "softer_prompt_id": "1x3_4-x1_6x1_6-x1",
+                        "sentence": "Die israelische Armee hat bei mehreren Einsätzen im Gazastreifen nach Angaben der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschenleben gefordert."
                     },
                     {
-                        "prompt_id": "prompt_1",
-                        "sentence": "Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge eine hohe Anzahl von Opfern verursacht."
+                        "softer_prompt_id": "8x2_6--x1",
+                        "sentence": "Die israelische Armee hat in mehreren <span class='highlight'>Aktionen</span> im Gazastreifen mindestens 41 Menschen getötet, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen getötet."
+                    },
+                    {
+                        "softer_prompt_id": "2x3_3x3_4--x1_5--x1_7x2_8-x1",
+                        "sentence": "Die israelische Armee hat im Gazastreifen mehrere Angriffe <span class='highlight'>durchgeführt</span>. Dabei sind laut der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschen <span class='highlight'>ums Leben gekommen</span>.",
+                        "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen <span class='highlight'>getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "7x1_9x2_9--x1_7--x1",
+                        "sentence": "Die israelische Armee hat bei mehreren Aktionen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschenleben gefordert."
+                    },
+                    {
+                        "very_soft_prompt_id": "8x2",
+                        "sentence": "Die israelische Armee hat bei mehreren Vorfällen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge vielen Menschen das Leben genommen."
+                    },
+                    {
+                        "very_soft_prompt_id": "6x2_6--x1_7-x1_8-x1",
+                        "sentence": "Die israelische Armee hat bei mehreren <span class='highlight'>Aktionen</span> im Gazastreifen gemäß einem Bericht der palästinensischen Nachrichtenagentur WAFA eine <span class='highlight'>erhebliche Anzahl von Menschenleben gefordert</span>.",
+                        "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "2x3_10-x1_3--x1",
+                        "sentence": "Im Gazastreifen <span class='highlight'>gab es kürzlich mehrere Angriffe durch die israelische Armee</span>. Dabei wurden <span class='highlight'>viele Menschen verletzt</span>, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die <span class='highlight'>israelische Armee hat bei mehreren Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "3--x1_10x2",
+                        "sentence": "Die israelische Armee hat mehrere Angriffe im Gazastreifen <span class='highlight'>durchgeführt</span>. Dabei <span class='highlight'>wurden Menschen verletzt</span>, wie die palästinensische Nachrichtenagentur WAFA berichtet.",
+                        "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
+                    },
+                    {
+                        "very_soft_prompt_id": "1x1_1-x2_5-x1",
+                        "sentence": "Die israelische Armee hat mehrere Einsätze im Gazastreifen durchgeführt.",
+                        "kick": "evtl, weil nur ein echtes. Aber trotzdem Kategorie wichtig"
                     }
                 ]
             },
@@ -112,7 +146,8 @@
                     },
                     {
                         "very_soft_prompt_id": "2x2_2-x1_10x3",
-                        "sentence": "Die Angriffe fanden in verschiedenen Teilen des Gazastreifens statt.",
+                        "sentence": "<span class='highlight'>Die</span> Angriffe <span class='highlight'>fanden in verschiedenen Teilen des Gazastreifens statt</span>.",
+                        "original": "<span class='highlight'>Zahlreiche weitere Menschen seien bei den </span> Angriffen <span class='highlight'>in Dschabalija im Norden sowie Deir al-Balah im Zentrum und Rafah im Süden des Küstenstreifens verletzt worden, schrieb die Agentur unter Berufung auf Angaben von gestern aus medizinischen Kreisen in dem Küstenstreifen</span>.",
                         "grouping": "lost verletzte"
                     },
                     {
@@ -131,36 +166,45 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1-x3_2x2_2-x1_3x2_6-x2_7x2",
-                        "sentence": "Später teilte das Militär mit, dass in Deir al-Balah vier bewaffnete Hamas-Kämpfer in einem Fahrzeug durch einen gezielten Schlag getroffen wurden."
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah vier bewaffnete Hamas-Kämpfer in einem Fahrzeug <span class='highlight'>durch einen gezielten Schlag</span> getroffen wurden.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben."
                     },
                     {
                         "softer_prompt_id": "5x2_7x1",
-                        "sentence": "Später teilte das Militär mit, dass in Deir al-Balah vier bewaffnete Hamas-Kämpfer durch einen gezielten Schlag getroffen wurden."
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah vier bewaffnete Hamas-Kämpfer <span class='highlight'>durch einen gezielten Schlag</span> getroffen wurden.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> vier bewaffnete Hamas-Kämpfer <span class='highlight'>in einem Fahrzeug</span> getroffen zu haben.",
+                        "kick": "evtl. sehr ähnlich zu oberem. Nur ohne Fahrzeug."
                     },
                     {
                         "very_soft_prompt_id": "6x2_7-x1_8x2_8-x1",
-                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem gezielten Einsatz mehrere bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben."
+                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>gezielten Einsatz</span> <span class='highlight'>mehrere</span> bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben.",
+                        "original": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>Präzisionsschlag</span> <span class='highlight'>vier</span> bewaffnete Hamas-Kämpfer in einem Fahrzeug getroffen zu haben."
                     },
                     {
                         "very_soft_prompt_id": "5-x1_6-x1_7x2_9x3",
-                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem gezielten Einsatz vier bewaffnete Hamas-Mitglieder in einem Fahrzeug getroffen zu haben."
+                        "sentence": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>gezielten Einsatz</span> vier bewaffnete Hamas-<span class='highlight'>Mitglieder</span> in einem Fahrzeug getroffen zu haben.",
+                        "original": "Später gab das Militär bekannt, in Deir al-Balah mit einem <span class='highlight'>Präzisionsschlag</span> vier bewaffnete Hamas-<span class='highlight'>Kämpfer</span> in einem Fahrzeug getroffen zu haben."
                     },
                     {
                         "very_soft_prompt_id": "1-x1_10x1_10-x1",
-                        "sentence": "Später teilte das Militär mit, dass sie in Deir al-Balah einen gezielten Schlag gegen bewaffnete Kämpfer durchgeführt haben."
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass sie</span> in Deir al-Balah einen <span class='highlight'>gezielten Schlag</span> gegen bewaffnete <span class='highlight'>Kämpfer</span> <span class='highlight'>durchgeführt</span> haben.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier</span> bewaffnete <span class='highlight'>Hamas-</span>Kämpfer <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben."
                     },
                     {
                         "very_soft_prompt_id": "1x2_3x1",
-                        "sentence": "Später teilte das Militär mit, dass in Deir al-Balah ein gezielter Einsatz gegen bewaffnete Personen durchgeführt wurde."
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah ein <span class='highlight'>gezielter Einsatz gegen</span> bewaffnete <span class='highlight'>Personen durchgeführt</span> wurde.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag vier</span> bewaffnete <span class='highlight'>Hamas-Kämpfer in einem Fahrzeug getroffen</span> zu haben."
                     },
                     {
                         "very_soft_prompt_id": "5x2",
-                        "sentence": "Später teilte das Militär mit, dass in Deir al-Balah eine gezielte Aktion gegen bewaffnete Individuen durchgeführt wurde.",
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass</span> in Deir al-Balah eine <span class='highlight'>gezielte Aktion</span> gegen bewaffnete <span class='highlight'>Individuen durchgeführt</span> wurde.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier bewaffnete Hamas-Kämpfer</span> <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben.",
                         "kick": "evtl mit bewaffnete Personsen zusammenführen"
                     },
                     {
                         "very_soft_prompt_id": "2x2_2-x1",
-                        "sentence": "Später teilte das Militär mit, dass sie in einem Gebiet namens Deir al-Balah einen gezielten Angriff durchgeführt haben."
+                        "sentence": "Später <span class='highlight'>teilte</span> das Militär <span class='highlight'>mit, dass sie in einem Gebiet namens</span> Deir al-Balah einen <span class='highlight'>gezielten Angriff durchgeführt</span> haben.",
+                        "original": "Später <span class='highlight'>gab</span> das Militär <span class='highlight'>bekannt</span>, in Deir al-Balah <span class='highlight'>mit einem Präzisionsschlag</span> <span class='highlight'>vier bewaffnete Hamas-Kämpfer</span> <span class='highlight'>in einem Fahrzeug getroffen</span> zu haben."
                     }
                 ]
             },
@@ -172,24 +216,21 @@
                 "versions": [
                     {
                         "very_soft_prompt_id": "2-x1_3x1_3-x2_10x3",
-                        "sentence": "Die Armee erklärte, dass die Gebäude eine Gefahr darstellten, da sie für Angriffe auf Israel genutzt wurden."
+                        "sentence": "Die Armee erklärte, <span class='highlight'>dass die Gebäude eine Gefahr darstellten, da sie für Angriffe auf Israel genutzt wurden</span>.",
+                        "original": "Die <span class='highlight'>nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen</span>, erklärte die Armee."
                     },
                     {
-                        "very_soft_prompt_id": "1x1_5x1_5-x1",
-                        "sentence": "Die Armee erklärte, dass die Gebäude aufgrund ihrer Nähe zur israelischen Stadt Sderot und ihrer militärischen Infrastruktur eine Gefahr darstellten. "
-                    },
-                    {
-                        "very_soft_prompt_id": "1x1_5x1",
-                        "sentence": "Die Armee erklärte, dass die Gebäude aufgrund ihrer Nähe zur israelischen Stadt Sderot und ihrer militärischen Nutzung eine Gefahr darstellten.",
-                        "kick": "evtl, merge mit milit. Infrastruktur"
+                        "very_soft_prompt_id": "1x1_1-x1_5x1_5-x2",
+                        "sentence": "Die Armee erklärte, <span class='highlight'>dass die Gebäude aufgrund ihrer Nähe zur</span> israelischen Stadt Sderot <span class='highlight'>und ihrer militärischen Infrastruktur eine Gefahr darstellten</span>.",
+                        "original": "Die <span class='highlight'>nur etwa drei Kilometer von der</span> israelischen Stadt Sderot <span class='highlight'>entfernten Gebäude seien mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen für Raketenangriffe auf Israel eine Gefahr gewesen</span>, erklärte die Armee.",
+                        "comment": "merged with milit. Infrastruktur"
                     },
                     {
                         "very_soft_prompt_id": "6x2_6-x1_7-x1",
-                        "sentence": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren Verteidigungsstellungen, Tunneln und Abschussrampen eine Gefahr gewesen, erklärte die Armee"
-                    },
-                    {
-                        "softer_prompt_id": "2x2_5-x1",
-                        "sentence": "Die Gebäude waren nur etwa drei Kilometer von der israelischen Stadt Sderot entfernt. Die Armee sagte, dass diese Gebäude mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen eine Gefahr für Israel darstellten. "
+                        "softer_prompt_id": "2-x2_5--x1",
+                        "sentence": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Verteidigungsstellungen</span>, Tunneln und Abschussrampen eine Gefahr gewesen, erklärte die Armee",
+                        "original": "Die nur etwa drei Kilometer von der israelischen Stadt Sderot entfernten Gebäude seien mit ihren <span class='highlight'>Panzerabwehrstellungen</span>, Tunneln und Abschussrampen <span class='highlight'>für Raketenangriffe auf Israel</span> eine Gefahr gewesen, erklärte die Armee.",
+                        "comment": "merged with 'Die Gebäude waren nur etwa drei Kilometer von der israelischen Stadt Sderot entfernt. Die Armee sagte, dass diese Gebäude mit ihren Panzerabwehrstellungen, Tunneln und Abschussrampen eine Gefahr für Israel darstellten.' aufgrund Satzstellung"
                     }
                 ]
             },
@@ -201,27 +242,33 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1x1_1-x2",
-                        "sentence": "Palästinensische Vertreter äußern die Befürchtung, Israel wolle den gesamten Norden des Gazastreifens entvölkern."
+                        "sentence": "Palästinensische <span class='highlight'>Vertreter</span> <span class='highlight'>äußern die Befürchtung</span>, Israel wolle den gesamten Norden des Gazastreifens entvölkern.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den gesamten Norden des Gazastreifens entvölkern."
                     },
                     {
                         "very_soft_prompt_id": "1x1_5x1_5-x1",
-                        "sentence": "Palästinensische Vertreter äußerten Bedenken, dass Israel den Norden des Gazastreifens entvölkern wolle."
+                        "sentence": "Palästinensische <span class='highlight'>Vertreter</span> <span class='highlight'>äußerten Bedenken</span>, dass Israel den Norden des Gazastreifens entvölkern wolle.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens entvölkern."
                     },
                     {
                         "very_soft_prompt_id": "1x1_1-x1_9x1",
-                        "sentence": "Palästinenser äußern Bedenken, dass Israel den gesamten Norden des Gazastreifens räumen möchte."
+                        "sentence": "Palästinenser <span class='highlight'>äußern Bedenken</span>, dass Israel den gesamten Norden des Gazastreifens <span class='highlight'>räumen möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den gesamten Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
                     },
                     {
                         "very_soft_prompt_id": "3x1_3-x1",
-                        "sentence": "Palästinenser sorgen sich, dass Israel den Norden des Gazastreifens räumen möchte."
+                        "sentence": "Palästinenser <span class='highlight'>sorgen sich</span>, dass Israel den Norden des Gazastreifens <span class='highlight'>räumen möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
                     },
                     {
                         "softer_prompt_id": "2x2",
-                        "sentence": "Palästinenser beschuldigen Israel, den Norden des Gazastreifens leer räumen zu wollen."
+                        "sentence": "Palästinenser <span class='highlight'>beschuldigen</span> Israel, den Norden des Gazastreifens <span class='highlight'>leer räumen</span> zu wollen.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
                     },
                     {
                         "softer_prompt_id": "10x1_10-x1",
-                        "sentence": "Palästinenser sagen, dass Israel den Norden des Gazastreifens leeren möchte."
+                        "sentence": "Palästinenser <span class='highlight'>sagen</span>, dass Israel den Norden des Gazastreifens <span class='highlight'>leeren möchte</span>.",
+                        "original": "Palästinenser <span class='highlight'>werfen Israel vor</span>, es wolle den <span class='highlight'>gesamten</span> Norden des Gazastreifens <span class='highlight'>entvölkern</span>."
                     }
                 ]
             }
@@ -515,18 +562,15 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1x3_2-x2_3-x1_4x3_5x3_6x3_7-x1_8-x3",
+                        "very_soft_prompt_id": "1-x3_3x3_5-x1_5-x1_6-x1_7x2_8x1_9x2_9-x1_10x2",
                         "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kommentierte, bezeichnete</span> Grenell den Beitrag als Wahlbeeinflussung",
-                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm, nannte</span> Grenell den Beitrag Wahlbeeinflussung. "
+                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm, nannte</span> Grenell den Beitrag Wahlbeeinflussung.",
+                        "comment": "merged with very softer verision. Difference: 'nannte' statt bezeichnete"
                     },
                     {
                         "softer_prompt_id": "3x1_7x2",
                         "very_soft_prompt_id": "2x3_7x1_10x1",
                         "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kritisierte</span>, nannte Grenell den Beitrag Wahlbeeinflussung",
-                        "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm</span>, nannte Grenell den Beitrag Wahlbeeinflussung."
-                    },
-                    {
-                        "very_soft_prompt_id": "1-x3_3x3_5-x1_5-x1_6-x1_7x2_8x1_9x2_9-x1_10x2",
-                        "sentence": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>kommentierte</span>, nannte Grenell den Beitrag Wahlbeeinflussung.",
                         "original": "Als das Auswärtige Amt eine Aussage Trumps aus einem TV-Duell im Wahlkampf auf der Plattform X <span class='highlight'>aufs Korn nahm</span>, nannte Grenell den Beitrag Wahlbeeinflussung."
                     },
                     {
@@ -646,16 +690,19 @@
                 "versions": [
                     {
                         "softer_prompt_id": "1x2_1-x1_5-x1_6x3",
-                        "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch die russische Schattenflotte stärker reguliert werden, wie mehrere Diplomaten der dpa mitteilten."
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch die russische Schattenflotte <span class='highlight'>stärker reguliert</span> werden, wie mehrere Diplomaten der dpa mitteilten.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem</span> <span class='highlight'>schärfer</span> gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
                     },
                     {
                         "very_soft_prompt_id": "1x2_1-x1",
-                        "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch russische Schiffe stärker reguliert werden, wie mehrere Diplomaten der dpa mitteilten"
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch die russische <span class='highlight'>Schiffe</span> <span class='highlight'>stärker reguliert</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem</span> <span class='highlight'>schärfer</span> gegen die russische <span class='highlight'>Schattenflotte</span> für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
                     },
                     {
                         "softer_prompt_id": "8-x1",
                         "very_soft_prompt_id": "8x2_10x2",
-                        "sentence": "Mit den geplanten Maßnahmen soll vor allem gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten. "
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll vor allem gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll vor allem <span class='highlight'>schärfer</span> gegen die russische Schattenflotte für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa sagten."
                     },
                     {
                         "softer_prompt_id": "3-x2_4-x2",
@@ -664,16 +711,19 @@
                     },
                     {
                         "softer_prompt_id": "4x1_5x1",
-                        "sentence": "Die geplanten Maßnahmen zielen darauf ab, den Transport von Öl und Ölprodukten durch die russische Schattenflotte zu erschweren, wie mehrere Diplomaten der dpa mitteilten."
+                        "sentence": "Die geplanten <span class='highlight'>Maßnahmen</span> <span class='highlight'>zielen darauf ab</span>, den Transport von Öl und Ölprodukten durch die russische Schattenflotte zu erschweren, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem schärfer gegen</span> die russische Schattenflotte für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
                     },
                     {
                         "softer_prompt_id": "8-x1",
                         "very_soft_prompt_id": "2-x1_3-x3_5x2",
-                        "sentence": "Mit den geplanten Maßnahmen soll insbesondere der Transport von Öl und Ölprodukten durch russische Schiffe eingeschränkt werden, wie mehrere Diplomaten der dpa mitteilten."
+                        "sentence": "Mit den geplanten <span class='highlight'>Maßnahmen</span> soll <span class='highlight'>insbesondere</span> der Transport von Öl und Ölprodukten durch russische <span class='highlight'>Schiffe</span> <span class='highlight'>eingeschränkt</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>mitteilten</span>.",
+                        "original": "Mit den geplanten <span class='highlight'>Strafmaßnahmen</span> soll <span class='highlight'>vor allem schärfer gegen</span> die russische <span class='highlight'>Schattenflotte</span> für den Transport von Öl und Ölprodukten <span class='highlight'>vorgegangen</span> werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
                     },
                     {
                         "softer_prompt_id": "2x1_2-x1_3-x1",
-                        "sentence": "Mit diesen neuen Strafmaßnahmen soll besonders hart gegen die sogenannte Schattenflotte Russlands vorgegangen werden. Diese Flotte transportiert Öl und Ölprodukte. Mehrere Diplomaten haben der Deutschen Presse-Agentur (dpa) davon erzählt. "
+                        "sentence": "Mit diesen <span class='highlight'>neuen</span> Strafmaßnahmen soll <span class='highlight'>besonders hart</span> gegen die <span class='highlight'>sogenannte Schattenflotte Russlands</span> vorgegangen werden. Diese Flotte transportiert Öl und Ölprodukte. Mehrere Diplomaten haben der Deutschen Presse-Agentur (dpa) davon <span class='highlight'>erzählt</span>.",
+                        "original": "Mit den <span class='highlight'>geplanten</span> Strafmaßnahmen soll <span class='highlight'>vor allem schärfer</span> gegen die <span class='highlight'>russische Schattenflotte</span> für den Transport von Öl und Ölprodukten vorgegangen werden, wie mehrere Diplomaten der dpa <span class='highlight'>sagten</span>."
                     }
                 ]
             }
