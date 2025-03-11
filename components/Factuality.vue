@@ -1,24 +1,24 @@
 <template>
   <div class="my-4">
-    <div class="font-bold">Faktizität</div>
-    <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-2">
-      <div class="flex space-x-2">
-        <span>inkorrekt</span>
-        <label
-          v-for="(value, index) in [-2, -1, 1, 2]"
-          :key="index"
-          class="flex items-center space-x-4"
-        >
-          <input
-            type="radio"
-            :name="`factuality-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
-            :value="value"
-            @click="setRating(value)"
-            :checked="selectedRating === value"
-            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
-          />
-        </label>
-      </div>
+    <div class="font-bold">Faktencheck im Vergleich zum Original</div>
+    <div
+      class="flex space-x-2 md:space-x-4 mt-2 md:mt-3 items-center justify-center"
+    >
+      <span>inkorrekt</span>
+      <label
+        v-for="(value, index) in [-2, -1, 1, 2]"
+        :key="index"
+        class="flex items-center space-x-4"
+      >
+        <input
+          type="radio"
+          :name="`factuality-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
+          :value="value"
+          @click="setRating(value)"
+          :checked="selectedRating === value"
+          class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+        />
+      </label>
       <span>korrekt</span>
     </div>
   </div>

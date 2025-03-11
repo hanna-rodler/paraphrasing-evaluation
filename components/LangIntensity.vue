@@ -1,24 +1,24 @@
 <template>
   <div class="mt-4 mb-2">
     <div class="font-bold">Sprachintensität im Vergleich zum Original</div>
-    <div class="flex items-center space-x-2 md:space-x-4 justify-center mt-3">
-      <div class="flex space-x-2">
-        <span>sehr hart</span>
-        <label
-          v-for="(value, index) in [-2, -1, 0, 1, 2]"
-          :key="index"
-          class="flex items-center space-x-4"
-        >
-          <input
-            type="radio"
-            :name="`langIntensity-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
-            :value="value"
-            @click="setRating(value)"
-            :checked="selectedRating === value"
-            class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
-          />
-        </label>
-      </div>
+    <div
+      class="flex w-full space-x-1 xs:space-x-2 mt-3 justify-between xs:justify-center items-center"
+    >
+      <span>sehr hart</span>
+      <label
+        v-for="(value, index) in [-2, -1, 0, 1, 2]"
+        :key="index"
+        class="flex items-center space-x-1 md:space-x-4"
+      >
+        <input
+          type="radio"
+          :name="`langIntensity-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
+          :value="value"
+          @click="setRating(value)"
+          :checked="selectedRating === value"
+          class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+        />
+      </label>
       <span>sehr sanft</span>
     </div>
   </div>

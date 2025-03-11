@@ -3,12 +3,12 @@
     <h2 class="font-bold">Kontext Artikel {{ index + 1 }}</h2>
     <div class="flex flex-col justify-center items-center w-full px-5 md:px-10">
       <!-- Kontext Section -->
-      <div class="mb-2 md:mb-4">
+      <div class="mb-2 md:mb-4 subSection">
         <div>
           <h3 class="mb-0">{{ article.context.title }}</h3>
-          <span class="text-gray-800 text-sm mb-6">
+          <div class="text-gray-800 text-sm mb-2">
             Artikel von {{ article.context.date }}
-          </span>
+          </div>
           <!-- // render body as html  -->
           <div v-html="article.context.body"></div>
         </div>
