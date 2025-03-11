@@ -1,22 +1,26 @@
 <template>
   <div class="section flex justify-center mt-4 md:mt-8">
-    <div class="max-w-4xl">
+    <div class="subSection mx-4 md:mx-0">
+      <AtomsHeadline level="h2" class="text-bold">Abschluss</AtomsHeadline>
+      <div class="mb-12 mt-4 md:mt-8 text-bold">
+        Angenommen Sie können zwischen verschiedenen Versionen je nach Ihrer
+        Stimmungslage und Kapazitäten wählen, wie bewerten Sie die folgendes?
+      </div>
       <!-- Death and Injured numbers-->
-      <div class="mb-6 md:mb-12 mt-4 md:mt-8">
+      <div class="mb-12">
         <div>
           Zahlen von Toten und Verletzten sollen in der
-          <em>sanften Version</em> immer durch allgemeine Kategorisierungen
-          ersetzt werden: *
+          <em><span class="underline">etwas</span> sanfteren Version</em> immer
+          durch allgemeine Kategorisierungen wie "ein paar", "mehrere" oder
+          "viele" ersetzt werden: *
         </div>
-        <div
-          class="flex items-center space-x-2 md:space-x-4 justify-center mt-1"
-        >
+        <div class="radioScaleContainer">
           <span>Ich stimme gar nicht zu</span>
-          <div class="flex space-x-2">
+          <div class="radioScaleLabelContainer">
             <label
               v-for="(rating, index) in ratingOptions"
               :key="index"
-              class="flex items-center space-x-4"
+              class="radioScaleLabel"
               id="softDeathInjNums"
             >
               <input
@@ -25,7 +29,7 @@
                 for="softDeathInjNums"
                 :value="rating.value"
                 v-model="softDeathInjNums"
-                class="form-radio cursor-pointer w-4 h-4 text-primary mx-1 md:mx-2"
+                class="radioScaleInput"
               />
             </label>
           </div>
@@ -48,21 +52,19 @@
           Bitte auswählen.
         </div>
       </div>
-      <div class="mb-6 md:mb-12">
+      <div class="mb-12">
         <div>
           Zahlen von Toten und Verletzten sollen in der
-          <em>sehr sanften Version</em> immer durch allgemeine Kategorisierungen
-          ersetzt werden: *
+          <em><span class="underline">sehr</span> sanften Version</em> immer
+          durch allgemeine Kategorisierungen ersetzt werden: *
         </div>
-        <div
-          class="flex items-center space-x-2 md:space-x-4 justify-center mt-1"
-        >
+        <div class="radioScaleContainer">
           <span>Ich stimme gar nicht zu</span>
-          <div class="flex space-x-2">
+          <div class="radioScaleLabelContainer">
             <label
               v-for="(rating, index) in ratingOptions"
               :key="index"
-              class="flex items-center space-x-4"
+              class="radioScaleLabel"
               id="verySoftDeathInjNums"
             >
               <input
@@ -71,7 +73,7 @@
                 for="verySoftDeathInjNums"
                 :value="rating.value"
                 v-model="verySoftDeathInjNums"
-                class="form-radio cursor-pointer w-4 h-4 text-primary mx-1 md:mx-2"
+                class="radioScaleInput"
               />
             </label>
           </div>
@@ -97,30 +99,29 @@
       <!-- I would read -->
       <div class="mb-6 md:mb-12">
         <div>
-          Ich kann mir vorstellen folgende Versionen zu lesen, sofern ich selbst
-          immer einstellen kann, welche ich lese: TODO wording / hilfreich Ich
-          kann mir vorstellen, dass folgende Versionen für mich in manchen
-          Situationen
-          <em>hilfreich</em> sein können: *
+          Ich kann mir vorstellen, dass folgende Versionen zu lesen eine
+          positive Auswirkung auf mich selbst haben könnten: *<br />
+          <span>
+            Hinweis: Sie können selbst immer einstellen, welche Version Sie
+            lesen.
+          </span>
         </div>
-        <div
-          class="flex justify-center"
-          v-for="version in versionOptions"
-          :key="version.value"
-        >
-          <div class="w-36">
-            <label
-              class="label cursor-pointer justify-start px-0 flex items-center space-x-2"
-            >
-              <input
-                type="checkbox"
-                :name="`iWouldRead-${version.value}`"
-                class="checkbox w-4 h-4 border-black rounded-sm"
-                :value="version.value"
-                v-model="iWouldRead"
-              />
-              <span>{{ version.label }}</span>
-            </label>
+        <div class="flex flex-col items-center">
+          <div class="w-42">
+            <div v-for="version in versionOptions" :key="version.value">
+              <label
+                class="label cursor-pointer justify-start px-0 flex items-center space-x-2"
+              >
+                <input
+                  type="checkbox"
+                  :name="`iWouldRead-${version.value}`"
+                  class="checkbox w-4 h-4 border-black rounded-sm"
+                  :value="version.value"
+                  v-model="iWouldRead"
+                />
+                <span>{{ version.label }}</span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -144,25 +145,23 @@
       <div class="mb-6 md:mb-12" v-if="showSocialWorkerQuestion">
         <div>
           Nach meiner Einschätzung könnten folgende Versionen für meine
-          Klient*innen hilfreich sein: TODO *
+          Klient*innen eine positive Auswirkung haben:
         </div>
-        <div
-          class="flex justify-center"
-          v-for="version in versionOptions"
-          :key="version.value"
-        >
-          <div class="w-36">
-            <label
-              class="label cursor-pointer justify-start px-0 flex items-center space-x-2"
-            >
-              <input
-                type="checkbox"
-                class="checkbox w-4 h-4 border-black rounded-sm"
-                :value="version.value"
-                v-model="clientsWouldRead"
-              />
-              <span>{{ version.label }}</span>
-            </label>
+        <div class="flex flex-col items-center">
+          <div class="w-42">
+            <div v-for="version in versionOptions" :key="version.value">
+              <label
+                class="label cursor-pointer justify-start px-0 flex items-center space-x-2"
+              >
+                <input
+                  type="checkbox"
+                  class="checkbox w-4 h-4 border-black rounded-sm"
+                  :value="version.value"
+                  v-model="clientsWouldRead"
+                />
+                <span>{{ version.label }}</span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -218,15 +217,15 @@ const clientsWouldReadError = useState<boolean>(
 
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const showSocialWorkerQuestion = computed(() => {
-  console.log("show social worker", psychoSocialWorker.value);
   return psychoSocialWorker.value === true ? true : false;
 });
 
 const versionOptions = ref([
-  { value: "original", label: "original" },
-  { value: "softer", label: "sanfter" },
+  { value: "original", label: "Original" },
+  { value: "softer", label: "etwas sanfter" },
   { value: "verySoft", label: "sehr sanft" },
   { value: "iDontKnow", label: "ich weiß es nicht" },
+  { value: "iDontRead", label: "ich lese keine politischen Nachrichten" },
 ]);
 
 const ratingOptions = ref([

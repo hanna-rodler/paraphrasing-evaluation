@@ -11,6 +11,7 @@ export default {
   theme: {
     extend: {
       screens: {
+        xs: "470px",
         md: "710px",
       },
       colors: {
@@ -29,6 +30,9 @@ export default {
       },
       lineHeight: {
         12: "3rem",
+      },
+      margin: {
+        1.5: "0.375rem",
       },
     },
   },
