@@ -7,11 +7,8 @@
           <h3 class="paraphrase">Original</h3>
           <p
             :id="`a-${articleId}-p-${softerPromptNum}-${verySoftPromptNum}_s-${sentenceNum}_v-original-softer`"
-            v-html="highlightedOriginalSofter"
+            v-html="highlightedOriginal"
           ></p>
-          <div v-if="isLast">
-            Dieser Satz braucht nicht umgeschrieben zu werden TODO
-          </div>
         </div>
 
         <div
@@ -44,7 +41,6 @@
 </template>
 
 <script setup>
-import RatingButtons from "./RatingButtons.vue";
 import { ref, onMounted } from "vue";
 
 const props = defineProps({
@@ -70,7 +66,7 @@ const props = defineProps({
   },
   versionText: {
     type: String,
-    required: false,
+    required: true,
   },
   highlightedOriginalText: {
     type: String,
