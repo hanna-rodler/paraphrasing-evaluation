@@ -211,10 +211,10 @@
             >
               <input
                 type="radio"
-                :name="`newsConsumption-frequency`"
-                class="checkbox w-4 h-4 border-black rounded-sm"
+                :name="`newsConsumptionFrequency`"
+                class="checkbox w-4 h-4 border-black rounded-sm cursor-pointer"
                 :value="version.value"
-                v-model="newsConsumption"
+                v-model="newsConsumptionFrequency"
               />
               <span>{{ version.label }}</span>
             </label>
@@ -222,8 +222,8 @@
         </div>
       </div>
       <div
-        id="newsConsumption-error"
-        v-if="newsConsumptionError"
+        id="newsConsumptionFrequency-error"
+        v-if="newsConsumptionFrequencyError"
         class="text-error text-center mt-2 flex items-center justify-center"
         role="alert"
       >
@@ -231,8 +231,8 @@
           name="heroicons:exclamation-triangle"
           size="18"
           class="mr-2 text-error"
-          id="newsConsumption-icon-error"
-          data-error-icon="newsConsumption"
+          id="newsConsumptionFrequency-icon-error"
+          data-error-icon="newsConsumptionFrequency"
           aria-hidden="true"
         />
         <span>Bitte auswählen.</span>
@@ -250,7 +250,10 @@ const psychoSocialWorker = useState<boolean | null>(
   "psychoSocialWorker",
   () => null
 );
-const newsConsumption = useState<string>("newsConsumption", () => "");
+const newsConsumptionFrequency = useState<string | null>(
+  "newsConsumptionFrequency",
+  () => null
+);
 
 const ageError = useState<boolean>("ageError", () => false);
 const genderError = useState<boolean>("genderError", () => false);
@@ -260,8 +263,8 @@ const psychoSocialWorkerError = useState<boolean>(
   "psychoSocialWorkerError",
   () => false
 );
-const newsConsumptionError = useState<boolean>(
-  "newsConsumptionError",
+const newsConsumptionFrequencyError = useState<boolean>(
+  "newsConsumptionFrequencyError",
   () => false
 );
 

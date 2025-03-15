@@ -355,19 +355,16 @@
                 "very_soft_prompt_id": "1x1_6x2_8x3_10x1",
                 "versions": [
                     {
-                        "very_soft_prompt_id": "3x1_10-x1",
+                        "very_soft_prompt_id": "2--x1_3x1_10-x1_10--x1",
                         "sentence": "Martin Sellner, der früher Sprecher einer <span class='highlight'>Gruppe</span> war, die als rechtsextrem eingestuft wurde, war im Juli in Saarbrücken bei einer <span class='highlight'>Veranstaltung</span>.",
-                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz</span> als rechtsextrem eingestuften <span class='highlight'>Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz</span> als rechtsextrem eingestuften <span class='highlight'>Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht.",
+                        "comment": "'Identitäre' (2x1_10x1) schon bei 1x2_2x1. 'eine Veranstaltung' (10x1) schon bei 2x1_10-x1 und 3x1_3-x1. 2x1: 'Gegenveranstaltung' von 'Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.'"
                     },
                     {
-                        "very_soft_prompt_id": "1x2_2x1",
+                        "very_soft_prompt_id": "1x2_2x1_2-x1_10-x1",
                         "sentence": "Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken eine Gegenveranstaltung der „Omas gegen Rechts“ besucht.",
-                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz als rechtsextrem eingestuften</span>Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ <span class='highlight'>gegen seinen eigenen Auftritt</span> besucht."
-                    },
-                    {
-                        "very_soft_prompt_id": "2-x1_10x1",
-                        "sentence": "Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.",
-                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz als rechtsextrem eingestuften</span> Identitären, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der <span class='highlight'>vom Verfassungsschutz als rechtsextrem eingestuften</span>Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ <span class='highlight'>gegen seinen eigenen Auftritt</span> besucht.",
+                        "comment": "'Identitäre' (2x1_10x1) schon bei 1x2_2x1. 'eine Veranstaltung' (10x1) schon bei 2x1_10-x1 und 3x1_3-x1. 2x1: 'Gegenveranstaltung' von 'Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.'"
                     },
                     {
                         "very_soft_prompt_id": "5x2_5-x1_2-x1",
@@ -375,9 +372,10 @@
                         "original": "Sellner, bis vor einem Jahr auch Sprecher <span class='highlight'>der vom Verfassungsschutz als rechtsextrem</span> eingestuften <span class='highlight'>Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
                     },
                     {
-                        "very_soft_prompt_id": "3x1_3-x1",
+                        "very_soft_prompt_id": "2--x1_3x1_3-x1_10--x1",
                         "sentence": "Sellner, der bis vor einem Jahr auch Sprecher einer <span class='highlight'>Gruppe</span> war, die vom Verfassungsschutz <span class='highlight'>beobachtet wird</span>, hatte im Juli in Saarbrücken eine <span class='highlight'>Veranstaltung</span> besucht.",
-                        "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als <span class='highlight'>rechtsextrem eingestuften Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht."
+                        "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als <span class='highlight'>rechtsextrem eingestuften Identitären</span>, hatte im Juli im deutschen Saarbrücken eine <span class='highlight'>„Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt</span> besucht.",
+                        "comment": "'Identitäre' (2x1_10x1) schon bei 1x2_2x1. 'eine Veranstaltung' (10x1) schon bei 2x1_10-x1 und 3x1_3-x1. 2x1: 'Gegenveranstaltung' von 'Sellner, der bis vor einem Jahr auch Sprecher der <span class='highlight'>Identitären</span> war, hatte im Juli in Saarbrücken <span class='highlight'>eine Veranstaltung</span> besucht.'"
                     },
                     {
                         "very_soft_prompt_id": "6-x1_7-x2_9x2",
@@ -531,7 +529,8 @@
                     {
                         "very_soft_prompt_id": "6x2_5-x2",
                         "sentence": "„Ric wird weiterhin für Frieden durch <span class='highlight'>Stabilität eintreten</span>“ und werde die USA immer an die erste Stelle setzen, so Trump.",
-                        "original": "„Ric wird weiterhin für Frieden durch <span class='highlight'>Stärke kämpfen</span>“ und werde die USA immer an die erste Stelle setzen, so Trump."
+                        "original": "„Ric wird weiterhin für Frieden durch <span class='highlight'>Stärke kämpfen</span>“ und werde die USA immer an die erste Stelle setzen, so Trump.",
+                        "kick": "evtl. händisch Minuspunkte für LOST"
                     }
                 ]
             },

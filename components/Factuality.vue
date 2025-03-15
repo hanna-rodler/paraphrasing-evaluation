@@ -16,7 +16,7 @@
           :value="value"
           @click="setRating(value)"
           :checked="selectedRating === value"
-          class="form-radio w-4 h-4 text-primary mx-1 md:mx-2"
+          class="form-radio w-4 h-4 text-primary mx-1 md:mx-2 cursor-pointer"
         />
       </label>
       <span>korrekt</span>

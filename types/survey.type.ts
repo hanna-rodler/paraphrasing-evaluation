@@ -15,6 +15,11 @@ export type surveyResponseType = {
   generalRemark: string;
   verySoftDeathInjNums: number | null;
   softDeathInjNums: number | null;
+  newsConsumptionFrequency: string | null;
+  langLowSensitivity: string | null;
+  langHighSensitivity: string | null;
+  newsBoundaries: string | null;
+  newsWorry: string | null;
 };
 
 export type articleSelection = {

@@ -98,8 +98,10 @@ import type {
   versions,
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
-import surveyData from "~/contents/shortened-one-version-survey.json";
 import { countValidArticles } from "~/utils/validation";
+definePageMeta({
+  middleware: "survey", // This ensures middleware runs ONLY on "/"
+});
 
 const isMounted = ref(false);
 onMounted(() => {
@@ -116,8 +118,19 @@ const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
 const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const generalRemark = useState<string>("generalRemark");
+const newsConsumptionFrequency = useState<string | null>(
+  "newsConsumptionFrequency"
+);
+const langLowSensitivity = useState<number | null>("langLowSensitivity");
+const langHighSensitivity = useState<number | null>("langHighSensitivity");
+const newsBoundaries = useState<number | null>("newsBoundaries");
+const newsWorry = useState<number | null>("newsWorry");
 const showArticleError = ref(false);
-const totalQuestionLength = ref<number>(102); // 5+ 3+ 40 TODO: adapt
+const requiredQuestions = 12;
+const versionCount = useNuxtApp().payload.data.versionCount;
+const totalQuestionLength = ref<number>(requiredQuestions + versionCount);
+// TODO: remove "would read X"
+// TODO: check answers latest.
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
@@ -154,20 +167,6 @@ const responseScheme: surveyResponseType = {
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
 
-if (shuffledData == undefined) {
-  shuffledData = shuffleArray(surveyData);
-  useNuxtApp().payload.data.shuffled = shuffledData;
-}
-
-function shuffleArray<T>(array: T[]): T[] {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
-    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-  }
-
-  return array;
-}
-
 const surveyResponse = useState<surveyResponseType>(
   "surveyResponse",
   (): surveyResponseType => responseScheme
@@ -191,6 +190,11 @@ const validity = {
   iWouldRead: false,
   clientsWouldRead: false,
   articles: false,
+  newsConsumptionFrequency: false,
+  langLowSensitivity: false,
+  langHighSensitivity: false,
+  newsBoundaries: false,
+  newsWorry: false,
 };
 
 function checkValidity(showErrors: boolean) {
@@ -396,6 +400,79 @@ function checkValidity(showErrors: boolean) {
     }
   }
 
+  // validity newsConsumptionFrequency
+  if (!validity.newsConsumptionFrequency) {
+    const newsConsumptionFrequencyError = useState<boolean>(
+      "newsConsumptionFrequencyError"
+    );
+    if (newsConsumptionFrequency.value === null) {
+      if (showErrors) {
+        newsConsumptionFrequencyError.value = true;
+      }
+    } else {
+      newsConsumptionFrequencyError.value = false;
+      validity.newsConsumptionFrequency = true;
+      gotUpdated = true;
+    }
+  }
+
+  // validity langLowSensitivity
+  if (!validity.langLowSensitivity) {
+    const langLowSensitivityError = useState<boolean>(
+      "langLowSensitivityError"
+    );
+    if (langLowSensitivity.value === null) {
+      if (showErrors) {
+        langLowSensitivityError.value = true;
+      }
+    } else {
+      langLowSensitivityError.value = false;
+      validity.langLowSensitivity = true;
+      gotUpdated = true;
+    }
+  }
+  // lang HighSensitivity
+  if (!validity.langHighSensitivity) {
+    const langHighSensitivityError = useState<boolean>(
+      "langHighSensitivityError"
+    );
+    if (langHighSensitivity.value === null) {
+      if (showErrors) {
+        langHighSensitivityError.value = true;
+      }
+    } else {
+      langHighSensitivityError.value = false;
+      validity.langHighSensitivity = true;
+      gotUpdated = true;
+    }
+  }
+
+  // news Boundaries
+  if (!validity.newsBoundaries) {
+    const newsBoundariesError = useState<boolean>("newsBoundariesError");
+    if (newsBoundaries.value === null) {
+      if (showErrors) {
+        newsBoundariesError.value = true;
+      }
+    } else {
+      newsBoundariesError.value = false;
+      validity.newsBoundaries = true;
+      gotUpdated = true;
+    }
+  }
+  if (!validity.newsWorry) {
+    const newsWorryError = useState<boolean>("newsWorryError");
+    if (newsWorry.value === null) {
+      if (showErrors) {
+        newsWorryError.value = true;
+      }
+    } else {
+      newsWorryError.value = false;
+      validity.newsWorry = true;
+      gotUpdated = true;
+    }
+  }
+
   // at least 15 sentences have a factuality and langIntensity
   let articlesValidCount = countValidArticles(surveyResponse.value.articles);
   // iterate through object
@@ -442,13 +519,18 @@ const submitForm = () => {
   surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
   surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
   surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
+  surveyResponse.value.langLowSensitivity = langLowSensitivity.value;
+  surveyResponse.value.langHighSensitivity = langHighSensitivity.value;
+  surveyResponse.value.newsBoundaries = newsBoundaries.value;
+  surveyResponse.value.newsWorry = newsWorry.value;
   surveyResponse.value.generalRemark = generalRemark.value;
-  console.log("clientsWouldRead", clientsWouldRead.value);
-  console.log("psychoSocialWorker", psychoSocialWorker.value);
+  surveyResponse.value.newsConsumptionFrequency =
+    newsConsumptionFrequency.value;
+  console.log("surveyResponse", surveyResponse.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {
-    console.log("surveyResponse", surveyResponse.value);
+    console.log("save to DB: surveyResponse", surveyResponse.value);
     saveToDB();
   } else {
     console.error("errors occured");
