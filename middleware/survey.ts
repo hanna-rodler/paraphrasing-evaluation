@@ -17,7 +17,7 @@ export default defineNuxtRouteMiddleware(async () => {
   });
 
   if (data.value) {
-    nuxtApp.payload.data.count = data.value.counters?.viewCounter;
+    nuxtApp.payload.data.count = data.value.result?.viewCounter;
   } else {
     console.error("Unsuccessful. Error:", fetchError.value);
     return;

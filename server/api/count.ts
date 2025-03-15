@@ -19,9 +19,7 @@ export default defineEventHandler(async (event) => {
     };
     console.log("result BE", result);
 
-    //   const counter = await db.collection("survey_meta").findOne({ _id: "response_counter" });
-    //   return { count: counter?.count ?? 0 };
-    return { message: "Counter gotten successfully", counters: result };
+    return { message: "Counter gotten successfully", result: result };
   } catch (error) {
     console.error("counter", error);
     return { message: error };
