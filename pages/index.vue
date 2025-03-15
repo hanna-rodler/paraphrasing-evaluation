@@ -470,8 +470,6 @@ const submitForm = () => {
   surveyResponse.value.gender = gender.value;
   surveyResponse.value.country = country.value;
   surveyResponse.value.federalState = federalState.value;
-  surveyResponse.value.iWouldRead = iWouldRead.value;
-  surveyResponse.value.clientsWouldRead = clientsWouldRead.value;
   surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
   surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
   surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
@@ -504,6 +502,12 @@ const saveToDB = async () => {
   if (data.value) {
     console.log("successful. redirect");
     navigateTo("./success");
+    const { data, error: fetchError } = await useFetch(
+      "/api/counterIncrement",
+      {
+        method: "GET",
+      }
+    );
   } else {
     console.error("Unsuccessful. Error:", fetchError.value);
   }
