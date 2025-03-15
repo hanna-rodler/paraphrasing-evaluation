@@ -100,7 +100,7 @@ import type {
 import { ref, onMounted } from "vue";
 import { countValidArticles } from "~/utils/validation";
 definePageMeta({
-  middleware: "survey", // This ensures middleware runs ONLY on "/"
+  middleware: "survey",
 });
 
 const isMounted = ref(false);
@@ -112,8 +112,6 @@ const gender = useState<gender>("gender");
 const age = useState<age>("age");
 const country = useState<country>("country");
 const federalState = useState<string>("federalState");
-const iWouldRead = useState<versions[] | null[]>("iWouldRead");
-const clientsWouldRead = useState<versions[] | null[]>("clientsWouldRead");
 const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
 const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
@@ -153,8 +151,6 @@ const responseScheme: surveyResponseType = {
   gender: gender.value,
   country: country.value,
   federalState: federalState.value,
-  iWouldRead: iWouldRead.value,
-  clientsWouldRead: clientsWouldRead.value,
   verySoftDeathInjNums: verySoftDeathInjNums.value,
   softDeathInjNums: softDeathInjNums.value,
   psychoSocialWorker: psychoSocialWorker.value,
@@ -188,8 +184,6 @@ const validity = {
   psychoSocialWorker: false,
   softDeathInjNums: false,
   verySoftDeathInjNums: false,
-  iWouldRead: false,
-  clientsWouldRead: false,
   articles: false,
   newsConsumptionFrequency: false,
   langLowSensitivity: false,
@@ -358,45 +352,6 @@ function checkValidity(showErrors: boolean) {
     } else {
       validity.verySoftDeathInjNums = true;
       verySoftDeathInjNumsError.value = false;
-      gotUpdated = true;
-    }
-  }
-
-  // valid verySoftDeathInjNums
-  const iWouldReadError = useState("iWouldReadError");
-  if (iWouldRead.value.length === 0) {
-    if (showErrors) {
-      iWouldReadError.value = true;
-    }
-    if (validity.iWouldRead) {
-      validity.iWouldRead = false;
-      gotUpdated = true;
-    }
-  } else {
-    if (!validity.iWouldRead) {
-      validity.iWouldRead = true;
-      gotUpdated = true;
-    }
-    iWouldReadError.value = false;
-  }
-
-  // validity clientsWouldRead
-  const clientsWouldReadError = useState("clientsWouldReadError");
-  if (
-    psychoSocialWorker.value === true &&
-    clientsWouldRead.value.length === 0
-  ) {
-    if (showErrors) {
-      clientsWouldReadError.value = true;
-    }
-    if (validity.clientsWouldRead === true) {
-      validity.clientsWouldRead = false;
-      gotUpdated = true;
-    }
-  } else {
-    if (validity.clientsWouldRead === false) {
-      validity.clientsWouldRead = true;
-      clientsWouldReadError.value = false;
       gotUpdated = true;
     }
   }

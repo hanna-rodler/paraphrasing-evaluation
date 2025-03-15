@@ -9,8 +9,6 @@ export type surveyResponseType = {
   age: age;
   country: country;
   federalState: string;
-  iWouldRead: versions[] | null[];
-  clientsWouldRead: versions[] | null[];
   psychoSocialWorker: boolean | null;
   generalRemark: string;
   verySoftDeathInjNums: number | null;
