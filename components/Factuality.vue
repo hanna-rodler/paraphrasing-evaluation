@@ -83,6 +83,5 @@ function setRating(rating: number) {
     ][`promptId__${props.verySoftPromptNum}`].factuality = rating;
     // Send rating to backend
   }
-  console.log("factuality", surveyResponse.value.articles[props.articleId]);
 }
 </script>

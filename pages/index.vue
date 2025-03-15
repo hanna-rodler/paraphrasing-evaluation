@@ -165,7 +165,6 @@ const responseScheme: surveyResponseType = {
   newsBoundaries: newsBoundaries.value,
   newsWorry: newsWorry.value,
 };
-console.log("responseScheme", responseScheme);
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
 
