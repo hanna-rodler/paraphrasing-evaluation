@@ -6,6 +6,7 @@ import {
 } from "#app";
 import surveyData from "~/contents/shortened-one-version-survey.json";
 import count from "~/server/api/count";
+import type { articleSelection } from "~/types/survey.type";
 
 export default defineNuxtRouteMiddleware(async () => {
   const nuxtApp = useNuxtApp();
@@ -35,9 +36,16 @@ export default defineNuxtRouteMiddleware(async () => {
       }, {});
 
     let chosenArticles = [];
+    let articleResponseSchema: articleSelection = {};
+    let emptyArticleInitiation = {
+      softer: {},
+      verySoft: {},
+      remark: "",
+    };
 
     // always add article_tote_gaza
     chosenArticles.push(articlesById["article_tote_gaza"]);
+    articleResponseSchema.article_tote_gaza = emptyArticleInitiation;
 
     // get "id": "article_tote_gaza" from surveyData
 
@@ -47,21 +55,26 @@ export default defineNuxtRouteMiddleware(async () => {
       // get article_iran_saengerin  OR article_sellner from surveyData
       // answeredCount % 4 === 0 OR answeredCount 0
       chosenArticles.push(articlesById["article_iran_saengerin"]);
+      articleResponseSchema.article_iran_saengerin = emptyArticleInitiation;
     } else {
       // answeredCount % 2, but not % 4 === 0 und answeredCount 0
       chosenArticles.push(articlesById["article_sellner"]);
+      articleResponseSchema.article_sellner = emptyArticleInitiation;
     }
 
     // add article_russland for every third answer and zero
     if (answeredCount % 3 === 0 || answeredCount === 0) {
       // get article_stocker OR article_trump_grenell OR article_sanctions_russia from surveyData
       chosenArticles.push(articlesById["article_sanctions_russia"]);
+      articleResponseSchema.article_sanctions_russia = emptyArticleInitiation;
     } else if ((answeredCount + 1) % 3 === 0) {
       // for 2, 5, 8, 11, etc.
       chosenArticles.push(articlesById["article_stocker"]);
+      articleResponseSchema.article_stocker = emptyArticleInitiation;
     } else {
       // for 1, 4, 7, 10, etc.
       chosenArticles.push(articlesById["article_trump_grenell"]);
+      articleResponseSchema.article_trump_grenell = emptyArticleInitiation;
     }
     shuffledData = shuffleArray(chosenArticles);
     console.log("shuffled Data", shuffledData);
@@ -69,6 +82,7 @@ export default defineNuxtRouteMiddleware(async () => {
 
     // count number of versions
     nuxtApp.payload.data.versionCount = countVersions(shuffledData);
+    nuxtApp.payload.data.articleResponseSchema = articleResponseSchema;
   }
 });
 

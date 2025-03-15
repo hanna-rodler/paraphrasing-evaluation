@@ -130,7 +130,9 @@ const requiredQuestions = 12;
 const versionCount = useNuxtApp().payload.data.versionCount;
 const totalQuestionLength = ref<number>(requiredQuestions + versionCount);
 // TODO: remove "would read X"
-// TODO: check answers latest.
+// TODO: increment resposneCounter when saved.
+// TODO: nochmal testen
+// TODO: minimum handin
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
@@ -144,15 +146,9 @@ const progressPercentage = computed(() => {
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
 
+// TODO: only add needed ones here.
 const responseScheme: surveyResponseType = {
-  articles: {
-    article_sellner: { softer: {}, verySoft: {}, remark: "" },
-    article_stocker: { softer: {}, verySoft: {}, remark: "" },
-    article_iran_saengerin: { softer: {}, verySoft: {}, remark: "" },
-    article_trump_grenell: { softer: {}, verySoft: {}, remark: "" },
-    article_sanctions_russia: { softer: {}, verySoft: {}, remark: "" },
-    article_tote_gaza: { softer: {}, verySoft: {}, remark: "" },
-  },
+  articles: useNuxtApp().payload.data.articleResponseSchema,
   age: age.value,
   gender: gender.value,
   country: country.value,
@@ -163,7 +159,13 @@ const responseScheme: surveyResponseType = {
   softDeathInjNums: softDeathInjNums.value,
   psychoSocialWorker: psychoSocialWorker.value,
   generalRemark: generalRemark.value,
+  newsConsumptionFrequency: newsConsumptionFrequency.value,
+  langLowSensitivity: langLowSensitivity.value,
+  langHighSensitivity: langHighSensitivity.value,
+  newsBoundaries: newsBoundaries.value,
+  newsWorry: newsWorry.value,
 };
+console.log("responseScheme", responseScheme);
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
 
