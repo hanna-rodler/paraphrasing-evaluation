@@ -2,10 +2,14 @@
   <div class="mt-3 flex flex-col justify-center w-full px-2 md:px-0">
     <label class="form-control w-lg" :for="`test`">
       <div class="label mb-2">
-        Haben Sie noch Anmerkungen<span v-if="articleId">
+        Haben Sie noch allgemeine Anmerkungen<span v-if="articleId">
           zu diesem Artikel? (Sätze, die noch sanfter formuliert gehören oder
           sonstige Anmerkungen)</span
         ><span v-else>?</span>
+        <span v-if="psychoSocialWorker === true">
+          Gibt es aus Ihrer Erfahrung im psychosozialen Bereich Anmerkungen zum
+          Thema?
+        </span>
       </div>
     </label>
     <textarea
@@ -36,6 +40,7 @@ const generalRemark = useState<string>("generalRemark", () => "");
 
 const articleRemarks = useState<string[] | null[]>("articleRemarks", () => []);
 const surveyResponse = useState<surveyResponseType>("surveyResponse");
+const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 
 const debouncedSave = useDebounceFn(() => {
   if (remark.value !== "") {

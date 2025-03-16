@@ -3,7 +3,9 @@
     <div class="w-full flex flex-col md:space-y-4 2xl:space-x-4 2xl:space-y-0">
       <div class="w-full flex flex-col md:flex-row md:1/2 md:space-x-4 softer">
         <div class="w-full md:w-1/2 p-4 rounded-lg shadow-md">
-          <h3 class="paraphrase">Original</h3>
+          <h3 class="paraphrase">
+            Original <span v-if="sentenceNum === '0'">- Titel</span>
+          </h3>
           <p
             :id="`a-${articleId}-p-${promptId}_s-${sentenceNum}_v-original`"
             v-html="highlightedOriginal"
@@ -14,7 +16,9 @@
           class="w-full md:w-1/2 p-4 rounded-lg shadow-md flex flex-col justify-between softer"
         >
           <div>
-            <h3 class="paraphrase text-primary">Version</h3>
+            <h3 class="paraphrase text-primary">
+              Version <span v-if="sentenceNum === '0'">- Titel</span>
+            </h3>
             <div
               :id="`a-${articleId}-p-${promptId}_s-${sentenceNum}_v-softer`"
               v-html="highlightedVersionText"

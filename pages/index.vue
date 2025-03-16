@@ -23,13 +23,14 @@
           Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
           lag ebenfalls bei 39 %.<br />
           Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
-          herauszufinden, inwiefern die Reduktion von Sprachintensität von
-          politischen Nachrichten beeinflusst wie regelmäßig politische
-          Nachrichten konsumiert werden und was für einen Einfluss dies auf eine
-          mögliche Überforderung von Lesenden hat. Hierzu soll eine App
-          entwickelt werden, die es den Lesenden je nach Stimmungslage und
-          Kapazitäten ermöglicht eine sanftere Version oder das Original zu
-          lesen.
+          herauszufinden, inwiefern unter anderem die Reduktion von
+          Sprachintensität von politischen Nachrichten beeinflusst wie
+          regelmäßig politische Nachrichten konsumiert werden und was für einen
+          Einfluss dies auf eine mögliche Überforderung von Lesenden hat. Hierzu
+          soll eine App entwickelt werden, die es den Lesenden je nach
+          Stimmungslage und Kapazitäten ermöglicht eine sanftere Version oder
+          das Original zu lesen. Zusätzlich kann auch eine Zusammenfassung
+          ausgewählt werden.
         </AtomsText>
         <AtomsText>
           Um im ersten Schritt zu untersuchen, wie die Sprachintensität
@@ -44,9 +45,16 @@
           Original ist.
         </AtomsText>
         <AtomsText>
-          Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
-          und werden nur im Rahmen der Masterarbeit verwendet. Ein Rückschluss
-          auf Ihre Person ist nicht möglich.<br />
+          Die Teilnahme an dieser Studie dauert [TODO] min. Pflichtfragen sind
+          mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem Fall
+          ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende) müssen
+          mindestens 15 Artikelversionen bewertet werden. Sie sehen ihren
+          Fortschritt am Balken oben am Screen. Der rote Balken kennzeichnet das
+          Minimum an ausgefüllten Fragen.
+        </AtomsText>
+        <AtomsText>
+          Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
+          verwendet. Ein Rückschluss auf Ihre Person ist nicht möglich.<br />
           Bei Fragen oder Anregungen können Sie Hanna Rodler unter
           <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
           kontaktieren.
@@ -137,10 +145,6 @@ const minimumThresholdPercentage =
     totalQuestionLength.value) *
   100;
 // TODO: nochmal testen
-// TODO: initial inscription: minimum answered
-// TODO: minimum handin
-// TODO: add "titel"
-// TODO: extra Kommentar Frage für psychosozialen Bereich. "Aus Erfahrung mit Klient*innen"
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
