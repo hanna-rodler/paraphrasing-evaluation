@@ -279,4 +279,5 @@ const versionOptions = ref([
   { value: "daily", label: "täglich" },
   { value: "severalTimesDaily", label: "merhmals täglich" },
 ]);
+
 </script>
