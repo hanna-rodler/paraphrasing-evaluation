@@ -12,7 +12,7 @@
       >
         <input
           type="radio"
-          :name="`langIntensity-${props.articleId}-${props.sentenceNum}-${props.softerPromptNum}-${props.verySoftPromptNum}`"
+          :name="`langIntensity-${articleId}-${sentenceNum}-${promptId}`"
           :value="value"
           @click="setRating(value)"
           :checked="selectedRating === value"
@@ -26,16 +26,11 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from "vue";
+import type { surveyResponseType, articleSelection } from "~/types/survey.type";
 const props = defineProps({
-  softerPromptNum: {
+  promptId: {
     type: String,
-    required: false,
-    default: undefined,
-  },
-  verySoftPromptNum: {
-    type: String,
-    required: false,
-    default: undefined,
+    required: true,
   },
   sentenceNum: {
     type: String,
@@ -52,29 +47,17 @@ const selectedRating = ref(null);
 function setRating(rating: number) {
   selectedRating.value = rating;
 
-  if (props.softerPromptNum) {
-    surveyResponse.value.articles[props.articleId].softer ??= {};
-    surveyResponse.value.articles[props.articleId].softer[
+  if (props.promptId) {
+    surveyResponse.value.articles[props.articleId][
       `sentence__${props.sentenceNum}`
     ] ??= {};
-    surveyResponse.value.articles[props.articleId].softer[
+    surveyResponse.value.articles[props.articleId][
       `sentence__${props.sentenceNum}`
-    ][`promptId__${props.softerPromptNum}`] ??= {};
-    surveyResponse.value.articles[props.articleId].softer[
+    ][`promptId__${props.promptId}`] ??= {};
+    surveyResponse.value.articles[props.articleId][
       `sentence__${props.sentenceNum}`
-    ][`promptId__${props.softerPromptNum}`].langIntensity = rating;
+    ][`promptId__${props.promptId}`].langIntensity = rating;
   }
-  if (props.verySoftPromptNum) {
-    surveyResponse.value.articles[props.articleId].verySoft ??= {};
-    surveyResponse.value.articles[props.articleId].verySoft[
-      `sentence__${props.sentenceNum}`
-    ] ??= {};
-    surveyResponse.value.articles[props.articleId].verySoft[
-      `sentence__${props.sentenceNum}`
-    ][`promptId__${props.verySoftPromptNum}`] ??= {};
-    surveyResponse.value.articles[props.articleId].verySoft[
-      `sentence__${props.sentenceNum}`
-    ][`promptId__${props.verySoftPromptNum}`].langIntensity = rating;
-  }
+  console.log("lang intensity", surveyResponse.value.articles);
 }
 </script>

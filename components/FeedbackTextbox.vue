@@ -42,11 +42,9 @@ const debouncedSave = useDebounceFn(() => {
     if (!props.articleId) {
       generalRemark.value = remark.value;
     } else if (props.articleId) {
+      console.log("save ", remark, " to ", props.articleId);
       surveyResponse.value.articles[props.articleId].remark = remark.value;
-      console.log(
-        "remark",
-        surveyResponse.value.articles[props.articleId].remark
-      );
+      console.log("remark", surveyResponse.value.articles);
     }
   }
 }, 300);

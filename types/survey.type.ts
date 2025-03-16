@@ -21,10 +21,10 @@ export type surveyResponseType = {
 };
 
 export type articleSelection = {
-  article_sellner: { softer: {}; verySoft: {}; remark: string };
-  article_stocker: { softer: {}; verySoft: {}; remark: string };
-  article_iran_saengerin: { softer: {}; verySoft: {}; remark: string };
-  article_trump_grenell: { softer: {}; verySoft: {}; remark: string };
-  article_sanctions_russia: { softer: {}; verySoft: {}; remark: string };
-  article_tote_gaza: { softer: {}; verySoft: {}; remark: string };
+  article_sellner?: { remark: string };
+  article_stocker?: { remark: string };
+  article_iran_saengerin?: { remark: string };
+  article_trump_grenell?: { remark: string };
+  article_sanctions_russia?: { remark: string };
+  article_tote_gaza: { remark: string };
 };

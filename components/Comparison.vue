@@ -20,7 +20,7 @@
         v-for="(sentence, index) in article.sentences"
         :key="'sentence' + index"
       >
-        <!-- Loop through "softer" versions of the sentence -->
+        <!-- Loop through versions of the sentence -->
         <div
           v-for="(version, index) in sentence.versions"
           :key="'version-' + index"
@@ -29,20 +29,12 @@
             :article-id="article.id"
             :sentence-num="sentence.orig_sentence_num"
             :original-text="sentence.original"
-            :softer-prompt-num="
-              version.softer_prompt_id ? version.softer_prompt_id : ''
-            "
-            :verySoftPromptNum="
-              version.very_soft_prompt_id ? version.very_soft_prompt_id : ''
-            "
+            :prompt-id="version.prompt_id ? version.prompt_id : ''"
             :version-text="version.sentence"
             :highlighted-original-text="
               version.original ? version.original : ''
             "
           />
-          <!--
-            -->
-          <!-- todo. DIESER Satz kann im Original bleiben -->
         </div>
         <!-- Loop through "very soft" versions of that sentence-->
         <div

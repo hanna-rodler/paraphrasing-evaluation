@@ -1,11 +1,5 @@
-import {
-  defineNuxtRouteMiddleware,
-  useNuxtApp,
-  useFetch,
-  navigateTo,
-} from "#app";
-import surveyData from "~/contents/shortened-one-version-survey.json";
-import count from "~/server/api/count";
+import { defineNuxtRouteMiddleware, useNuxtApp, useFetch } from "#app";
+import surveyData from "~/contents/final-version-survey.json";
 import type { articleSelection } from "~/types/survey.type";
 
 export default defineNuxtRouteMiddleware(async () => {
@@ -17,18 +11,19 @@ export default defineNuxtRouteMiddleware(async () => {
   });
 
   if (data.value) {
-    nuxtApp.payload.data.count = data.value.result?.viewCounter;
+    nuxtApp.payload.data.count = data.value.result?.responseCounter;
   } else {
-    console.error("Unsuccessful. Error:", fetchError.value);
+    // default: show article configuration for 0
+    nuxtApp.payload.data.count = 0;
+    console.info("Unsuccessful fetch of count. Error:", fetchError.value);
     return;
   }
 
-  // Shuffle survey data if not already shuffled
+  // // Shuffle survey data if not already shuffled
   let shuffledData = nuxtApp.payload.data.shuffled;
 
   if (!shuffledData) {
     let answeredCount = nuxtApp.payload.data.count;
-    // structure the surveyData so that we can get the article by id from the json file
     let articlesById: { [key: string]: (typeof surveyData)[0] } =
       surveyData.reduce((acc, cur) => {
         acc[cur.id] = cur;
@@ -36,48 +31,39 @@ export default defineNuxtRouteMiddleware(async () => {
       }, {});
 
     let chosenArticles = [];
-    let articleResponseSchema: articleSelection = {};
-    let emptyArticleInitiation = {
-      softer: {},
-      verySoft: {},
-      remark: "",
+    // always add article_tote_gaza as the first article
+    chosenArticles.push(articlesById["article_tote_gaza"]);
+    let articleResponseSchema: articleSelection = {
+      article_tote_gaza: { remark: "" },
     };
 
-    // always add article_tote_gaza
-    chosenArticles.push(articlesById["article_tote_gaza"]);
-    articleResponseSchema.article_tote_gaza = emptyArticleInitiation;
-
-    // get "id": "article_tote_gaza" from surveyData
-
-    // add article_iran_saengerin for even numbers and zero
-    // add article_sellner for uneven numbers, but not for 0
+    // add article_iran_saengerin or article_sellner as the second article
     if (answeredCount % 2 === 0 || answeredCount === 0) {
-      // get article_iran_saengerin  OR article_sellner from surveyData
-      // answeredCount % 4 === 0 OR answeredCount 0
+      // add article_iran_saengerin for even numbers and zero
       chosenArticles.push(articlesById["article_iran_saengerin"]);
-      articleResponseSchema.article_iran_saengerin = emptyArticleInitiation;
+      articleResponseSchema.article_iran_saengerin = { remark: "" };
     } else {
-      // answeredCount % 2, but not % 4 === 0 und answeredCount 0
+      // add article_sellner for uneven numbers, but not for 0
       chosenArticles.push(articlesById["article_sellner"]);
-      articleResponseSchema.article_sellner = emptyArticleInitiation;
+      articleResponseSchema.article_sellner = { remark: "" };
     }
 
-    // add article_russland for every third answer and zero
+    // add article_russland, stocker or trump_grenell as the third article
     if (answeredCount % 3 === 0 || answeredCount === 0) {
-      // get article_stocker OR article_trump_grenell OR article_sanctions_russia from surveyData
+      // article_sanctions_russia for 0, 3, 6, 9, 12, etc.
       chosenArticles.push(articlesById["article_sanctions_russia"]);
-      articleResponseSchema.article_sanctions_russia = emptyArticleInitiation;
+      articleResponseSchema.article_sanctions_russia = { remark: "" };
     } else if ((answeredCount + 1) % 3 === 0) {
-      // for 2, 5, 8, 11, etc.
+      // article_stocker for 2, 5, 8, 11, etc.
       chosenArticles.push(articlesById["article_stocker"]);
-      articleResponseSchema.article_stocker = emptyArticleInitiation;
+      articleResponseSchema.article_stocker = { remark: "" };
     } else {
-      // for 1, 4, 7, 10, etc.
+      // article_trump_grenell  for 1, 4, 7, 10, etc.
       chosenArticles.push(articlesById["article_trump_grenell"]);
-      articleResponseSchema.article_trump_grenell = emptyArticleInitiation;
+      articleResponseSchema.article_trump_grenell = { remark: "" };
     }
-    shuffledData = shuffleArray(chosenArticles);
-    console.log("shuffled Data", shuffledData);
+    let shuffledData = shuffleArray(chosenArticles);
+    console.log("shuffled Data", shuffledData, articleResponseSchema);
     nuxtApp.payload.data.shuffled = shuffledData;
 
     // count number of versions

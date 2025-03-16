@@ -1,11 +1,16 @@
 <template>
   <div class="w-11/12 my-4 md:my-8">
-    <div class="fixed top-0 left-0 w-full h-4 bg-white shadow-lg">
+    <div class="fixed top-0 left-0 w-full h-4 bg-gray-200 shadow-lg">
       <div
         class="h-full bg-info transition-all duration-300"
         :style="{ width: progressPercentage + '%' }"
       ></div>
+      <div
+        class="absolute top-0 bottom-0 w-1 bg-red-500"
+        :style="{ left: minimumThresholdPercentage + '%' }"
+      ></div>
     </div>
+
     <div class="section flex flex-col justify-center items-center">
       <h1 class="font-bold text-2xl md:text-4xl">
         Nachrichten-Paraphrasierung
@@ -95,7 +100,6 @@ import type {
   country,
   gender,
   surveyResponseType,
-  versions,
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
 import { countValidArticles } from "~/utils/validation";
@@ -127,10 +131,15 @@ const showArticleError = ref(false);
 const requiredQuestions = 12;
 const versionCount = useNuxtApp().payload.data.versionCount;
 const totalQuestionLength = ref<number>(requiredQuestions + versionCount);
-// TODO: remove "would read X"
-// TODO: increment resposneCounter when saved.
+const minimumArticlesValidCount = 15;
+const minimumThresholdPercentage =
+  ((requiredQuestions + minimumArticlesValidCount) /
+    totalQuestionLength.value) *
+  100;
 // TODO: nochmal testen
+// TODO: initial inscription: minimum answered
 // TODO: minimum handin
+// TODO: add "titel"
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
@@ -429,10 +438,10 @@ function checkValidity(showErrors: boolean) {
     }
   }
 
-  // at least 15 sentences have a factuality and langIntensity
+  // at least x sentences have a factuality and langIntensity
   let articlesValidCount = countValidArticles(surveyResponse.value.articles);
   // iterate through object
-  if (articlesValidCount >= 15) {
+  if (articlesValidCount >= minimumArticlesValidCount) {
     validity.articles = true;
     showArticleError.value = false;
   } else {
@@ -447,16 +456,16 @@ function checkValidity(showErrors: boolean) {
   console.log("updated ", gotUpdated);
 
   if (gotUpdated) {
+    console.log(
+      "prev articles",
+      prevArticlesValidCount,
+      "articles valid count",
+      articlesValidCount
+    );
     // filter answeredQuestionCount by true
     answeredQuestionCount.value =
       Object.values(validity).filter((value) => value === true).length +
       articlesValidCount;
-    if (
-      psychoSocialWorker.value === false ||
-      psychoSocialWorker.value === null
-    ) {
-      answeredQuestionCount.value = answeredQuestionCount.value - 1;
-    }
     console.log("func answeredQuestionCount", answeredQuestionCount.value);
   }
 

@@ -14,7 +14,6 @@ export default defineEventHandler(async (event) => {
     );
     const result = {
       responseCounter: responseCounter?.count,
-      viewCounter: viewCounter?.count,
     };
     console.log("result BE", result);
 
