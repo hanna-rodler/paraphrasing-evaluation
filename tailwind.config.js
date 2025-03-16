@@ -12,7 +12,7 @@ export default {
     extend: {
       screens: {
         xs: "470px",
-        md: "710px",
+        md: "730px",
       },
       colors: {
         current: "currentColor",

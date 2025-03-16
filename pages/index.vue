@@ -1,11 +1,16 @@
 <template>
   <div class="w-11/12 my-4 md:my-8">
-    <div class="fixed top-0 left-0 w-full h-4 bg-white shadow-lg">
+    <div class="fixed top-0 left-0 w-full h-4 bg-gray-200 shadow-lg">
       <div
         class="h-full bg-info transition-all duration-300"
         :style="{ width: progressPercentage + '%' }"
       ></div>
+      <div
+        class="absolute top-0 bottom-0 w-1 bg-red-500"
+        :style="{ left: minimumThresholdPercentage + '%' }"
+      ></div>
     </div>
+
     <div class="section flex flex-col justify-center items-center">
       <h1 class="font-bold text-2xl md:text-4xl">
         Nachrichten-Paraphrasierung
@@ -18,13 +23,14 @@
           Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
           lag ebenfalls bei 39 %.<br />
           Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
-          herauszufinden, inwiefern die Reduktion von Sprachintensität von
-          politischen Nachrichten beeinflusst wie regelmäßig politische
-          Nachrichten konsumiert werden und was für einen Einfluss dies auf eine
-          mögliche Überforderung von Lesenden hat. Hierzu soll eine App
-          entwickelt werden, die es den Lesenden je nach Stimmungslage und
-          Kapazitäten ermöglicht eine sanftere Version oder das Original zu
-          lesen.
+          herauszufinden, inwiefern unter anderem die Reduktion von
+          Sprachintensität von politischen Nachrichten beeinflusst wie
+          regelmäßig politische Nachrichten konsumiert werden und was für einen
+          Einfluss dies auf eine mögliche Überforderung von Lesenden hat. Hierzu
+          soll eine App entwickelt werden, die es den Lesenden je nach
+          Stimmungslage und Kapazitäten ermöglicht eine sanftere Version oder
+          das Original zu lesen. Zusätzlich kann auch eine Zusammenfassung
+          ausgewählt werden.
         </AtomsText>
         <AtomsText>
           Um im ersten Schritt zu untersuchen, wie die Sprachintensität
@@ -39,9 +45,16 @@
           Original ist.
         </AtomsText>
         <AtomsText>
-          Die Teilnahme an dieser Studie dauert [] min. Die Daten sind anonym
-          und werden nur im Rahmen der Masterarbeit verwendet. Ein Rückschluss
-          auf Ihre Person ist nicht möglich.<br />
+          Die Teilnahme an dieser Studie dauert [TODO] min. Pflichtfragen sind
+          mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem Fall
+          ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende) müssen
+          mindestens 15 Artikelversionen bewertet werden. Sie sehen ihren
+          Fortschritt am Balken oben am Screen. Der rote Balken kennzeichnet das
+          Minimum an ausgefüllten Fragen.
+        </AtomsText>
+        <AtomsText>
+          Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
+          verwendet. Ein Rückschluss auf Ihre Person ist nicht möglich.<br />
           Bei Fragen oder Anregungen können Sie Hanna Rodler unter
           <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
           kontaktieren.
@@ -95,11 +108,12 @@ import type {
   country,
   gender,
   surveyResponseType,
-  versions,
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
-import surveyData from "~/contents/shortened-one-version-survey.json";
 import { countValidArticles } from "~/utils/validation";
+definePageMeta({
+  middleware: "survey",
+});
 
 const isMounted = ref(false);
 onMounted(() => {
@@ -110,14 +124,27 @@ const gender = useState<gender>("gender");
 const age = useState<age>("age");
 const country = useState<country>("country");
 const federalState = useState<string>("federalState");
-const iWouldRead = useState<versions[] | null[]>("iWouldRead");
-const clientsWouldRead = useState<versions[] | null[]>("clientsWouldRead");
 const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
 const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 const generalRemark = useState<string>("generalRemark");
+const newsConsumptionFrequency = useState<string | null>(
+  "newsConsumptionFrequency"
+);
+const langLowSensitivity = useState<number | null>("langLowSensitivity");
+const langHighSensitivity = useState<number | null>("langHighSensitivity");
+const newsBoundaries = useState<number | null>("newsBoundaries");
+const newsWorry = useState<number | null>("newsWorry");
 const showArticleError = ref(false);
-const totalQuestionLength = ref<number>(102); // 5+ 3+ 40 TODO: adapt
+const requiredQuestions = 12;
+const versionCount = useNuxtApp().payload.data.versionCount;
+const totalQuestionLength = ref<number>(requiredQuestions + versionCount);
+const minimumArticlesValidCount = 15;
+const minimumThresholdPercentage =
+  ((requiredQuestions + minimumArticlesValidCount) /
+    totalQuestionLength.value) *
+  100;
+// TODO: nochmal testen
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
@@ -131,42 +158,25 @@ const progressPercentage = computed(() => {
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
 
+// TODO: only add needed ones here.
 const responseScheme: surveyResponseType = {
-  articles: {
-    article_sellner: { softer: {}, verySoft: {}, remark: "" },
-    article_stocker: { softer: {}, verySoft: {}, remark: "" },
-    article_iran_saengerin: { softer: {}, verySoft: {}, remark: "" },
-    article_trump_grenell: { softer: {}, verySoft: {}, remark: "" },
-    article_sanctions_russia: { softer: {}, verySoft: {}, remark: "" },
-    article_tote_gaza: { softer: {}, verySoft: {}, remark: "" },
-  },
+  articles: useNuxtApp().payload.data.articleResponseSchema,
   age: age.value,
   gender: gender.value,
   country: country.value,
   federalState: federalState.value,
-  iWouldRead: iWouldRead.value,
-  clientsWouldRead: clientsWouldRead.value,
   verySoftDeathInjNums: verySoftDeathInjNums.value,
   softDeathInjNums: softDeathInjNums.value,
   psychoSocialWorker: psychoSocialWorker.value,
   generalRemark: generalRemark.value,
+  newsConsumptionFrequency: newsConsumptionFrequency.value,
+  langLowSensitivity: langLowSensitivity.value,
+  langHighSensitivity: langHighSensitivity.value,
+  newsBoundaries: newsBoundaries.value,
+  newsWorry: newsWorry.value,
 };
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
-
-if (shuffledData == undefined) {
-  shuffledData = shuffleArray(surveyData);
-  useNuxtApp().payload.data.shuffled = shuffledData;
-}
-
-function shuffleArray<T>(array: T[]): T[] {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
-    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-  }
-
-  return array;
-}
 
 const surveyResponse = useState<surveyResponseType>(
   "surveyResponse",
@@ -188,9 +198,12 @@ const validity = {
   psychoSocialWorker: false,
   softDeathInjNums: false,
   verySoftDeathInjNums: false,
-  iWouldRead: false,
-  clientsWouldRead: false,
   articles: false,
+  newsConsumptionFrequency: false,
+  langLowSensitivity: false,
+  langHighSensitivity: false,
+  newsBoundaries: false,
+  newsWorry: false,
 };
 
 function checkValidity(showErrors: boolean) {
@@ -357,49 +370,83 @@ function checkValidity(showErrors: boolean) {
     }
   }
 
-  // valid verySoftDeathInjNums
-  const iWouldReadError = useState("iWouldReadError");
-  if (iWouldRead.value.length === 0) {
-    if (showErrors) {
-      iWouldReadError.value = true;
-    }
-    if (validity.iWouldRead) {
-      validity.iWouldRead = false;
-      gotUpdated = true;
-    }
-  } else {
-    if (!validity.iWouldRead) {
-      validity.iWouldRead = true;
-      gotUpdated = true;
-    }
-    iWouldReadError.value = false;
-  }
-
-  // validity clientsWouldRead
-  const clientsWouldReadError = useState("clientsWouldReadError");
-  if (
-    psychoSocialWorker.value === true &&
-    clientsWouldRead.value.length === 0
-  ) {
-    if (showErrors) {
-      clientsWouldReadError.value = true;
-    }
-    if (validity.clientsWouldRead === true) {
-      validity.clientsWouldRead = false;
-      gotUpdated = true;
-    }
-  } else {
-    if (validity.clientsWouldRead === false) {
-      validity.clientsWouldRead = true;
-      clientsWouldReadError.value = false;
+  // validity newsConsumptionFrequency
+  if (!validity.newsConsumptionFrequency) {
+    const newsConsumptionFrequencyError = useState<boolean>(
+      "newsConsumptionFrequencyError"
+    );
+    if (newsConsumptionFrequency.value === null) {
+      if (showErrors) {
+        newsConsumptionFrequencyError.value = true;
+      }
+    } else {
+      newsConsumptionFrequencyError.value = false;
+      validity.newsConsumptionFrequency = true;
       gotUpdated = true;
     }
   }
 
-  // at least 15 sentences have a factuality and langIntensity
+  // validity langLowSensitivity
+  if (!validity.langLowSensitivity) {
+    const langLowSensitivityError = useState<boolean>(
+      "langLowSensitivityError"
+    );
+    if (langLowSensitivity.value === null) {
+      if (showErrors) {
+        langLowSensitivityError.value = true;
+      }
+    } else {
+      langLowSensitivityError.value = false;
+      validity.langLowSensitivity = true;
+      gotUpdated = true;
+    }
+  }
+  // lang HighSensitivity
+  if (!validity.langHighSensitivity) {
+    const langHighSensitivityError = useState<boolean>(
+      "langHighSensitivityError"
+    );
+    if (langHighSensitivity.value === null) {
+      if (showErrors) {
+        langHighSensitivityError.value = true;
+      }
+    } else {
+      langHighSensitivityError.value = false;
+      validity.langHighSensitivity = true;
+      gotUpdated = true;
+    }
+  }
+
+  // news Boundaries
+  if (!validity.newsBoundaries) {
+    const newsBoundariesError = useState<boolean>("newsBoundariesError");
+    if (newsBoundaries.value === null) {
+      if (showErrors) {
+        newsBoundariesError.value = true;
+      }
+    } else {
+      newsBoundariesError.value = false;
+      validity.newsBoundaries = true;
+      gotUpdated = true;
+    }
+  }
+  if (!validity.newsWorry) {
+    const newsWorryError = useState<boolean>("newsWorryError");
+    if (newsWorry.value === null) {
+      if (showErrors) {
+        newsWorryError.value = true;
+      }
+    } else {
+      newsWorryError.value = false;
+      validity.newsWorry = true;
+      gotUpdated = true;
+    }
+  }
+
+  // at least x sentences have a factuality and langIntensity
   let articlesValidCount = countValidArticles(surveyResponse.value.articles);
   // iterate through object
-  if (articlesValidCount >= 15) {
+  if (articlesValidCount >= minimumArticlesValidCount) {
     validity.articles = true;
     showArticleError.value = false;
   } else {
@@ -414,16 +461,16 @@ function checkValidity(showErrors: boolean) {
   console.log("updated ", gotUpdated);
 
   if (gotUpdated) {
+    console.log(
+      "prev articles",
+      prevArticlesValidCount,
+      "articles valid count",
+      articlesValidCount
+    );
     // filter answeredQuestionCount by true
     answeredQuestionCount.value =
       Object.values(validity).filter((value) => value === true).length +
       articlesValidCount;
-    if (
-      psychoSocialWorker.value === false ||
-      psychoSocialWorker.value === null
-    ) {
-      answeredQuestionCount.value = answeredQuestionCount.value - 1;
-    }
     console.log("func answeredQuestionCount", answeredQuestionCount.value);
   }
 
@@ -437,18 +484,21 @@ const submitForm = () => {
   surveyResponse.value.gender = gender.value;
   surveyResponse.value.country = country.value;
   surveyResponse.value.federalState = federalState.value;
-  surveyResponse.value.iWouldRead = iWouldRead.value;
-  surveyResponse.value.clientsWouldRead = clientsWouldRead.value;
   surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
   surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
   surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
+  surveyResponse.value.langLowSensitivity = langLowSensitivity.value;
+  surveyResponse.value.langHighSensitivity = langHighSensitivity.value;
+  surveyResponse.value.newsBoundaries = newsBoundaries.value;
+  surveyResponse.value.newsWorry = newsWorry.value;
   surveyResponse.value.generalRemark = generalRemark.value;
-  console.log("clientsWouldRead", clientsWouldRead.value);
-  console.log("psychoSocialWorker", psychoSocialWorker.value);
+  surveyResponse.value.newsConsumptionFrequency =
+    newsConsumptionFrequency.value;
+  console.log("surveyResponse", surveyResponse.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {
-    console.log("surveyResponse", surveyResponse.value);
+    console.log("save to DB: surveyResponse", surveyResponse.value);
     saveToDB();
   } else {
     console.error("errors occured");
@@ -466,6 +516,12 @@ const saveToDB = async () => {
   if (data.value) {
     console.log("successful. redirect");
     navigateTo("./success");
+    const { data, error: fetchError } = await useFetch(
+      "/api/counterIncrement",
+      {
+        method: "GET",
+      }
+    );
   } else {
     console.error("Unsuccessful. Error:", fetchError.value);
   }
