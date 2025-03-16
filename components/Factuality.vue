@@ -2,7 +2,7 @@
   <div class="my-4">
     <div class="font-bold">Faktencheck im Vergleich zum Original</div>
     <div
-      class="flex space-x-2 md:space-x-4 mt-2 md:mt-3 items-center justify-center"
+      class="flex space-x-2 md:space-x-3 lg:space-x-4 mt-2 md:mt-3 items-center justify-center"
     >
       <span>inkorrekt</span>
       <label

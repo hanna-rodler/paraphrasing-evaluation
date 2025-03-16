@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3 flex flex-col justify-center w-full">
+  <div class="mt-3 flex flex-col justify-center w-full px-2 md:px-0">
     <label class="form-control w-lg" :for="`test`">
       <div class="label mb-2">
         Haben Sie noch Anmerkungen<span v-if="articleId">

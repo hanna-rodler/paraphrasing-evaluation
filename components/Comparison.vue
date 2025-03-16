@@ -1,7 +1,9 @@
 <template>
   <div class="section">
     <h2 class="font-bold">Kontext Artikel {{ index + 1 }}</h2>
-    <div class="flex flex-col justify-center items-center w-full px-5 md:px-10">
+    <div
+      class="flex flex-col justify-center items-center w-full px-2 sm:px-5 md:px-10"
+    >
       <!-- Kontext Section -->
       <div class="mb-2 md:mb-4 subSection">
         <div>

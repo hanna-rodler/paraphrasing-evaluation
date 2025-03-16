@@ -140,6 +140,7 @@ const minimumThresholdPercentage =
 // TODO: initial inscription: minimum answered
 // TODO: minimum handin
 // TODO: add "titel"
+// TODO: extra Kommentar Frage für psychosozialen Bereich. "Aus Erfahrung mit Klient*innen"
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {

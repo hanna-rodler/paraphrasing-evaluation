@@ -202,7 +202,7 @@
       </div>
     </div>
     <div class="mb-4 mt-6 flex flex-col items-center">
-      <div class="-ml-52">Wie oft lesen Sie Nachrichten? *<br /></div>
+      <div class="-ml-16 md:-ml-52">Wie oft lesen Sie Nachrichten? *<br /></div>
       <div class="flex flex-col items-center">
         <div class="w-42">
           <div v-for="version in versionOptions" :key="version.value">
