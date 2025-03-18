@@ -51,11 +51,6 @@ function setRating(rating: number) {
   selectedRating.value = rating;
 
   if (props.promptId) {
-    // console.log(
-    //   "factuality. article id",
-    //   props.articleId,
-    //   surveyResponse.value.articles[props.articleId]
-    // );
     surveyResponse.value.articles[props.articleId][
       `sentence__${props.sentenceNum}`
     ] ??= {};
@@ -66,10 +61,5 @@ function setRating(rating: number) {
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.promptId}`].factuality = rating;
   }
-  // console.log(
-  //   "factuality ",
-  //   surveyResponse.value.articles[props.articleId],
-  //   surveyResponse.value.articles
-  // );
 }
 </script>

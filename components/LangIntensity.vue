@@ -58,6 +58,5 @@ function setRating(rating: number) {
       `sentence__${props.sentenceNum}`
     ][`promptId__${props.promptId}`].langIntensity = rating;
   }
-  console.log("lang intensity", surveyResponse.value.articles);
 }
 </script>

@@ -10,7 +10,6 @@ export default defineEventHandler(async (event) => {
       { $inc: { count: 1 } },
       { upsert: true, returnDocument: "after" }
     );
-    console.log("Counter incremented successfully", result);
 
     return { message: "Counter incremented successfully", result: result };
   } catch (error) {

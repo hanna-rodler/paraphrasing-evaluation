@@ -77,11 +77,6 @@ const props = defineProps({
 const clickedRemarks = useState("clickedRemarks");
 
 const showJumpToRemarkBtn = () => {
-  console.log(
-    props.article.id,
-    "was clicked: ",
-    wasRemarkLinkClicked(clickedRemarks.value, props.article.id)
-  );
   return wasRemarkLinkClicked(clickedRemarks.value, props.article.id);
 };
 
