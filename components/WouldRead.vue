@@ -4,7 +4,7 @@
       <AtomsHeadline level="h2" class="text-bold">Abschluss</AtomsHeadline>
       <div class="mb-12 mt-4 md:mt-8 text-bold">
         Angenommen Sie können zwischen verschiedenen Versionen je nach Ihrer
-        Stimmungslage und Kapazitäten wählen, wie bewerten Sie die folgendes?
+        Stimmungslage und Kapazitäten wählen, wie bewerten Sie Folgendes?
       </div>
       <!-- I would read -->
       <div class="mb-6 md:mb-12">
