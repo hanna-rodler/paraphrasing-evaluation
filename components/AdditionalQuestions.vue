@@ -1,5 +1,8 @@
 <template>
-  <div class="section flex justify-center mt-4 md:mt-8">
+  <div
+    class="section flex justify-center mt-4 md:mt-8"
+    id="additionalQuestions"
+  >
     <div class="subSection mx-4 md:mx-0">
       <AtomsHeadline level="h2" class="text-bold">Abschluss</AtomsHeadline>
       <div class="mb-12 mt-4 md:mt-8 text-bold">

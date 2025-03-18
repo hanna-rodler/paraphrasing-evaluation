@@ -63,7 +63,6 @@ export default defineNuxtRouteMiddleware(async () => {
       articleResponseSchema.article_trump_grenell = { remark: "" };
     }
     let shuffledData = shuffleArray(chosenArticles);
-    console.log("shuffled Data", shuffledData, articleResponseSchema);
     nuxtApp.payload.data.shuffled = shuffledData;
 
     // count number of versions

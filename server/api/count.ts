@@ -15,7 +15,6 @@ export default defineEventHandler(async (event) => {
     const result = {
       responseCounter: responseCounter?.count,
     };
-    console.log("result BE", result);
 
     return { message: "Counter gotten successfully", result: result };
   } catch (error) {
