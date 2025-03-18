@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section" id="demographics">
     <AtomsHeadline level="h2" class="text-bold"
       >Demographische Daten</AtomsHeadline
     >

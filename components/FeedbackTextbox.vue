@@ -14,6 +14,7 @@
           Thema?
         </span>
         <span
+          v-if="articleId"
           class="ml-2 link-secondary cursor-pointer"
           @click="scrollToArticle()"
         >
@@ -65,7 +66,6 @@ const debouncedSave = useDebounceFn(() => {
 function clickedRemarkLink() {
   if (!wasRemarkLinkClicked(clickedRemarks.value, props.articleId)) {
     clickedRemarks.value.push(props.articleId);
-    console.log("clicked remarks ", clickedRemarks.value);
   }
 }
 
