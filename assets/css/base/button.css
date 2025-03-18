@@ -61,3 +61,7 @@
 .rating-btn:hover {
   @apply shadow-md;
 }
+
+.link-secondary {
+ @apply underline text-secondary;
+}
