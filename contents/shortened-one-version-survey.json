@@ -277,7 +277,7 @@
                 "very_soft_prompt_id": null,
                 "versions": [
                     {
-                        "softer_prompt_id": "3x3_7x3_1-x1",
+                        "softer_prompt_id": "1-x1_3x3_7x3",
                         "very_soft_prompt_id": "1x1_2x3_3x3_5x1_8x3_10x2",
                         "sentence": "Konzert ohne Kopftuch: Iranische Sängerin festgenommen."
                     },
