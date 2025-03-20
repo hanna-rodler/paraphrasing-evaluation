@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 import { useDebounceFn } from "@vueuse/core";
-import { defineProps } from "vue";
 import type { surveyResponseType } from "~/types/survey.type";
 import { wasRemarkLinkClicked } from "~/utils/utils";
 

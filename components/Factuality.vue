@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 import type { surveyResponseType } from "~/types/survey.type";
 
 const props = defineProps({
