@@ -45,12 +45,12 @@
           Original ist.
         </AtomsText>
         <AtomsText>
-          Die Teilnahme an dieser Studie dauert [TODO] min. Pflichtfragen sind
+          Die Teilnahme an dieser Studie dauert 20-30 min. Pflichtfragen sind
           mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem Fall
           ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende) müssen
-          mindestens 15 Artikelversionen bewertet werden. Sie sehen ihren
-          Fortschritt am Balken oben am Screen. Der rote Balken kennzeichnet das
-          Minimum an ausgefüllten Fragen.
+          mindestens {{ minimumArticlesValidCount }} Artikelversionen bewertet
+          werden. Sie sehen ihren Fortschritt am Balken oben am Screen. Der rote
+          Balken kennzeichnet das Minimum an ausgefüllten Fragen.
         </AtomsText>
         <AtomsText>
           Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
@@ -71,21 +71,54 @@
     <AdditionalQuestions></AdditionalQuestions>
 
     <div class="section">
-      <div
-        v-if="!isValid"
-        class="text-error text-center"
-        id="form-error-msg"
-        role="alert"
-      >
-        Bitte füllen Sie alle allgemeinen Pflichtfragen aus.
-      </div>
-      <div
-        v-if="showArticleError"
-        role="alert"
-        id="articles-error-msg"
-        class="text-error text-center"
-      >
-        Bitte bewerten Sie mindestens 15 Versionen.
+      <div class="flex flex-col items-center">
+        <div
+          v-if="!isValid"
+          class="text-error"
+          id="form-error-msg"
+          role="alert"
+        >
+          Fehler im Formular:
+        </div>
+        <ul class="list-disc list-inside">
+          <li
+            v-if="demographicsError"
+            class="text-error"
+            id="demographics-error-msg"
+            role="alert"
+          >
+            Bitte füllen Sie Ihre demographischen Daten
+            <a href="#demographics" class="underline">hier</a> fertig aus.
+          </li>
+          <li
+            v-if="selfAssessmentError"
+            class="text-error"
+            id="selfAssessment-error-msg"
+            role="alert"
+          >
+            Bitte füllen Sie die Selbsteinschätzung
+            <a href="#selfAssessment" class="underline">hier</a>
+            fertig aus.
+          </li>
+          <li
+            v-if="additionalQuestionsError"
+            class="text-error"
+            id="selfAssessment-error-msg"
+            role="alert"
+          >
+            Bitte füllen Sie alle Abschlussfragen
+            <a href="#additionalQuestions" class="underline">hier</a> fertig
+            aus.
+          </li>
+          <li
+            v-if="showArticleError"
+            role="alert"
+            id="articles-error-msg"
+            class="text-error"
+          >
+            Hinweis: Bewerten Sie mindestens 15 Versionen.
+          </li>
+        </ul>
       </div>
       <div class="mt-5 flex justify-center flex-row">
         <AtomsButton
@@ -144,21 +177,12 @@ const minimumThresholdPercentage =
   ((requiredQuestions + minimumArticlesValidCount) /
     totalQuestionLength.value) *
   100;
-// TODO: nochmal testen
 let answeredQuestionCount = ref<number>(0);
 let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
-  console.log(
-    "answeredQuestionCount",
-    answeredQuestionCount.value,
-    "total",
-    totalQuestionLength.value,
-    answeredQuestionCount.value / totalQuestionLength.value
-  );
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
 
-// TODO: only add needed ones here.
 const responseScheme: surveyResponseType = {
   articles: useNuxtApp().payload.data.articleResponseSchema,
   age: age.value,
@@ -189,6 +213,14 @@ const isValid = computed(() => {
   }
   return false;
 });
+
+const demographicsError = useState("demographicsError", () => false);
+const selfAssessmentError = useState("selfAssessmentError", () => false);
+const additionalQuestionsError = useState(
+  "additionalQuestionsError",
+  () => false
+);
+const clickedSubmit = useState("clickedSubmit", () => false);
 
 const validity = {
   age: false,
@@ -458,28 +490,49 @@ function checkValidity(showErrors: boolean) {
     gotUpdated = true;
   }
 
-  console.log("updated ", gotUpdated);
-
   if (gotUpdated) {
-    console.log(
-      "prev articles",
-      prevArticlesValidCount,
-      "articles valid count",
-      articlesValidCount
-    );
     // filter answeredQuestionCount by true
     answeredQuestionCount.value =
       Object.values(validity).filter((value) => value === true).length +
       articlesValidCount;
-    console.log("func answeredQuestionCount", answeredQuestionCount.value);
   }
 
   const allValid = Object.values(validity).every((value) => value === true);
+  if (!allValid) {
+    if (
+      !validity.age ||
+      !validity.gender ||
+      !validity.federalState ||
+      !validity.country ||
+      !validity.psychoSocialWorker
+    ) {
+      demographicsError.value = true;
+    } else {
+      demographicsError.value = false;
+    }
+    if (
+      !validity.newsConsumptionFrequency ||
+      !validity.langLowSensitivity ||
+      !validity.langHighSensitivity ||
+      !validity.newsBoundaries ||
+      !validity.newsWorry
+    ) {
+      selfAssessmentError.value = true;
+    } else {
+      selfAssessmentError.value = false;
+    }
+    if (!validity.verySoftDeathInjNums || !validity.softDeathInjNums) {
+      additionalQuestionsError.value = true;
+    } else {
+      additionalQuestionsError.value = false;
+    }
+  }
 
   return allValid;
 }
 
 const submitForm = () => {
+  clickedSubmit.value = true;
   surveyResponse.value.age = age.value;
   surveyResponse.value.gender = gender.value;
   surveyResponse.value.country = country.value;
@@ -494,11 +547,10 @@ const submitForm = () => {
   surveyResponse.value.generalRemark = generalRemark.value;
   surveyResponse.value.newsConsumptionFrequency =
     newsConsumptionFrequency.value;
-  console.log("surveyResponse", surveyResponse.value);
 
   const submitValid = checkValidity(true);
   if (submitValid) {
-    console.log("save to DB: surveyResponse", surveyResponse.value);
+    console.info("save to DB");
     saveToDB();
   } else {
     console.error("errors occured");
@@ -514,7 +566,7 @@ const saveToDB = async () => {
     }
   );
   if (data.value) {
-    console.log("successful. redirect");
+    console.info("successful. redirect");
     navigateTo("./success");
     const { data, error: fetchError } = await useFetch(
       "/api/counterIncrement",

@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section" id="selfAssessment">
     <AtomsHeadline level="h2" class="text-bold">
       Selbsteinschätzung
     </AtomsHeadline>
@@ -279,5 +279,4 @@ const versionOptions = ref([
   { value: "daily", label: "täglich" },
   { value: "severalTimesDaily", label: "merhmals täglich" },
 ]);
-
 </script>

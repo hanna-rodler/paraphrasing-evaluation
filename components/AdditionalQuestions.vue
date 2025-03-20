@@ -1,10 +1,13 @@
 <template>
-  <div class="section flex justify-center mt-4 md:mt-8">
+  <div
+    class="section flex justify-center mt-4 md:mt-8"
+    id="additionalQuestions"
+  >
     <div class="subSection mx-4 md:mx-0">
       <AtomsHeadline level="h2" class="text-bold">Abschluss</AtomsHeadline>
       <div class="mb-12 mt-4 md:mt-8 text-bold">
         Angenommen Sie können zwischen verschiedenen Versionen je nach Ihrer
-        Stimmungslage und Kapazitäten wählen, wie bewerten Sie die folgendes?
+        Stimmungslage und Kapazitäten wählen, wie bewerten Sie Folgendes?
       </div>
       <!-- Death and Injured numbers-->
       <div class="mb-12">

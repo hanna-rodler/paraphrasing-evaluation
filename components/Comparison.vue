@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h2>Kontext Artikel {{ index + 1 }}</h2>
+    <h2 :id="`article-${article.id}`">Kontext Artikel {{ index + 1 }}</h2>
     <div
       class="flex flex-col justify-center items-center w-full px-2 sm:px-5 md:px-10"
     >
@@ -13,6 +13,13 @@
           </div>
           <!-- // render body as html  -->
           <div v-html="article.context.body"></div>
+          <div
+            v-if="showJumpToRemarkBtn()"
+            @click="scrollToRemark()"
+            class="mt-3 link-secondary cursor-pointer"
+          >
+            zu den Anmerkungen
+          </div>
         </div>
       </div>
     </div>
@@ -56,6 +63,7 @@
 </template>
 
 <script setup>
+import { wasRemarkLinkClicked } from "~/utils/utils";
 const props = defineProps({
   article: {
     type: Object,
@@ -66,8 +74,17 @@ const props = defineProps({
     required: true,
   },
 });
-</script>
+const clickedRemarks = useState("clickedRemarks");
 
-<style scoped>
-/* You can add any additional styles here if needed */
-</style>
+const showJumpToRemarkBtn = () => {
+  return wasRemarkLinkClicked(clickedRemarks.value, props.article.id);
+};
+
+function scrollToRemark() {
+  const remarkElement = document.getElementById(`remark-${props.article.id}`);
+  if (remarkElement !== null) {
+    const top = remarkElement.getBoundingClientRect().top;
+    window.scrollBy(0, top - 40);
+  }
+}
+</script>

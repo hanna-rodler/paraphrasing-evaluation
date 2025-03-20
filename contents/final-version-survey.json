@@ -76,14 +76,14 @@
                     {
                         "prompt_id": "2x3_3x3_4--x1_5--x1_7x2_8-x1",
                         "sentence": "Die israelische Armee hat im Gazastreifen mehrere Angriffe <span class='highlight'>durchgeführt</span>. Dabei sind laut der palästinensischen Nachrichtenagentur WAFA mindestens 41 Menschen <span class='highlight'>ums Leben gekommen</span>.",
-                        "original": "Die israelische Armee hat <span class='highlight'>bei</span> mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen <span class='highlight'>getötet</span>."
+                        "original": "Die israelische Armee hat bei mehreren Angriffen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge mindestens 41 Menschen <span class='highlight'>getötet</span>."
                     },
                     {
-                        "soft_prompt_id": "16x2",
+                        "prompt_id": "16x2",
                         "sentence": "Die israelische Armee hat bei mehreren Vorfällen im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge vielen Menschen das Leben genommen."
                     },
                     {
-                        "soft_prompt_id": "14x2_14--x1_15-x1_16-x1",
+                        "prompt_id": "14x2_14--x1_15-x1_16-x1",
                         "sentence": "Die israelische Armee hat bei mehreren <span class='highlight'>Aktionen</span> im Gazastreifen gemäß einem Bericht der palästinensischen Nachrichtenagentur WAFA eine <span class='highlight'>erhebliche Anzahl von Menschenleben gefordert</span>.",
                         "original": "Die israelische Armee hat bei mehreren <span class='highlight'>Angriffen</span> im Gazastreifen einem Bericht der palästinensischen Nachrichtenagentur WAFA zufolge <span class='highlight'>mindestens 41 Menschen getötet</span>."
                     },
@@ -264,7 +264,7 @@
                 "prompt_id": "2x3",
                 "versions": [
                     {
-                        "prompt_id": "3x3_7x3_1-x1_9x1_10x3_11x3_13x1_16x3_80x2",
+                        "prompt_id": "1-x1_3x3_7x3_9x1_10x3_11x3_13x1_16x3_18x2",
                         "sentence": "Konzert ohne Kopftuch: Iranische Sängerin festgenommen."
                     },
                     {
@@ -335,7 +335,7 @@
             "sentence_1": {
                 "orig_sentence_num": "5",
                 "original": "Sellner, bis vor einem Jahr auch Sprecher der vom Verfassungsschutz als rechtsextrem eingestuften Identitären, hatte im Juli im deutschen Saarbrücken eine „Gegenveranstaltung“ der „Omas gegen Rechts“ gegen seinen eigenen Auftritt besucht.",
-                "prompt_id": "1-x2_2-x3_3-x2_4-x3_5-x3_6-x1_7-x3_8-x3_9x1_14x2_15x3_18x1",
+                "prompt_id": "1-x2_2-x3_3-x2_4-x3_5-x3_6-x1_7-x3_8-x3_9x1_14x2_16x3_18x1",
                 "versions": [
                     {
                         "prompt_id": "10--x1_11x1_18-x1_18--x1",
@@ -431,7 +431,7 @@
                         "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
                     },
                     {
-                        "prompt_id": "1-x1_4-x1_5-x3_6x1_7x3_8-x1_9x2_1-x9_2-x3_11x1_11-x2_13x2_13-x1_15-x3_16x2_17-x1_18-x3",
+                        "prompt_id": "1-x1_4-x1_5-x3_6x1_7x3_8-x1_9x2_9-x1_10-x3_11x1_11-x2_13x2_13-x1_15-x3_16x2_17-x1_18-x3",
                         "sentence": "Stocker <span class='highlight'>erwähnte</span> seine eigene <span class='highlight'>Kritik</span> an der FPÖ und an Kickl.",
                         "original": "Stocker <span class='highlight'>verwies selbst auf</span> seine eigene <span class='highlight'>harsche Kritik an</span> der FPÖ und an Kickl."
                     },
@@ -488,7 +488,7 @@
                         "original": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>kämpfen</span>“ und werde die <span class='highlight'>USA immer</span> an die erste Stelle setzen, so Trump."
                     },
                     {
-                        "prompt_id": "9-x2_10x2_11x1_15x1_16x1_17x2_16x1_18x1",
+                        "prompt_id": "9-x2_10x2_11x1_15x1_16x2_17x2_18x1",
                         "sentence": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>eintreten</span>“ und die USA immer an die erste Stelle setzen, so Trump.",
                         "original": "„Ric wird weiterhin für Frieden durch Stärke <span class='highlight'>kämpfen</span>“ und werde die USA immer an die erste Stelle setzen, so Trump.",
                         "kick": "evtl"

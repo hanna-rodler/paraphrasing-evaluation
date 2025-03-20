@@ -155,10 +155,9 @@ async function saveToDB(registrationData: Registration) {
         body: registrationData,
       }
     );
-    console.log("data", data, "error", fetchError);
     if (data.value) {
       showSuccessMessage.value = true;
-      console.log("successful");
+      console.info("successful");
       clearForm();
     }
   } catch (error) {
