@@ -183,6 +183,7 @@ let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
+const profession = useState<string>("profession", () => "");
 
 const responseScheme: surveyResponseType = {
   articles: useNuxtApp().payload.data.articleResponseSchema,
@@ -193,12 +194,14 @@ const responseScheme: surveyResponseType = {
   verySoftDeathInjNums: verySoftDeathInjNums.value,
   softDeathInjNums: softDeathInjNums.value,
   psychoSocialWorker: psychoSocialWorker.value,
-  generalRemark: generalRemark.value,
+  generalRemark: null,
+  professionalRemark: null,
   newsConsumptionFrequency: newsConsumptionFrequency.value,
   langLowSensitivity: langLowSensitivity.value,
   langHighSensitivity: langHighSensitivity.value,
   newsBoundaries: newsBoundaries.value,
   newsWorry: newsWorry.value,
+  profession: null,
 };
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
@@ -545,9 +548,9 @@ const submitForm = () => {
   surveyResponse.value.langHighSensitivity = langHighSensitivity.value;
   surveyResponse.value.newsBoundaries = newsBoundaries.value;
   surveyResponse.value.newsWorry = newsWorry.value;
-  surveyResponse.value.generalRemark = generalRemark.value;
   surveyResponse.value.newsConsumptionFrequency =
     newsConsumptionFrequency.value;
+  surveyResponse.value.profession = profession.value;
 
   const submitValid = checkValidity(true);
   if (submitValid) {
