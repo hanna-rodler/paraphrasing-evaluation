@@ -10,14 +10,16 @@ export type surveyResponseType = {
   country: country;
   federalState: string;
   psychoSocialWorker: boolean | null;
-  generalRemark: string;
+  generalRemark: string | null;
+  professionalRemark: string | null;
   verySoftDeathInjNums: number | null;
   softDeathInjNums: number | null;
   newsConsumptionFrequency: string | null;
-  langLowSensitivity: string | null;
-  langHighSensitivity: string | null;
-  newsBoundaries: string | null;
-  newsWorry: string | null;
+  langLowSensitivity: number | null;
+  langHighSensitivity: number | null;
+  newsBoundaries: number | null;
+  newsWorry: number | null;
+  profession: string | null;
 };
 
 export type articleSelection = {
