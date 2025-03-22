@@ -13,11 +13,11 @@
           <span> Haben Sie noch allgemeine Anmerkungen? </span>
         </span>
         <span v-if="!articleId && isProfessionalRemark">
-          Bitte beschreiben Sie, welche Themen im Zusammenhang mit
-          Nachrichtenkonsum aus Ihrer Erfahrung im psychosozialen Bereich
-          wichtig sind. Dies könnte Überforderung durch zu viele Nachrichten,
-          Stress beim Nachrichten lesen oder andere Erfahrungen im Umgang mit
-          Medieninhalten umfassen.
+          Bitte beschreiben Sie aus Ihrer Erfahrung im psychosozialen Bereich,
+          welche Themen im Zusammenhang mit Nachrichtenkonsum wichtig sind. Dies
+          könnte Überforderung durch zu viele Nachrichten, Stress beim
+          Nachrichten lesen oder andere Erfahrungen im Umgang mit Medieninhalten
+          umfassen.
         </span>
         <span
           v-if="articleId"
