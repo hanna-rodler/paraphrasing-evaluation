@@ -82,7 +82,7 @@
         </div>
         <ul class="list-disc list-inside">
           <li
-            v-if="demographicsError"
+            v-if="demographicsError && !isValid"
             class="text-error"
             id="demographics-error-msg"
             role="alert"
@@ -91,7 +91,7 @@
             <a href="#demographics" class="underline">hier</a> fertig aus.
           </li>
           <li
-            v-if="selfAssessmentError"
+            v-if="selfAssessmentError && !isValid"
             class="text-error"
             id="selfAssessment-error-msg"
             role="alert"
@@ -101,7 +101,7 @@
             fertig aus.
           </li>
           <li
-            v-if="additionalQuestionsError"
+            v-if="additionalQuestionsError && !isValid"
             class="text-error"
             id="selfAssessment-error-msg"
             role="alert"
@@ -116,7 +116,8 @@
             id="articles-error-msg"
             class="text-error"
           >
-            Hinweis: Bewerten Sie mindestens 15 Versionen.
+            Hinweis: Bewerten Sie mindestens
+            {{ minimumArticlesValidCount }} Versionen.
           </li>
         </ul>
       </div>
@@ -172,7 +173,7 @@ const showArticleError = ref(false);
 const requiredQuestions = 12;
 const versionCount = useNuxtApp().payload.data.versionCount;
 const totalQuestionLength = ref<number>(requiredQuestions + versionCount);
-const minimumArticlesValidCount = 15;
+const minimumArticlesValidCount = 20;
 const minimumThresholdPercentage =
   ((requiredQuestions + minimumArticlesValidCount) /
     totalQuestionLength.value) *
@@ -182,6 +183,7 @@ let prevArticlesValidCount = 0;
 const progressPercentage = computed(() => {
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
+const profession = useState<string>("profession", () => "");
 
 const responseScheme: surveyResponseType = {
   articles: useNuxtApp().payload.data.articleResponseSchema,
@@ -192,12 +194,14 @@ const responseScheme: surveyResponseType = {
   verySoftDeathInjNums: verySoftDeathInjNums.value,
   softDeathInjNums: softDeathInjNums.value,
   psychoSocialWorker: psychoSocialWorker.value,
-  generalRemark: generalRemark.value,
+  generalRemark: null,
+  professionalRemark: null,
   newsConsumptionFrequency: newsConsumptionFrequency.value,
   langLowSensitivity: langLowSensitivity.value,
   langHighSensitivity: langHighSensitivity.value,
   newsBoundaries: newsBoundaries.value,
   newsWorry: newsWorry.value,
+  profession: null,
 };
 
 let shuffledData = useNuxtApp().payload.data.shuffled;
@@ -544,9 +548,9 @@ const submitForm = () => {
   surveyResponse.value.langHighSensitivity = langHighSensitivity.value;
   surveyResponse.value.newsBoundaries = newsBoundaries.value;
   surveyResponse.value.newsWorry = newsWorry.value;
-  surveyResponse.value.generalRemark = generalRemark.value;
   surveyResponse.value.newsConsumptionFrequency =
     newsConsumptionFrequency.value;
+  surveyResponse.value.profession = profession.value;
 
   const submitValid = checkValidity(true);
   if (submitValid) {

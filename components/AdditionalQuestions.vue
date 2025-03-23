@@ -100,7 +100,11 @@
         </div>
       </div>
       <div class="mb-6 md:mb-12">
-        <FeedbackTextbox />
+        <FeedbackTextbox
+          v-if="psychoSocialWorker"
+          :isProfessionalRemark="true"
+        />
+        <FeedbackTextbox class="mt-8" />
       </div>
     </div>
   </div>
@@ -124,6 +128,7 @@ const verySoftDeathInjNumsError = useState<boolean>(
   "verySoftDeathInjNumsError",
   () => false
 );
+const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
 
 const ratingOptions = ref([
   { value: -2 },
