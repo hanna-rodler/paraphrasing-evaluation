@@ -1,73 +1,91 @@
 import { defineNuxtRouteMiddleware, useNuxtApp, useFetch } from "#app";
 import surveyData from "~/contents/final-version-survey.json";
 import type { articleSelection } from "~/types/survey.type";
+import nuxtStorage from "nuxt-storage";
 
 export default defineNuxtRouteMiddleware(async () => {
   const nuxtApp = useNuxtApp();
+  let articlesById: { [key: string]: (typeof surveyData)[0] } =
+    surveyData.reduce((acc, cur) => {
+      acc[cur.id] = cur;
+      return acc;
+    }, {});
 
-  // Fetch survey counter
-  const { data, error: fetchError } = await useFetch("/api/count", {
-    method: "GET",
-  });
-
-  if (data.value) {
-    nuxtApp.payload.data.count = data.value.result?.responseCounter;
+  if (import.meta.client) {
+    const storedResponses = nuxtStorage.localStorage.getData("surveyResponses");
+    if (storedResponses) {
+      const articles = storedResponses.articles;
+      let chosenArticles = [];
+      for (let article in articles) {
+        chosenArticles.push(articlesById[article]);
+      }
+      const metaData = nuxtStorage.localStorage.getData("metaData");
+      if (metaData) {
+        nuxtApp.payload.data.versionCount = metaData.versionCount;
+      } else {
+        nuxtApp.payload.data.versionCount = countVersions(chosenArticles);
+      }
+    }
   } else {
-    // default: show article configuration for 0
-    nuxtApp.payload.data.count = 0;
-    console.info("Unsuccessful fetch of count. Error:", fetchError.value);
-    return;
-  }
+    // Fetch survey counter
+    const { data, error: fetchError } = await useFetch("/api/count", {
+      method: "GET",
+    });
 
-  // // Shuffle survey data if not already shuffled
-  let shuffledData = nuxtApp.payload.data.shuffled;
-
-  if (!shuffledData) {
-    let answeredCount = nuxtApp.payload.data.count;
-    let articlesById: { [key: string]: (typeof surveyData)[0] } =
-      surveyData.reduce((acc, cur) => {
-        acc[cur.id] = cur;
-        return acc;
-      }, {});
-
-    let chosenArticles = [];
-    // always add article_tote_gaza as the first article
-    chosenArticles.push(articlesById["article_tote_gaza"]);
-    let articleResponseSchema: articleSelection = {
-      article_tote_gaza: { remark: "" },
-    };
-
-    // add article_iran_saengerin or article_sellner as the second article
-    if (answeredCount % 2 === 0 || answeredCount === 0) {
-      // add article_iran_saengerin for even numbers and zero
-      chosenArticles.push(articlesById["article_iran_saengerin"]);
-      articleResponseSchema.article_iran_saengerin = { remark: "" };
+    if (data.value) {
+      nuxtApp.payload.data.count = data.value.result?.responseCounter;
     } else {
-      // add article_sellner for uneven numbers, but not for 0
-      chosenArticles.push(articlesById["article_sellner"]);
-      articleResponseSchema.article_sellner = { remark: "" };
+      // default: show article configuration for 0
+      nuxtApp.payload.data.count = 0;
+      console.info("Unsuccessful fetch of count. Error:", fetchError.value);
+      return;
     }
 
-    // add article_russland, stocker or trump_grenell as the third article
-    if (answeredCount % 3 === 0 || answeredCount === 0) {
-      // article_sanctions_russia for 0, 3, 6, 9, 12, etc.
-      chosenArticles.push(articlesById["article_sanctions_russia"]);
-      articleResponseSchema.article_sanctions_russia = { remark: "" };
-    } else if ((answeredCount + 1) % 3 === 0) {
-      // article_stocker for 2, 5, 8, 11, etc.
-      chosenArticles.push(articlesById["article_stocker"]);
-      articleResponseSchema.article_stocker = { remark: "" };
-    } else {
-      // article_trump_grenell  for 1, 4, 7, 10, etc.
-      chosenArticles.push(articlesById["article_trump_grenell"]);
-      articleResponseSchema.article_trump_grenell = { remark: "" };
-    }
-    let shuffledData = shuffleArray(chosenArticles);
-    nuxtApp.payload.data.shuffled = shuffledData;
+    // // Shuffle survey data if not already shuffled
+    let shuffledData = nuxtApp.payload.data.shuffled;
 
-    // count number of versions
-    nuxtApp.payload.data.versionCount = countVersions(shuffledData);
-    nuxtApp.payload.data.articleResponseSchema = articleResponseSchema;
+    if (!shuffledData) {
+      let answeredCount = nuxtApp.payload.data.count;
+
+      let chosenArticles = [];
+      // always add article_tote_gaza as the first article
+      chosenArticles.push(articlesById["article_tote_gaza"]);
+      let articleResponseSchema: articleSelection = {
+        article_tote_gaza: { remark: "" },
+      };
+
+      // add article_iran_saengerin or article_sellner as the second article
+      if (answeredCount % 2 === 0 || answeredCount === 0) {
+        // add article_iran_saengerin for even numbers and zero
+        chosenArticles.push(articlesById["article_iran_saengerin"]);
+        articleResponseSchema.article_iran_saengerin = { remark: "" };
+      } else {
+        // add article_sellner for uneven numbers, but not for 0
+        chosenArticles.push(articlesById["article_sellner"]);
+        articleResponseSchema.article_sellner = { remark: "" };
+      }
+
+      // add article_russland, stocker or trump_grenell as the third article
+      if (answeredCount % 3 === 0 || answeredCount === 0) {
+        // article_sanctions_russia for 0, 3, 6, 9, 12, etc.
+        chosenArticles.push(articlesById["article_sanctions_russia"]);
+        articleResponseSchema.article_sanctions_russia = { remark: "" };
+      } else if ((answeredCount + 1) % 3 === 0) {
+        // article_stocker for 2, 5, 8, 11, etc.
+        chosenArticles.push(articlesById["article_stocker"]);
+        articleResponseSchema.article_stocker = { remark: "" };
+      } else {
+        // article_trump_grenell  for 1, 4, 7, 10, etc.
+        chosenArticles.push(articlesById["article_trump_grenell"]);
+        articleResponseSchema.article_trump_grenell = { remark: "" };
+      }
+      let shuffledData = shuffleArray(chosenArticles);
+      nuxtApp.payload.data.shuffled = shuffledData;
+
+      // count number of versions
+      nuxtApp.payload.data.versionCount = countVersions(shuffledData);
+      nuxtApp.payload.data.articleResponseSchema = articleResponseSchema;
+    }
   }
 });
 

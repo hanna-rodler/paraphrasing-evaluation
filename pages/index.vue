@@ -45,12 +45,14 @@
           Original ist.
         </AtomsText>
         <AtomsText>
-          Die Teilnahme an dieser Studie dauert 20-30 min. Pflichtfragen sind
+          Die Teilnahme an dieser Studie dauert ca. 30 min. Pflichtfragen sind
           mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem Fall
           ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende) müssen
           mindestens {{ minimumArticlesValidCount }} Artikelversionen bewertet
           werden. Sie sehen ihren Fortschritt am Balken oben am Screen. Der rote
-          Balken kennzeichnet das Minimum an ausgefüllten Fragen.
+          Balken kennzeichnet das Minimum an ausgefüllten Fragen.<br />
+          Sie können die Umfrage unterbrechen und später im selben Browser
+          weitermachen.
         </AtomsText>
         <AtomsText>
           Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
@@ -120,6 +122,9 @@
             {{ minimumArticlesValidCount }} Versionen.
           </li>
         </ul>
+        <div v-if="isValid" class="mb-2">
+          Bitte schicken Sie das Formular ab, sobald Sie fertig sind.
+        </div>
       </div>
       <div class="mt-5 flex justify-center flex-row">
         <AtomsButton
@@ -131,6 +136,50 @@
         >
           Abschicken
         </AtomsButton>
+      </div>
+    </div>
+
+    <div class="section flex flex-col justify-center items-center mt-20">
+      <Icon
+        name="heroicons:exclamation-triangle"
+        size="20"
+        class="text-error mb-2"
+        aria-label="Achtung"
+        id="age-error"
+        data-error-icon="age"
+      />
+      <AtomsButton
+        tag="button"
+        variant="warning"
+        @click="askForDelete()"
+        aria-describedby="ask-for-delete"
+      >
+        Im Browser gespeicherte Antworten löschen & neu ausfüllen
+      </AtomsButton>
+      <div
+        v-if="askForDeleteAgain"
+        class="mt-5 flex md:flex-row flex-col items-center"
+      >
+        <span class="mr-2">Wollen Sie Ihre Daten wirklich löschen?</span>
+        <div class="space-x-2 mt-2 md:mt-0">
+          <AtomsButton
+            tag="button"
+            variant="warning"
+            @click="deleteLocalStorage"
+            aria-describedby="confirm-delete"
+          >
+            Ja
+          </AtomsButton>
+          <AtomsButton
+            tag="button"
+            variant="secondary"
+            @click="cancelDelete()"
+            aria-describedby="cancel-delete"
+            class="ml-2"
+          >
+            Nein
+          </AtomsButton>
+        </div>
       </div>
     </div>
   </div>
@@ -145,14 +194,13 @@ import type {
 } from "~/types/survey.type";
 import { ref, onMounted } from "vue";
 import { countValidArticles } from "~/utils/validation";
+import nuxtStorage from "nuxt-storage";
+
 definePageMeta({
   middleware: "survey",
 });
 
 const isMounted = ref(false);
-onMounted(() => {
-  isMounted.value = true;
-});
 
 const gender = useState<gender>("gender");
 const age = useState<age>("age");
@@ -161,7 +209,6 @@ const federalState = useState<string>("federalState");
 const verySoftDeathInjNums = useState<number | null>("verySoftDeathInjNums");
 const softDeathInjNums = useState<number | null>("softDeathInjNums");
 const psychoSocialWorker = useState<boolean | null>("psychoSocialWorker");
-const generalRemark = useState<string>("generalRemark");
 const newsConsumptionFrequency = useState<string | null>(
   "newsConsumptionFrequency"
 );
@@ -184,6 +231,7 @@ const progressPercentage = computed(() => {
   return (answeredQuestionCount.value / totalQuestionLength.value) * 100;
 });
 const profession = useState<string>("profession", () => "");
+const askForDeleteAgain = ref(false);
 
 const responseScheme: surveyResponseType = {
   articles: useNuxtApp().payload.data.articleResponseSchema,
@@ -210,6 +258,32 @@ const surveyResponse = useState<surveyResponseType>(
   "surveyResponse",
   (): surveyResponseType => responseScheme
 );
+
+onMounted(() => {
+  isMounted.value = true;
+  const storedResponses = nuxtStorage.localStorage.getData("surveyResponses");
+  if (storedResponses) {
+    age.value = storedResponses.age;
+    gender.value = storedResponses.gender;
+    country.value = storedResponses.country;
+    federalState.value = storedResponses.federalState;
+    verySoftDeathInjNums.value = storedResponses.verySoftDeathInjNums;
+    softDeathInjNums.value = storedResponses.softDeathInjNums;
+    psychoSocialWorker.value = storedResponses.psychoSocialWorker;
+    newsConsumptionFrequency.value = storedResponses.newsConsumptionFrequency;
+    langLowSensitivity.value = storedResponses.langLowSensitivity;
+    langHighSensitivity.value = storedResponses.langHighSensitivity;
+    newsBoundaries.value = storedResponses.newsBoundaries;
+    newsWorry.value = storedResponses.newsWorry;
+    profession.value = storedResponses.profession;
+    surveyResponse.value.generalRemark = storedResponses.generalRemark;
+    surveyResponse.value.professionalRemark =
+      storedResponses.professionalRemark;
+    surveyResponse.value.articles = storedResponses.articles;
+
+    // simulate a click on the input field with the ref="psychoSocialWorkerYes
+  }
+});
 
 const isValid = computed(() => {
   if (isMounted.value) {
@@ -500,6 +574,7 @@ function checkValidity(showErrors: boolean) {
       Object.values(validity).filter((value) => value === true).length +
       articlesValidCount;
   }
+  storeToLocalStorage();
 
   const allValid = Object.values(validity).every((value) => value === true);
   if (!allValid) {
@@ -535,6 +610,52 @@ function checkValidity(showErrors: boolean) {
   return allValid;
 }
 
+const storeToLocalStorage = () => {
+  surveyResponse.value.age = age.value;
+  surveyResponse.value.gender = gender.value;
+  surveyResponse.value.country = country.value;
+  surveyResponse.value.federalState = federalState.value;
+  surveyResponse.value.verySoftDeathInjNums = verySoftDeathInjNums.value;
+  surveyResponse.value.softDeathInjNums = softDeathInjNums.value;
+  surveyResponse.value.psychoSocialWorker = psychoSocialWorker.value;
+  surveyResponse.value.langLowSensitivity = langLowSensitivity.value;
+  surveyResponse.value.langHighSensitivity = langHighSensitivity.value;
+  surveyResponse.value.newsBoundaries = newsBoundaries.value;
+  surveyResponse.value.newsWorry = newsWorry.value;
+  surveyResponse.value.newsConsumptionFrequency =
+    newsConsumptionFrequency.value;
+  surveyResponse.value.profession = profession.value;
+  let metaData = {
+    versionCount: versionCount,
+  };
+
+  nuxtStorage.localStorage.setData(
+    "surveyResponses",
+    surveyResponse.value,
+    14,
+    "d"
+  );
+
+  nuxtStorage.localStorage.setData("metaData", metaData, 14, "d");
+};
+
+function askForDelete() {
+  askForDeleteAgain.value = true;
+}
+
+function cancelDelete() {
+  askForDeleteAgain.value = false;
+}
+
+const deleteLocalStorage = (redirect: boolean = false) => {
+  nuxtStorage.localStorage.clear("surveyResponses");
+  nuxtStorage.localStorage.clear("metaData");
+  if (redirect) {
+    window.location.reload();
+    window.scrollTo(0, 0);
+  }
+};
+
 const submitForm = () => {
   clickedSubmit.value = true;
   surveyResponse.value.age = age.value;
@@ -562,24 +683,19 @@ const submitForm = () => {
 };
 
 const saveToDB = async () => {
-  const { data, error: fetchError } = await useFetch(
-    "/api/saveSurveyResponse",
-    {
-      method: "POST",
-      body: surveyResponse.value,
-    }
-  );
-  if (data.value) {
+  const res = await $fetch("/api/saveSurveyResponse", {
+    method: "POST",
+    body: surveyResponse.value,
+  });
+  if (res.status === 200) {
     console.info("successful. redirect");
+    deleteLocalStorage();
     navigateTo("./success");
-    const { data, error: fetchError } = await useFetch(
-      "/api/counterIncrement",
-      {
-        method: "GET",
-      }
-    );
+    await $fetch("/api/counterIncrement", {
+      method: "GET",
+    });
   } else {
-    console.error("Unsuccessful. Error:", fetchError.value);
+    console.error("Unsuccessful. Error:", res.error);
   }
 };
 </script>

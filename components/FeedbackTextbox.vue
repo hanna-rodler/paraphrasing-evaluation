@@ -29,12 +29,35 @@
       </div>
     </label>
     <textarea
+      v-if="articleId"
       :class="[
         'textarea border rounded-md border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm w-full px-2 py-0.5',
         isProfessionalRemark ? 'h-32' : 'h-24',
       ]"
       :id="`remark-${props.articleId}`"
-      v-model="remark"
+      v-model="articleRemark"
+      name="`remark-${props.articleId}`"
+      @input="debouncedSave"
+    ></textarea>
+    <textarea
+      v-if="!articleId && !isProfessionalRemark"
+      :class="[
+        'textarea border rounded-md border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm w-full px-2 py-0.5',
+        isProfessionalRemark ? 'h-32' : 'h-24',
+      ]"
+      :id="`remark-${props.articleId}`"
+      v-model="generalRemark"
+      name="`remark-${props.articleId}`"
+      @input="debouncedSave"
+    ></textarea>
+    <textarea
+      v-if="!articleId && isProfessionalRemark"
+      :class="[
+        'textarea border rounded-md border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm w-full px-2 py-0.5',
+        isProfessionalRemark ? 'h-32' : 'h-24',
+      ]"
+      :id="`remark-${props.articleId}`"
+      v-model="professionalRemark"
       name="`remark-${props.articleId}`"
       @input="debouncedSave"
     ></textarea>
@@ -58,22 +81,49 @@ const props = defineProps({
   },
 });
 
-const remark = ref("");
+const articleRemark = ref("");
 const clickedRemarks = useState<string[]>("clickedRemarks", () => []);
+const generalRemark = ref<string>("");
+const professionalRemark = ref<string>("");
 
 const surveyResponse = useState<surveyResponseType>("surveyResponse");
 
-const debouncedSave = useDebounceFn(() => {
-  if (remark.value !== "") {
-    if (!props.articleId) {
-      if (props.isProfessionalRemark) {
-        surveyResponse.value.professionalRemark = remark.value;
+const stopWatcher = watch(
+  surveyResponse,
+  () => {
+    if (props.articleId) {
+      articleRemark.value =
+        surveyResponse.value.articles[
+          props.articleId as keyof typeof surveyResponse.value.articles
+        ]?.remark ?? "";
+    } else {
+      if (!props.isProfessionalRemark) {
+        generalRemark.value = surveyResponse.value.generalRemark ?? "";
       } else {
-        surveyResponse.value.generalRemark = remark.value;
+        professionalRemark.value =
+          surveyResponse.value.professionalRemark ?? "";
       }
-    } else if (props.articleId) {
-      surveyResponse.value.articles[props.articleId].remark = remark.value;
     }
+  },
+  { deep: true }
+);
+
+setTimeout(() => {
+  stopWatcher();
+  // Stop watching after 1 minute
+}, 60000);
+
+const debouncedSave = useDebounceFn(() => {
+  if (!props.articleId) {
+    if (props.isProfessionalRemark) {
+      surveyResponse.value.professionalRemark = professionalRemark.value;
+    } else {
+      surveyResponse.value.generalRemark = generalRemark.value;
+    }
+  } else if (props.articleId) {
+    surveyResponse.value.articles[
+      props.articleId as keyof typeof surveyResponse.value.articles
+    ].remark = articleRemark.value;
   }
 }, 300);
 

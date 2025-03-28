@@ -9,11 +9,12 @@ export default defineEventHandler(async (event) => {
     await connectToDatabase();
     const collection = db.collection(COLLECTION);
     const result = await collection.insertOne(body);
-    return { message: "Data inserted successfully", result };
+    return { message: "Data inserted successfully", data: result, status: 200 };
   } catch (error) {
     return {
-      message: "Database connection failed!",
+      message: "Error saving survey data",
       error: error.message,
+      status: 500,
     };
   } finally {
     await closeDatabase();

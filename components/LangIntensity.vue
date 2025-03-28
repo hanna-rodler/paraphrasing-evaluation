@@ -43,7 +43,29 @@ const props = defineProps({
 });
 
 const surveyResponse = useState("surveyResponse");
-const selectedRating = ref(null);
+const selectedRating: number | null = ref<number | null>(null);
+
+const updateSelectedRating = () => {
+  selectedRating.value =
+    surveyResponse.value.articles?.[props.articleId]?.[
+      `sentence__${props.sentenceNum}`
+    ]?.[`promptId__${props.promptId}`]?.langIntensity ?? null;
+};
+
+// Watch for changes in `surveyResponse` and update selectedRating when it's available
+const stopWatcher = watch(
+  surveyResponse,
+  () => {
+    updateSelectedRating();
+  },
+  { deep: true }
+);
+
+setTimeout(() => {
+  stopWatcher();
+  // Stop watching after 1 minute
+}, 60000);
+
 function setRating(rating: number) {
   selectedRating.value = rating;
 
