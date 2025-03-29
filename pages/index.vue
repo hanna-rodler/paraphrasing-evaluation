@@ -280,8 +280,9 @@ onMounted(() => {
     surveyResponse.value.professionalRemark =
       storedResponses.professionalRemark;
     surveyResponse.value.articles = storedResponses.articles;
-
-    // simulate a click on the input field with the ref="psychoSocialWorkerYes
+  } else {
+    // simple solution for FeedbackText.vue gets mounted without isProfessionalRemark when loading from localStorage. Set to null again if no localStorage values
+    psychoSocialWorker.value = null;
   }
 });
 
