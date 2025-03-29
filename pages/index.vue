@@ -52,7 +52,7 @@
           werden. Sie sehen ihren Fortschritt am Balken oben am Screen. Der rote
           Balken kennzeichnet das Minimum an ausgefüllten Fragen.<br />
           Sie können die Umfrage unterbrechen und später im selben Browser
-          weitermachen.
+          weitermachen. Die Antworten werden automatisch zwischengespeichert.
         </AtomsText>
         <AtomsText>
           Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
@@ -160,7 +160,7 @@
         v-if="askForDeleteAgain"
         class="mt-5 flex md:flex-row flex-col items-center"
       >
-        <span class="mr-2">Wollen Sie Ihre Daten wirklich löschen?</span>
+        <span class="mr-2">Daten wirklich löschen?</span>
         <div class="space-x-2 mt-2 md:mt-0">
           <AtomsButton
             tag="button"

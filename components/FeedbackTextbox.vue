@@ -110,8 +110,8 @@ const stopWatcher = watch(
 
 setTimeout(() => {
   stopWatcher();
-  // Stop watching after 1 minute
-}, 60000);
+  // stop watcher after 2 minutes, because localStorage will have loaded by then. => don't watch the entire time.
+}, 120000);
 
 const debouncedSave = useDebounceFn(() => {
   if (!props.articleId) {

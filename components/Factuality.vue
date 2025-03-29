@@ -47,26 +47,22 @@ const surveyResponse = useState<surveyResponseType>("surveyResponse");
 
 const selectedRating = ref<null | number>(null);
 
-const updateSelectedRating = () => {
-  selectedRating.value =
-    surveyResponse.value.articles?.[props.articleId]?.[
-      `sentence__${props.sentenceNum}`
-    ]?.[`promptId__${props.promptId}`]?.factuality ?? null;
-};
-
 // Watch for changes in `surveyResponse` and update selectedRating when it's available
 const stopWatcher = watch(
   surveyResponse,
   () => {
-    updateSelectedRating();
+    selectedRating.value =
+      surveyResponse.value.articles?.[props.articleId]?.[
+        `sentence__${props.sentenceNum}`
+      ]?.[`promptId__${props.promptId}`]?.factuality ?? null;
   },
   { deep: true }
 );
 
 setTimeout(() => {
   stopWatcher();
-  // Stop watching after 1,5 minute
-}, 35000);
+  // stop watcher after 2 minutes, because localStorage will have loaded by then. => don't watch the entire time.
+}, 120000);
 
 function setRating(rating: number) {
   selectedRating.value = rating;

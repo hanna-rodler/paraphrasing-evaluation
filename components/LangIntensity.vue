@@ -45,26 +45,22 @@ const props = defineProps({
 const surveyResponse = useState("surveyResponse");
 const selectedRating: number | null = ref<number | null>(null);
 
-const updateSelectedRating = () => {
-  selectedRating.value =
-    surveyResponse.value.articles?.[props.articleId]?.[
-      `sentence__${props.sentenceNum}`
-    ]?.[`promptId__${props.promptId}`]?.langIntensity ?? null;
-};
-
 // Watch for changes in `surveyResponse` and update selectedRating when it's available
 const stopWatcher = watch(
   surveyResponse,
   () => {
-    updateSelectedRating();
+    selectedRating.value =
+      surveyResponse.value.articles?.[props.articleId]?.[
+        `sentence__${props.sentenceNum}`
+      ]?.[`promptId__${props.promptId}`]?.langIntensity ?? null;
   },
   { deep: true }
 );
 
 setTimeout(() => {
   stopWatcher();
-  // Stop watching after 1 minute
-}, 60000);
+  // stop watcher after 2 minutes, because localStorage will have loaded by then. => don't watch the entire time.
+}, 120000);
 
 function setRating(rating: number) {
   selectedRating.value = rating;
