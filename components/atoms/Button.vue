@@ -19,7 +19,8 @@ const props = defineProps<{
     | "gradient"
     | "link"
     | "link-primary"
-    | "link-secondary";
+    | "link-secondary"
+    | "warning";
   link?: string;
 }>();
 
@@ -45,6 +46,7 @@ const componentStyles = ref(
     ["accent", "button button-accent"],
     ["success", "button button-success"],
     ["gradient", "button button-gradient"],
+    ["warning", "button button-warning"],
     ["link-primary", "link-primary"],
     ["link-secondary", "link-secondary"],
   ])
