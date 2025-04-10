@@ -1,0 +1,262 @@
+[
+    {
+        "_id": {
+            "$oid": "67e2c0045c3068112fc03fac"
+        },
+        "articles": {
+            "article_tote_gaza": {
+                "remark": "Hier muss sehr genau darauf geachtet werden, dass nicht zu viel weggelassen wird. Die Umschreibungen sind allesamt gelungen, aber es macht eben doch Unterschiede ob Menschen verletzt oder getötet wurden. Zudem ist es wichtig zu verstehen, ob es sich um Zivilisten oder Kämpfer handelt, da hier aus meiner Sicht ein erheblicher Unterschied besteht!",
+                "sentence__0": {
+                    "promptId__1x2_14x1_15x2": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "2"
+                        }
+                    },
+                    "promptId__6x2": {
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        },
+                        "factuality": {
+                            "$numberInt": "1"
+                        }
+                    }
+                },
+                "sentence__1": {
+                    "promptId__1x3_4-x1_6x1_6-x1_15-x1_15--x1_17-x2": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "2"
+                        }
+                    },
+                    "promptId__6--x1_7-x1_8x2_9-x2_15-x1_17-x2": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "0"
+                        }
+                    }
+                },
+                "sentence__8": {
+                    "promptId__10-x1_11x1_11-x2_18x3": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "2"
+                        }
+                    },
+                    "promptId__9x1_9-x1_13x1_13-x2": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    }
+                }
+            },
+            "article_sellner": {
+                "remark": "Hier rutscht die Anpassung häufig zu sehr ins umschreiben ab. Es ist z.B. extrem wichtig, dass Sellner nicht nur eine verbotene Geste, sondern vielleicht eher eine \"aufgrund der Vorkommnisse im 3. Reich verbotene Geste\" gezeigt hat.\nAußerdem hat er nicht einfach nur eine Veranstaltung in Saarbrücken besucht, sondern eine Veranstaltung gegen sich selbst und dann \"höhnisch\" das ganze mit dem Hitlergruß \"quitiert\". Das zeugt von absolutem Fehlverhalten!",
+                "sentence__5": {
+                    "promptId__10--x1_11x1_18-x1_18--x1": {
+                        "factuality": {
+                            "$numberInt": "-1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__9x2_10x1_10-x1_18-x1": {
+                        "factuality": {
+                            "$numberInt": "1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__10-x1_13x2_13-x1": {
+                        "factuality": {
+                            "$numberInt": "1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__10--x1_11x1_11-x1_18--x1": {
+                        "factuality": {
+                            "$numberInt": "-1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__14-x1_15-x2_17x2": {
+                        "factuality": {
+                            "$numberInt": "2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "0"
+                        }
+                    }
+                },
+                "sentence__6": {
+                    "promptId__10-x1_11-x2_13-x1_14x3_15x3_18-x1": {
+                        "factuality": {
+                            "$numberInt": "1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__9-x1_9x1_11-x1_13x1": {
+                        "factuality": {
+                            "$numberInt": "1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    }
+                }
+            }
+        },
+        "age": {
+            "$numberInt": "27"
+        },
+        "gender": "male",
+        "country": "at",
+        "federalState": "Oberösterreich",
+        "verySoftDeathInjNums": {
+            "$numberInt": "1"
+        },
+        "softDeathInjNums": {
+            "$numberInt": "-1"
+        },
+        "psychoSocialWorker": false,
+        "generalRemark": "Sehr interessantes Thema und sehr gute Auswahl an Artikeln. So sind die belastendsten Themen Krieg, Anschläge und Politik abgedeckt und erlauben eine gute Übersicht",
+        "professionalRemark": null,
+        "newsConsumptionFrequency": "lessThanOnceWeekly",
+        "langLowSensitivity": {
+            "$numberInt": "-1"
+        },
+        "langHighSensitivity": {
+            "$numberInt": "1"
+        },
+        "newsBoundaries": {
+            "$numberInt": "2"
+        },
+        "newsWorry": {
+            "$numberInt": "0"
+        },
+        "profession": null
+    },
+    {
+        "_id": {
+            "$oid": "67e32338ff1fb9a2cda46d9d"
+        },
+        "articles": {
+            "article_tote_gaza": {
+                "remark": "Teilweise macht nur das Passiv einen Unterschied ",
+                "sentence__0": {
+                    "promptId__1x2_14x1_15x2": {
+                        "factuality": {
+                            "$numberInt": "-2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__6x2": {
+                        "factuality": {
+                            "$numberInt": "-1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__14x2_15x1_17x2": {
+                        "factuality": {
+                            "$numberInt": "-2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    }
+                },
+                "sentence__1": {
+                    "promptId__1x3_4-x1_6x1_6-x1_15-x1_15--x1_17-x2": {
+                        "factuality": {
+                            "$numberInt": "-1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    },
+                    "promptId__6--x1_7-x1_8x2_9-x2_15-x1_17-x2": {
+                        "langIntensity": {
+                            "$numberInt": "2"
+                        },
+                        "factuality": {
+                            "$numberInt": "1"
+                        }
+                    }
+                }
+            },
+            "article_sellner": {
+                "remark": "Geste wär zu verharmlosend, könnte den „Stinkefinger“ gleichsetzen mit dem Gruß ",
+                "sentence__5": {
+                    "promptId__10--x1_11x1_18-x1_18--x1": {
+                        "factuality": {
+                            "$numberInt": "-2"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "2"
+                        }
+                    },
+                    "promptId__9x2_10x1_10-x1_18-x1": {
+                        "factuality": {
+                            "$numberInt": "-1"
+                        },
+                        "langIntensity": {
+                            "$numberInt": "1"
+                        }
+                    }
+                }
+            }
+        },
+        "age": {
+            "$numberInt": "33"
+        },
+        "gender": "female",
+        "country": "at",
+        "federalState": "Oberösterreich ",
+        "verySoftDeathInjNums": {
+            "$numberInt": "-1"
+        },
+        "softDeathInjNums": {
+            "$numberInt": "-1"
+        },
+        "psychoSocialWorker": true,
+        "generalRemark": "Eine deutliche Triggerwarnung wäre vllt noch gut gewesen; die Zeit reichte wegen hohem Leseaufwand bei weitem nicht aus bei mir; ich stimme (eher) nicht zu, weil ich finde, jede*r Tote zählt, es zusammenzufassen würde die Anzahl der Verstorbenen und damit die Personen verschwimmen lassen.",
+        "professionalRemark": "Traumata, Vorbelastungen, Flucht, (bewusste/ unbewusste) Trigger, Gefühl des Kontrollverlusts (man weiß nicht, was auf einen zukommt und bekommt dann Bilder nicht mehr aus dem Kopf —> Aufklärung zu bewusstem Medienkonsum in der Schule würde helfen), etc. …",
+        "newsConsumptionFrequency": "never",
+        "langLowSensitivity": {
+            "$numberInt": "-1"
+        },
+        "langHighSensitivity": {
+            "$numberInt": "0"
+        },
+        "newsBoundaries": {
+            "$numberInt": "0"
+        },
+        "newsWorry": {
+            "$numberInt": "1"
+        },
+        "profession": "Psychologin, Psychotherapeutin"
+    }
+]

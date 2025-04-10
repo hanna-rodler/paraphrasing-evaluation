@@ -53,7 +53,7 @@
               <span id="gender-label">Geschlecht *</span>
             </label>
             <select
-              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4"
+              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4 bg-white"
               name="gender"
               id="gender"
               v-model="gender"
@@ -90,7 +90,7 @@
               <span id="country-label">Land *</span>
             </label>
             <select
-              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4"
+              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4 bg-white"
               name="country"
               id="country"
               v-model="country"
@@ -132,7 +132,7 @@
               id="federalState"
               name="federalState"
               v-model="federalState"
-              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4"
+              class="rounded-md border border-black focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition shadow-sm py-2 px-4 "
               ara-labelledby="federalState-label"
               aria-describedby="federalState-error"
               :aria-invalid="federalStateError"
@@ -173,6 +173,7 @@
                   :value="true"
                   v-model="psychoSocialWorker"
                   class="form-radio w-4 h-4 text-primary mx-1 md:mx-2 cursor-pointer"
+                  ref="psychoSocialWorkerYes"
                 />
                 <span class="ml-0" style="margin-left: 0">ja</span>
               </label>
@@ -233,7 +234,7 @@ const federalState = useState<string>("federalState", () => "");
 const profession = useState<string>("profession", () => "");
 const psychoSocialWorker = useState<boolean | null>(
   "psychoSocialWorker",
-  () => null
+  () => true
 );
 
 const ageError = useState<boolean>("ageError", () => false);

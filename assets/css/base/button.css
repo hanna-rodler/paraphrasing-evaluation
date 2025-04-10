@@ -15,7 +15,7 @@
 }
 
 .button-secondary {
-  @apply bg-white text-secondary py-1 px-5 min-w-12 rounded-md border-2 border-secondary;
+  @apply bg-white text-secondary py-1 px-5 min-w-10 rounded-sm border-2 border-secondary text-sm;
 }
 
 .button-secondary:hover {
@@ -28,6 +28,14 @@
 
 .button-accent {
   @apply bg-accent text-white py-1 px-5 min-w-12 rounded-md border-2 border-accent;
+}
+
+.button-warning {
+  @apply border-error rounded-sm border-2 py-1 px-2 text-sm min-w-10;
+}
+
+.button-warning:hover {
+  @apply bg-error text-white;
 }
 
 .button-accent:hover {

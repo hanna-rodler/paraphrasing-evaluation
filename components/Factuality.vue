@@ -47,6 +47,27 @@ const surveyResponse = useState<surveyResponseType>("surveyResponse");
 
 const selectedRating = ref<null | number>(null);
 
+const updateSelectedRating = () => {
+  selectedRating.value =
+    surveyResponse.value.articles?.[props.articleId]?.[
+      `sentence__${props.sentenceNum}`
+    ]?.[`promptId__${props.promptId}`]?.factuality ?? null;
+};
+
+// Watch for changes in `surveyResponse` and update selectedRating when it's available
+const stopWatcher = watch(
+  surveyResponse,
+  () => {
+    updateSelectedRating();
+  },
+  { deep: true }
+);
+
+setTimeout(() => {
+  stopWatcher();
+  // Stop watching after 1,5 minute
+}, 35000);
+
 function setRating(rating: number) {
   selectedRating.value = rating;
 
