@@ -1,184 +1,201 @@
 <template>
-  <div class="w-11/12 my-4 md:my-8">
-    <div class="fixed top-0 left-0 w-full h-4 bg-gray-200 shadow-lg">
-      <div
-        class="h-full bg-info transition-all duration-300"
-        :style="{ width: progressPercentage + '%' }"
-      ></div>
-      <div
-        class="absolute top-0 bottom-0 w-1 bg-red-500"
-        :style="{ left: minimumThresholdPercentage + '%' }"
-      ></div>
-    </div>
-
-    <div class="section flex flex-col justify-center items-center">
-      <h1 class="font-bold text-2xl md:text-4xl">
-        Nachrichten-Paraphrasierung
-      </h1>
-      <div class="subSection px-4 md:px-0">
-        <AtomsText>
-          Liebe Teilnehmenden,<br />
-          im Jahr 2024 lag die Anzahl der Menschen die manchmal oder oft
-          Nachrichten vermieden haben bei durchschnittlich 39 % in über 74
-          Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
-          lag ebenfalls bei 39 %.<br />
-          Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
-          herauszufinden, inwiefern unter anderem die Reduktion von
-          Sprachintensität von politischen Nachrichten beeinflusst wie
-          regelmäßig politische Nachrichten konsumiert werden und was für einen
-          Einfluss dies auf eine mögliche Überforderung von Lesenden hat. Hierzu
-          soll eine App entwickelt werden, die es den Lesenden je nach
-          Stimmungslage und Kapazitäten ermöglicht eine sanftere Version oder
-          das Original zu lesen. Zusätzlich kann auch eine Zusammenfassung
-          ausgewählt werden.
-        </AtomsText>
-        <AtomsText>
-          Um im ersten Schritt zu untersuchen, wie die Sprachintensität
-          wahrgenommen wird, werden Ihnen politische Nachrichtenartikel von der
-          ORF Website in einer umformulierten Version präsentiert. Sie sehen
-          zuerst den gesamten Nachrichtenartikel als Kontext und bekommen dann
-          pro Satz mehrere Versionen zum Bewerten angezeigt. Sie müssen das
-          Original nicht jedes Mal erneut lesen. Veränderte Satzteile sind für
-          den vereinfachten Vergleich markiert. Wenn ein neuer Satz kommt, ist
-          dies gekennzeichnet. Bitte bewerten Sie zu jeder Version die
-          Sprachintensität und wie faktisch korrekt die Version im Vergleich zum
-          Original ist.
-        </AtomsText>
-        <AtomsText>
-          Die Teilnahme an dieser Studie dauert ca. 30 min. Pflichtfragen sind
-          mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem Fall
-          ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende) müssen
-          mindestens {{ minimumArticlesValidCount }} Artikelversionen bewertet
-          werden. Sie sehen ihren Fortschritt am Balken oben am Screen. Der rote
-          Balken kennzeichnet das Minimum an ausgefüllten Fragen.<br />
-          Sie können die Umfrage unterbrechen und später im selben Browser
-          weitermachen. Die Antworten werden automatisch zwischengespeichert.
-        </AtomsText>
-        <AtomsText>
-          Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
-          verwendet. Ein Rückschluss auf Ihre Person ist nicht möglich.<br />
-          Bei Fragen oder Anregungen können Sie Hanna Rodler unter
-          <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
-          kontaktieren.
-        </AtomsText>
-        <AtomsText>Vielen Dank für die Teilnahme an der Studie!</AtomsText>
-      </div>
-    </div>
-    <Demographics></Demographics>
-    <SelfAssessment></SelfAssessment>
-    <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
-      <Comparison :article="article" :index="index"></Comparison>
-    </div>
-
-    <AdditionalQuestions></AdditionalQuestions>
-
-    <div class="section">
-      <div class="flex flex-col items-center">
-        <div
-          v-if="!isValid"
-          class="text-error"
-          id="form-error-msg"
-          role="alert"
-        >
-          Fehler im Formular:
+  <div class="mx-4">
+    <div class="h-screen" v-if="!showSurvey">
+      <div class="section flex flex-col justify-center items-center h-40">
+        <div>
+          Diese Umfrage ist nicht mehr verfügbar. Vielen Dank für Ihr Interesse!
         </div>
-        <ul class="list-disc list-inside">
-          <li
-            v-if="demographicsError && !isValid"
-            class="text-error"
-            id="demographics-error-msg"
-            role="alert"
-          >
-            Bitte füllen Sie Ihre demographischen Daten
-            <a href="#demographics" class="underline">hier</a> fertig aus.
-          </li>
-          <li
-            v-if="selfAssessmentError && !isValid"
-            class="text-error"
-            id="selfAssessment-error-msg"
-            role="alert"
-          >
-            Bitte füllen Sie die Selbsteinschätzung
-            <a href="#selfAssessment" class="underline">hier</a>
-            fertig aus.
-          </li>
-          <li
-            v-if="additionalQuestionsError && !isValid"
-            class="text-error"
-            id="selfAssessment-error-msg"
-            role="alert"
-          >
-            Bitte füllen Sie alle Abschlussfragen
-            <a href="#additionalQuestions" class="underline">hier</a> fertig
-            aus.
-          </li>
-          <li
-            v-if="showArticleError"
-            role="alert"
-            id="articles-error-msg"
-            class="text-error"
-          >
-            Hinweis: Bewerten Sie mindestens
-            {{ minimumArticlesValidCount }} Versionen.
-          </li>
-        </ul>
-        <div v-if="isValid" class="mb-2">
-          Bitte schicken Sie das Formular ab, sobald Sie fertig sind.
-        </div>
-      </div>
-      <div class="mt-5 flex justify-center flex-row">
         <AtomsButton
           tag="button"
-          variant="gradient"
-          @click="submitForm"
-          aria-describedby="form-error-msg"
-          aria-label="Umfrage abschicken"
+          variant="secondary"
+          @click="showSurvey = true"
+          class="mt-5"
+          >Umfrage aus Interesse ansehen.</AtomsButton
         >
-          Abschicken
-        </AtomsButton>
       </div>
     </div>
+    <div class="my-4 md:my-8" v-if="showSurvey">
+      <div class="fixed top-0 left-0 w-full h-4 bg-gray-200 shadow-lg">
+        <div
+          class="h-full bg-info transition-all duration-300"
+          :style="{ width: progressPercentage + '%' }"
+        ></div>
+        <div
+          class="absolute top-0 bottom-0 w-1 bg-red-500"
+          :style="{ left: minimumThresholdPercentage + '%' }"
+        ></div>
+      </div>
 
-    <div class="section flex flex-col justify-center items-center mt-20">
-      <Icon
-        name="heroicons:exclamation-triangle"
-        size="20"
-        class="text-error mb-2"
-        aria-label="Achtung"
-        id="age-error"
-        data-error-icon="age"
-      />
-      <AtomsButton
-        tag="button"
-        variant="warning"
-        @click="askForDelete()"
-        aria-describedby="ask-for-delete"
-      >
-        Im Browser gespeicherte Antworten löschen & neu ausfüllen
-      </AtomsButton>
-      <div
-        v-if="askForDeleteAgain"
-        class="mt-5 flex md:flex-row flex-col items-center"
-      >
-        <span class="mr-2">Daten wirklich löschen?</span>
-        <div class="space-x-2 mt-2 md:mt-0">
+      <div class="section flex flex-col justify-center items-center">
+        <h1 class="font-bold text-2xl md:text-4xl">
+          Nachrichten-Paraphrasierung
+        </h1>
+        <div class="subSection px-4 md:px-0">
+          <AtomsText>
+            Liebe Teilnehmenden,<br />
+            im Jahr 2024 lag die Anzahl der Menschen die manchmal oder oft
+            Nachrichten vermieden haben bei durchschnittlich 39 % in über 74
+            Ländern. Das Gefühl von der Menge an Nachrichten überschöpft zu sein
+            lag ebenfalls bei 39 %.<br />
+            Im Rahmen einer Masterarbeit an der FH Hagenberg, geht es darum
+            herauszufinden, inwiefern unter anderem die Reduktion von
+            Sprachintensität von politischen Nachrichten beeinflusst wie
+            regelmäßig politische Nachrichten konsumiert werden und was für
+            einen Einfluss dies auf eine mögliche Überforderung von Lesenden
+            hat. Hierzu soll eine App entwickelt werden, die es den Lesenden je
+            nach Stimmungslage und Kapazitäten ermöglicht eine sanftere Version
+            oder das Original zu lesen. Zusätzlich kann auch eine
+            Zusammenfassung ausgewählt werden.
+          </AtomsText>
+          <AtomsText>
+            Um im ersten Schritt zu untersuchen, wie die Sprachintensität
+            wahrgenommen wird, werden Ihnen politische Nachrichtenartikel von
+            der ORF Website in einer umformulierten Version präsentiert. Sie
+            sehen zuerst den gesamten Nachrichtenartikel als Kontext und
+            bekommen dann pro Satz mehrere Versionen zum Bewerten angezeigt. Sie
+            müssen das Original nicht jedes Mal erneut lesen. Veränderte
+            Satzteile sind für den vereinfachten Vergleich markiert. Wenn ein
+            neuer Satz kommt, ist dies gekennzeichnet. Bitte bewerten Sie zu
+            jeder Version die Sprachintensität und wie faktisch korrekt die
+            Version im Vergleich zum Original ist.
+          </AtomsText>
+          <AtomsText>
+            Die Teilnahme an dieser Studie dauert ca. 30 min. Pflichtfragen sind
+            mit einem * gekennzeichnet. Bitte geben Sie die Umfrage in jedem
+            Fall ab. Zusätzlich zu den Pflichtfragen (Einführungsteil und Ende)
+            müssen mindestens {{ minimumArticlesValidCount }} Artikelversionen
+            bewertet werden. Sie sehen ihren Fortschritt am Balken oben am
+            Screen. Der rote Balken kennzeichnet das Minimum an ausgefüllten
+            Fragen.<br />
+            Sie können die Umfrage unterbrechen und später im selben Browser
+            weitermachen. Die Antworten werden automatisch zwischengespeichert.
+          </AtomsText>
+          <AtomsText>
+            Die Daten sind anonym und werden nur im Rahmen der Masterarbeit
+            verwendet. Ein Rückschluss auf Ihre Person ist nicht möglich.<br />
+            Bei Fragen oder Anregungen können Sie Hanna Rodler unter
+            <a href="mailto:s2310629019@fhooe.at">s2310629019[at]fhooe.at</a>
+            kontaktieren.
+          </AtomsText>
+          <AtomsText>Vielen Dank für die Teilnahme an der Studie!</AtomsText>
+        </div>
+      </div>
+      <Demographics></Demographics>
+      <SelfAssessment></SelfAssessment>
+      <div v-for="(article, index) of shuffledData" v-bind:key="article.id">
+        <Comparison :article="article" :index="index"></Comparison>
+      </div>
+
+      <AdditionalQuestions></AdditionalQuestions>
+
+      <div class="section">
+        <div class="flex flex-col items-center">
+          <div
+            v-if="!isValid"
+            class="text-error"
+            id="form-error-msg"
+            role="alert"
+          >
+            Fehler im Formular:
+          </div>
+          <ul class="list-disc list-inside">
+            <li
+              v-if="demographicsError && !isValid"
+              class="text-error"
+              id="demographics-error-msg"
+              role="alert"
+            >
+              Bitte füllen Sie Ihre demographischen Daten
+              <a href="#demographics" class="underline">hier</a> fertig aus.
+            </li>
+            <li
+              v-if="selfAssessmentError && !isValid"
+              class="text-error"
+              id="selfAssessment-error-msg"
+              role="alert"
+            >
+              Bitte füllen Sie die Selbsteinschätzung
+              <a href="#selfAssessment" class="underline">hier</a>
+              fertig aus.
+            </li>
+            <li
+              v-if="additionalQuestionsError && !isValid"
+              class="text-error"
+              id="selfAssessment-error-msg"
+              role="alert"
+            >
+              Bitte füllen Sie alle Abschlussfragen
+              <a href="#additionalQuestions" class="underline">hier</a> fertig
+              aus.
+            </li>
+            <li
+              v-if="showArticleError"
+              role="alert"
+              id="articles-error-msg"
+              class="text-error"
+            >
+              Hinweis: Bewerten Sie mindestens
+              {{ minimumArticlesValidCount }} Versionen.
+            </li>
+          </ul>
+          <div v-if="isValid" class="mb-2">
+            Bitte schicken Sie das Formular ab, sobald Sie fertig sind.
+          </div>
+        </div>
+        <div class="mt-5 flex justify-center flex-row">
           <AtomsButton
             tag="button"
-            variant="warning"
-            @click="deleteLocalStorage"
-            aria-describedby="confirm-delete"
+            variant="gradient"
+            @click="submitForm"
+            aria-describedby="form-error-msg"
+            aria-label="Umfrage abschicken"
           >
-            Ja
+            Abschicken
           </AtomsButton>
-          <AtomsButton
-            tag="button"
-            variant="secondary"
-            @click="cancelDelete()"
-            aria-describedby="cancel-delete"
-            class="ml-2"
-          >
-            Nein
-          </AtomsButton>
+        </div>
+      </div>
+
+      <div class="section flex flex-col justify-center items-center mt-20">
+        <Icon
+          name="heroicons:exclamation-triangle"
+          size="20"
+          class="text-error mb-2"
+          aria-label="Achtung"
+          id="age-error"
+          data-error-icon="age"
+        />
+        <AtomsButton
+          tag="button"
+          variant="warning"
+          @click="askForDelete()"
+          aria-describedby="ask-for-delete"
+        >
+          Im Browser gespeicherte Antworten löschen & neu ausfüllen
+        </AtomsButton>
+        <div
+          v-if="askForDeleteAgain"
+          class="mt-5 flex md:flex-row flex-col items-center"
+        >
+          <span class="mr-2">Daten wirklich löschen?</span>
+          <div class="space-x-2 mt-2 md:mt-0">
+            <AtomsButton
+              tag="button"
+              variant="warning"
+              @click="deleteLocalStorage"
+              aria-describedby="confirm-delete"
+            >
+              Ja
+            </AtomsButton>
+            <AtomsButton
+              tag="button"
+              variant="secondary"
+              @click="cancelDelete()"
+              aria-describedby="cancel-delete"
+              class="ml-2"
+            >
+              Nein
+            </AtomsButton>
+          </div>
         </div>
       </div>
     </div>
@@ -201,6 +218,7 @@ definePageMeta({
 });
 
 const isMounted = ref(false);
+const showSurvey = ref(false);
 
 const gender = useState<gender>("gender");
 const age = useState<age>("age");
