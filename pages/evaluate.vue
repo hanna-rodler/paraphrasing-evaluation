@@ -7,6 +7,7 @@
 
 <script lang="ts" setup>
 const getEvaluation = async () => {
+  // const { data, error: fetchError } = await useFetch("/api/flattenResults", {
   const { data, error: fetchError } = await useFetch("/api/evaluatecsv", {
     method: "GET",
   });

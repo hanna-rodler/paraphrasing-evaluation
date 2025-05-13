@@ -1,0 +1,264 @@
+{
+    "1": {
+        "fullCount": 21,
+        "twoThirdCount": 15,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 36,
+        "stringifiedArticles": {
+            "article_tote_gaza": 15,
+            "article_iran_saengerin": 1,
+            "article_stocker": 6,
+            "article_trump_grenell": 8,
+            "article_sanctions_russia": 6,
+            "trump_perc": 22.22
+        }
+    },
+    "2": {
+        "fullCount": 25,
+        "twoThirdCount": 10,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 35,
+        "stringifiedArticles": {
+            "article_tote_gaza": 16,
+            "article_iran_saengerin": 2,
+            "article_stocker": 6,
+            "article_trump_grenell": 4,
+            "article_sanctions_russia": 7,
+            "trump_perc": 11.43
+        }
+    },
+    "3": {
+        "fullCount": 22,
+        "twoThirdCount": 12,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 34,
+        "stringifiedArticles": {
+            "article_tote_gaza": 11,
+            "article_iran_saengerin": 4,
+            "article_stocker": 6,
+            "article_trump_grenell": 4,
+            "article_sanctions_russia": 9,
+            "trump_perc": 11.76
+        }
+    },
+    "4": {
+        "fullCount": 14,
+        "twoThirdCount": 6,
+        "halfCount": 4,
+        "articles": {},
+        "sum": 24,
+        "stringifiedArticles": {
+            "article_tote_gaza": 2,
+            "article_iran_saengerin": 3,
+            "article_stocker": 7,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 3
+        }
+    },
+    "5": {
+        "fullCount": 10,
+        "twoThirdCount": 14,
+        "halfCount": 3,
+        "articles": {},
+        "sum": 27,
+        "stringifiedArticles": {
+            "article_tote_gaza": 7,
+            "article_iran_saengerin": 2,
+            "article_stocker": 5,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 4,
+            "trump_perc": 33.34
+        }
+    },
+    "6": {
+        "fullCount": 28,
+        "twoThirdCount": 6,
+        "halfCount": 1,
+        "articles": {},
+        "sum": 35,
+        "stringifiedArticles": {
+            "article_tote_gaza": 9,
+            "article_iran_saengerin": 3,
+            "article_stocker": 6,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 8,
+            "trump_perc": 25.7
+        }
+    },
+    "7": {
+        "fullCount": 20,
+        "twoThirdCount": 12,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 32,
+        "stringifiedArticles": {
+            "article_tote_gaza": 9,
+            "article_iran_saengerin": 6,
+            "article_stocker": 6,
+            "article_trump_grenell": 6,
+            "article_sanctions_russia": 5,
+            "trump_perc": 18.75
+        }
+    },
+    "8": {
+        "fullCount": 20,
+        "twoThirdCount": 14,
+        "halfCount": 2,
+        "articles": {},
+        "sum": 36,
+        "stringifiedArticles": {
+            "article_tote_gaza": 9,
+            "article_iran_saengerin": 5,
+            "article_stocker": 6,
+            "article_trump_grenell": 7,
+            "article_sanctions_russia": 9,
+            "trump_perc": 19.45
+        }
+    },
+    "9": {
+        "fullCount": 26,
+        "twoThirdCount": 17,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 43,
+        "stringifiedArticles": {
+            "article_tote_gaza": 12,
+            "article_iran_saengerin": 5,
+            "article_sellner": 4,
+            "article_stocker": 6,
+            "article_trump_grenell": 7,
+            "article_sanctions_russia": 9,
+            "trump_perc": 16.28
+        }
+    },
+    "10": {
+        "fullCount": 29,
+        "twoThirdCount": 15,
+        "halfCount": 2,
+        "articles": {},
+        "sum": 46,
+        "stringifiedArticles": {
+            "article_tote_gaza": 14,
+            "article_iran_saengerin": 6,
+            "article_sellner": 6,
+            "article_stocker": 6,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 5,
+            "trump_perc": 19.57
+        }
+    },
+    "11": {
+        "fullCount": 34,
+        "twoThirdCount": 12,
+        "halfCount": 2,
+        "articles": {},
+        "sum": 48,
+        "stringifiedArticles": {
+            "article_tote_gaza": 13,
+            "article_iran_saengerin": 6,
+            "article_sellner": 6,
+            "article_stocker": 6,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 8,
+            "trump_perc": 18.75
+        }
+    },
+    "13": {
+        "fullCount": 28,
+        "twoThirdCount": 17,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 45,
+        "stringifiedArticles": {
+            "article_tote_gaza": 10,
+            "article_iran_saengerin": 5,
+            "article_sellner": 5,
+            "article_stocker": 6,
+            "article_trump_grenell": 11,
+            "article_sanctions_russia": 8,
+            "trump_perc": 24.45
+        }
+    },
+    "14": {
+        "fullCount": 28,
+        "twoThirdCount": 11,
+        "halfCount": 1,
+        "articles": {},
+        "sum": 40,
+        "stringifiedArticles": {
+            "article_tote_gaza": 14,
+            "article_iran_saengerin": 1,
+            "article_sellner": 4,
+            "article_stocker": 6,
+            "article_trump_grenell": 10,
+            "article_sanctions_russia": 5,
+            "trump_perc": 25
+        }
+    },
+    "15": {
+        "fullCount": 31,
+        "twoThirdCount": 14,
+        "halfCount": 1,
+        "articles": {},
+        "sum": 46,
+        "stringifiedArticles": {
+            "article_tote_gaza": 14,
+            "article_iran_saengerin": 4,
+            "article_sellner": 5,
+            "article_stocker": 6,
+            "article_trump_grenell": 9,
+            "article_sanctions_russia": 8,
+            "trump_perc": 19.57
+        }
+    },
+    "16": {
+        "fullCount": 32,
+        "twoThirdCount": 7,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 39,
+        "stringifiedArticles": {
+            "article_tote_gaza": 11,
+            "article_iran_saengerin": 6,
+            "article_stocker": 6,
+            "article_trump_grenell": 7,
+            "article_sanctions_russia": 9,
+            "trump_perc": 17.95
+        }
+    },
+    "17": {
+        "fullCount": 37,
+        "twoThirdCount": 7,
+        "halfCount": 0,
+        "articles": {},
+        "sum": 44,
+        "stringifiedArticles": {
+            "article_tote_gaza": 14,
+            "article_iran_saengerin": 3,
+            "article_sellner": 2,
+            "article_stocker": 6,
+            "article_trump_grenell": 11,
+            "article_sanctions_russia": 8,
+            "trump_perc": 25
+        }
+    },
+    "18": {
+        "fullCount": 26,
+        "twoThirdCount": 11,
+        "halfCount": 2,
+        "articles": {},
+        "sum": 39,
+        "stringifiedArticles": {
+            "article_tote_gaza": 13,
+            "article_trump_grenell": 8,
+            "article_sanctions_russia": 6,
+            "article_sellner": 5,
+            "article_iran_saengerin": 4,
+            "article_stocker": 3,
+            "trump_perc": 20.51
+        }
+    }
+}

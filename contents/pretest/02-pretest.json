@@ -325,7 +325,7 @@
         "article_iran_saengerin": {
             "remark": "",
             "sentence__0": {
-                "promptId__3x3_7x3_1-x1_9x1_10x3_11x3_13x1_16x3_80x2": {
+                "promptId__3x3_7x3_1-x1_9x1_10x3_11x3_13x1_16x3_18x2": {
                     "factuality": {
                         "$numberInt": "2"
                     },
