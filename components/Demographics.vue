@@ -235,7 +235,7 @@ const profession = useState<string>("profession", () => "");
 // simple solution for FeedbackText.vue gets mounted without isProfessionalRemark when loading from localStorage.
 const psychoSocialWorker = useState<boolean | null>(
   "psychoSocialWorker",
-  () => true
+  () => null
 );
 
 const ageError = useState<boolean>("ageError", () => false);
